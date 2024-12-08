@@ -7,6 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
+        'bronze': "#E5AB92",
+        'silver': "#D0D0D0",
+        'gold': "#E5D592",
         'lightwhiteturquoise': "#E7F9F7",
         'whiteturquoise': "#DFF2F0",
         'addwhiteturquoise': "#92E5E2",
