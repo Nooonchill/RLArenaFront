@@ -1,35 +1,18 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import Search from '/src/assets/icons/Search.svg';
 import User from '/src/assets/icons/User.svg'; 
 
 const Header = ({}) => {
   
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLogged, setIsLogged] = useState(true);
-  const handleMouseEnter = () => setIsMenuOpen(true);
-  const handleMouseLeave = () => setIsMenuOpen(false);
-  const solved = 63;
-  const total = 100;
-  const dashValue = 75 * solved / total;
-  const position = 236;
-  const username = "Noowefefwefon"
+  const username = "NoooN"
 
-  const timedelta = "PT5H30M"; // 5 часов и 30 минут
-  // Парсим строку, используя регулярное выражение
-  const match = timedelta.match(/PT(\d+H)?(\d+M)?/);
+  const navigate = useNavigate();
 
-  let hours = 0;
-  let minutes = 0;
-
-  // Если найдены часы
-  if (match[1]) {
-    hours = parseInt(match[1].replace("H", ""), 10);
-  }
-
-  // Если найдены минуты
-  if (match[2]) {
-    minutes = parseInt(match[2].replace("M", ""), 10);
-  }
+  const profileNavigate = () => {
+    navigate('/profile'); // Замените на нужный вам маршрут
+  };
 
   return (
     <div className="max-w-[1110px] mx-auto h-[38px]">
@@ -55,9 +38,9 @@ const Header = ({}) => {
           </div>
         </form>
         {isLogged ? (
-          <div className="flex flex-row text-dark px-2 mb-4 rounded-full border-2 border-turquoise hover:border-lightturquoise bg-white w-fit cursor-pointer h-8">
+          <div onClick={profileNavigate} className="flex flex-row text-dark px-2 mb-4 rounded-full border-2 border-turquoise hover:border-lightturquoise bg-white w-fit cursor-pointer h-8">
             <img src={User} alt="User" className="mr-2 h-6" />
-            <h1 className="text-xl">{username}</h1>
+            <h1  className="text-xl mr-1">{username}</h1>
           </div>
         ) : (
           <div className="flex gap-3">

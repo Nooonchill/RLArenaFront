@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import Home from '/src/assets/icons/Home.svg';
 import Brain from '/src/assets/icons/Brain.svg';
 import Guides from '/src/assets/icons/Guides.svg';
@@ -11,6 +12,12 @@ const Sidebar = ({}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleMouseEnter = () => setIsMenuOpen(true);
   const handleMouseLeave = () => setIsMenuOpen(false);
+  
+    const navigate = useNavigate();
+  
+    const homeNavigate = () => {
+      navigate('/'); // Замените на нужный вам маршрут
+    };
 
   return (
     <aside
@@ -21,8 +28,8 @@ const Sidebar = ({}) => {
       onMouseLeave={handleMouseLeave}
     >
       <div className="flex items-center p-7">
-        <div className={`overflow-hidden transition-all duration-300 flex`}>
-          <img src={Logo} alt="Logo" className="cursor-pointer" />
+        <div className="overflow-hidden transition-all duration-300 flex cursor-pointer" onClick={homeNavigate}>
+          <img src={Logo} alt="Logo" className="" />
             <div
               className={`overflow-hidden transition-all duration-300 ml-3 ${
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
@@ -34,8 +41,8 @@ const Sidebar = ({}) => {
       </div>
       <div className="flex h-screen flex-col justify-between items-start pb-8">
         <ul className="space-y-6 mt-4">
-          <li className="flex items-center px-7">
-            <img src={Home} alt="Home" className="cursor-pointer" />
+          <li className="flex items-center px-7 cursor-pointer" onClick={homeNavigate}>
+            <img src={Home} alt="Home" />
             <div
               className={`overflow-hidden transition-all duration-300 ml-3 ${
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
@@ -44,8 +51,8 @@ const Sidebar = ({}) => {
               <span className="text-base font-medium text-black pl-1">Главная</span>
             </div>
           </li>
-          <li className="flex items-center px-7">
-            <img src={Data} alt="Data" className="cursor-pointer" />
+          <li className="flex items-center px-7 cursor-pointer">
+            <img src={Data} alt="Data" />
             <div
               className={`overflow-hidden transition-all duration-300 ml-3 ${
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
@@ -54,8 +61,8 @@ const Sidebar = ({}) => {
               <span className="text-base font-medium text-black pl-1">Данные</span>
             </div>
           </li>
-          <li className="flex items-center px-7">
-            <img src={Brain} alt="Competitions" className="cursor-pointer" />
+          <li className="flex items-center px-7 cursor-pointer">
+            <img src={Brain} alt="Competitions" />
             <div
               className={`overflow-hidden transition-all duration-300 ml-3 ${
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
@@ -64,8 +71,8 @@ const Sidebar = ({}) => {
               <span className="text-base font-medium text-black pl-1">Соревнования</span>
             </div>
           </li>
-          <li className="flex items-center px-7">
-            <img src={Guides} alt="Guides" className="cursor-pointer" />
+          <li className="flex items-center px-7 cursor-pointer">
+            <img src={Guides} alt="Guides" />
             <div
               className={`overflow-hidden transition-all duration-300 ml-3 ${
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
