@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Outlet, Link } from 'react-router-dom';
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 
@@ -16,7 +17,9 @@ const Layout = ({ children }) => {
       <div className={`ml-[24px] transition-all duration-300 bg-white z-30 ${isMenuOpen ? "pl-20" : "pl-20"} `}>
         <div className="pt-4 pr-2">
           <Header />
-          <main className="mt-4">{children}</main>
+          <main className="mt-4">{children}
+            <Outlet />
+          </main>
         </div>
       </div>
     </div>

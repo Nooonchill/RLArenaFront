@@ -16,36 +16,35 @@ import RightArrow from '/src/assets/icons/RightArrow.svg'
 import Layout from "/src/components/Layout.jsx";
 
 
-function App() {
+function Profile() {
   
   const navigate = useNavigate();
   const [isLogged, setIsLogged] = useState(true);
-  const solved = 63;
-  const total = 100;
-  const dashValue = 75 * solved / total;
-  const position = 236;
   const username = "NoooN"
   const university = "УрФУ"
   const reg_date = "26.12.2024"
   const place = "Екатеринбург, Россия"
   const bio = "Студент 3 курса ИРИТ-РТФ. Недавно начал заниматься машинным обучением"
 
-  const timedelta = "PT5H30M";
-  // Парсим строку, используя регулярное выражение
-  const match = timedelta.match(/PT(\d+H)?(\d+M)?/);
+  const achivements = [
+    { id: 1, title: "Начало пути" },
+    { id: 2, title: "Стать сильнее" },
+    { id: 3, title: "Гранит науки" },
+    { id: 4, title: "Первая победа" },
+    { id: 5, title: "Начало пути" },
+    { id: 6, title: "Начало пути" },
+    { id: 7, title: "Начало пути" },
+    { id: 8, title: "Начало пути" },
+    { id: 9, title: "Начало пути" },
+  ];
 
-  let hours = 0;
-  let minutes = 0;
+  const results = [
+    { id: 134, title: "Прогнозирование цен на дома", position: 21 },
+    { id: 12, title: "Оценка стоимости автомобиля по его характеристикам", position: 24 },
+    { id: 35, title: "Обладатель Кубка Гагарина 2025 года", position: 535 },
+    { id: 1, title: "Студенты, проходящие стажировки в IT-компаниях", position: 654 },
+  ];
 
-  // Если найдены часы
-  if (match[1]) {
-    hours = parseInt(match[1].replace("H", ""), 10);
-  }
-
-  // Если найдены минуты
-  if (match[2]) {
-    minutes = parseInt(match[2].replace("M", ""), 10);
-  }
 
   useEffect(() => {
     if (!isLogged) {
@@ -75,7 +74,7 @@ function App() {
   };
   
   return (
-    <div className="h-screen max-w-[1110px] mx-auto text-dark">
+    <div className="h-full max-w-[1110px] mx-auto text-dark">
       <div className="flex flex-row justify-between">
         <div className="flex gap-7">
           <img src={Logo} alt="Logo" className="w-40" />
@@ -96,42 +95,18 @@ function App() {
         <div className="flex flex-row gap-7 mt-4">
           <img src={LeftArrow} alt="Left Arrow" onClick={scrollLeft} className="cursor-pointer" />
           <div className="flex flex-row overflow-hidden gap-7 flex-grow" ref={scrollRef}>
-            <div className="min-w-[112px] w-[112px] min-h-[154px] h-[154px] bg-gray-50 p-3 rounded-xl">
-              <img src={Logo} alt="Logo" className="w-40 mb-3" />
-              <p className="text-sm text-center text-ellipsis overflow-hidden">Начало пути</p>
-            </div>
-            <div className="min-w-[112px] w-[112px] min-h-[154px] h-[154px] bg-gray-50 p-3 rounded-xl">
-              <img src={Logo} alt="Logo" className="w-40 mb-3" />
-              <p className="text-sm text-center text-ellipsis overflow-hidden">Начало пути</p>
-            </div>
-            <div className="min-w-[112px] w-[112px] min-h-[154px] h-[154px] bg-gray-50 p-3 rounded-xl">
-              <img src={Logo} alt="Logo" className="w-40 mb-3" />
-              <p className="text-sm text-center text-ellipsis overflow-hidden">Начало пути</p>
-            </div>
-            <div className="min-w-[112px] w-[112px] min-h-[154px] h-[154px] bg-gray-50 p-3 rounded-xl">
-              <img src={Logo} alt="Logo" className="w-40 mb-3" />
-              <p className="text-sm text-center text-ellipsis overflow-hidden">Начало пути</p>
-            </div>
-            <div className="min-w-[112px] w-[112px] min-h-[154px] h-[154px] bg-gray-50 p-3 rounded-xl">
-              <img src={Logo} alt="Logo" className="w-40 mb-3" />
-              <p className="text-sm text-center text-ellipsis overflow-hidden">Начало пути</p>
-            </div>
-            <div className="min-w-[112px] w-[112px] min-h-[154px] h-[154px] bg-gray-50 p-3 rounded-xl">
-              <img src={Logo} alt="Logo" className="w-40 mb-3" />
-              <p className="text-sm text-center text-ellipsis overflow-hidden">Начало пути</p>
-            </div>
-            <div className="min-w-[112px] w-[112px] min-h-[154px] h-[154px] bg-gray-50 p-3 rounded-xl">
-              <img src={Logo} alt="Logo" className="w-40 mb-3" />
-              <p className="text-sm text-center text-ellipsis overflow-hidden">Начало пути</p>
-            </div>
-            <div className="min-w-[112px] w-[112px] min-h-[154px] h-[154px] bg-gray-50 p-3 rounded-xl">
-              <img src={Logo} alt="Logo" className="w-40 mb-3" />
-              <p className="text-sm text-center text-ellipsis overflow-hidden">Начало пути</p>
-            </div>
-            <div className="min-w-[112px] w-[112px] min-h-[154px] h-[154px] bg-gray-50 p-3 rounded-xl">
-              <img src={Logo} alt="Logo" className="w-40 mb-3" />
-              <p className="text-sm text-center text-ellipsis overflow-hidden">Начало пути</p>
-            </div>
+            {achivements.map((item) => (
+              <div
+                key={item.id}
+                className="min-w-[112px] w-[112px] min-h-[154px] h-[154px] bg-gray-50 p-3 rounded-xl"
+              >
+                <img src={Logo} alt="Logo" className="w-40 mb-3" />
+                <p className="text-sm text-center text-ellipsis overflow-hidden">
+                  {item.title}
+                </p>
+              </div>
+            ))}
+            
           </div>
           <img src={RightArrow} alt="Right Arrow" onClick={scrollRight} className="cursor-pointer" />
         </div>
@@ -154,50 +129,19 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              <tr className="even:bg-white odd:bg-gray-50">
-                <th scope="row" className="pl-6 py-4 font-medium text-dark whitespace-nowrap ">
-                  134
-                </th>
-                <td className="px-6 py-4">
-                  Прогнозирование цен на дома
-                </td>
-                <td className="px-6 py-4">
-                  21
-                </td>
-              </tr>
-              <tr className="even:bg-white odd:bg-gray-50">
-                <th scope="row" className="pl-6 py-4 font-medium text-dark whitespace-nowrap ">
-                  12
-                </th>
-                <td className="px-6 py-4">
-                  Оценка стоимости автомобиля по его характеристикам
-                </td>
-                <td className="px-6 py-4">
-                  24
-                </td>
-              </tr>
-              <tr className="even:bg-white odd:bg-gray-50">
-                <th scope="row" className="pl-6 py-4 font-medium text-dark whitespace-nowrap ">
-                  35
-                </th>
-                <td className="px-6 py-4">
-                  Обладатель Кубка Гагарина 2025 года
-                </td>
-                <td className="px-6 py-4">
-                  535
-                </td>
-              </tr>
-              <tr className="even:bg-white odd:bg-gray-50">
-                <th scope="row" className="pl-6 py-4 font-medium text-dark whitespace-nowrap">
-                  1
-                </th>
-                <td className="px-6 py-4">
-                  Студенты, проходящие стажировки в IT-компаниях
-                </td>
-                <td className="px-6 py-4">
-                  654
-                </td>
-              </tr>
+              {results.map((item) => (
+                <tr className="even:bg-white odd:bg-gray-50">
+                  <th scope="row" className="pl-6 py-4 font-medium text-dark whitespace-nowrap ">
+                    {item.id}
+                  </th>
+                  <td className="px-6 py-4">
+                    {item.title}
+                  </td>
+                  <td className="px-6 py-4">
+                    {item.position}
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -206,4 +150,4 @@ function App() {
   );
 }
 
-export default App;
+export default Profile;

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Search from '/src/assets/icons/Search.svg';
 import User from '/src/assets/icons/User.svg'; 
 
 const Header = ({}) => {
   
-  const [isLogged, setIsLogged] = useState(true);
+  const [isLogged, setIsLogged] = useState(false);
   const username = "NoooN"
 
   const navigate = useNavigate();
@@ -18,20 +18,14 @@ const Header = ({}) => {
     <div className="max-w-[1110px] mx-auto h-[38px]">
       <header className="flex justify-between items-start bg-none space-x-4">
         <form className="max-w-[540px] w-full bg-none">
-          <label
-            htmlFor="default-search"
-            className="mb-2 text-sm font-medium text-gray-900 sr-only"
-          >
-            Search
-          </label>
-          <div className="relative h-8">
+          <div className="relative h-[38px]">
             <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
               <img src={Search} alt="Search" className="cursor-pointer" />
             </div>
             <input
               type="search"
               id="default-search"
-              className="block w-full h-8 p-4 ps-11 text-base text-dark bg-lightwhiteturquoise rounded-full focus:outline-none focus:ring-0 placeholder-dark border-2 border-turquoise"
+              className="block w-full h-[38px] p-4 ps-11 text-base text-dark bg-lightwhiteturquoise rounded-full focus:outline-none focus:ring-0 placeholder-dark border-2 border-turquoise"
               placeholder="Поиск..."
               required
             />
@@ -43,12 +37,14 @@ const Header = ({}) => {
             <h1  className="text-xl mr-1">{username}</h1>
           </div>
         ) : (
-          <div className="flex gap-3">
-            <button className="bg-white font-medium h-[60px] border-2 border-turquoise text-turquoise hover:text-lightturquoise hover:border-lightturquoise active:text-darkturquoise active:border-darkturquoise w-full rounded-full">
-              Вход
-            </button>
-            <button className="border-none font-medium h-[60px] bg-turquoise text-white hover:bg-lightturquoise active:bg-darkturquoise w-full rounded-full">
-              Регистрация
+          <div className="flex gap-3 h-[38px]">
+            <Link to="/auth" className="h-[38px]">
+              <button className="h-[38px] py-0 bg-white font-medium border-2 border-turquoise text-turquoise hover:text-lightturquoise hover:border-lightturquoise active:text-darkturquoise active:border-darkturquoise w-full rounded-full">
+                Вход
+              </button>
+            </Link>
+            <button className="h-[38px] py-0 border-none font-medium bg-turquoise text-white hover:bg-lightturquoise active:bg-darkturquoise w-full rounded-full">
+              <p className="">Регистрация</p>
             </button>
           </div>
         )}

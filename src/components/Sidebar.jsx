@@ -18,6 +18,9 @@ const Sidebar = ({}) => {
     const homeNavigate = () => {
       navigate('/'); // Замените на нужный вам маршрут
     };
+    const competitionsNavigate = () => {
+      navigate('/competitions'); // Замените на нужный вам маршрут
+    };
 
   return (
     <aside
@@ -61,7 +64,7 @@ const Sidebar = ({}) => {
               <span className="text-base font-medium text-black pl-1">Данные</span>
             </div>
           </li>
-          <li className="flex items-center px-7 cursor-pointer">
+          <li className="flex items-center px-7 cursor-pointer" onClick={competitionsNavigate}>
             <img src={Brain} alt="Competitions" />
             <div
               className={`overflow-hidden transition-all duration-300 ml-3 ${

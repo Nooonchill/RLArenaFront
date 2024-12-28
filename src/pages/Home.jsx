@@ -5,7 +5,7 @@ import Second from '/src/assets/icons/Second.svg'
 import Third from '/src/assets/icons/Third.svg'
 
 
-function App() {
+function Home() {
   
   const [isLogged, setIsLogged] = useState(true);
   const solved = 63;
@@ -210,4 +210,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
