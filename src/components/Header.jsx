@@ -11,7 +11,7 @@ const Header = ({}) => {
   const navigate = useNavigate();
 
   const profileNavigate = () => {
-    navigate('/profile'); // Замените на нужный вам маршрут
+    navigate('/profile');
   };
 
   return (

@@ -7,7 +7,8 @@ import Search from '/src/assets/icons/Search.svg'
 import DownArrow from '/src/assets/icons/DownArrow.svg'
 import UpArrow from '/src/assets/icons/UpArrow.svg'
 import Star from '/src/assets/icons/Star.svg'
-import CompetTemplate from '/src/assets/imgs/CompetiotionTemplate.png'
+import CardImage from '/src/assets/imgs/CompetiotionTemplate.png'
+import Card from '/src/components/Cards/Card.jsx'
 
 function Competitions() {
   const [activeButton, setActiveButton] = useState(1);
@@ -34,12 +35,7 @@ function Competitions() {
     { id: 12, title: "Оценка стоимости автомобиля по его характеристикам", organizer: "James123", rate: 2.1, participants: 2492 },
     { id: 35, title: "Обладатель Кубка Гагарина 2025 года", organizer: "Team Work", rate: 4.2, participants: 1222 },
     { id: 1, title: "Студенты, проходящие стажировки в IT-компаниях", organizer: "NoooN", rate: 5.0, participants: 12 },
-    { id: 35, title: "Обладатель Кубка Гагарина 2025 года", organizer: "Team Work", rate: 4.2, participants: 1222 },
-    { id: 1, title: "Студенты, проходящие стажировки в IT-компаниях", organizer: "NoooN", rate: 5.0, participants: 12 },
-    { id: 35, title: "Обладатель Кубка Гагарина 2025 года", organizer: "Team Work", rate: 4.2, participants: 1222 },
-    { id: 1, title: "Студенты, проходящие стажировки в IT-компаниях", organizer: "NoooN", rate: 5.0, participants: 12 },
-    { id: 35, title: "Обладатель Кубка Гагарина 2025 года", organizer: "Team Work", rate: 4.2, participants: 1222 },
-    { id: 1, title: "Студенты, проходящие стажировки в IT-компаниях", organizer: "NoooN", rate: 5.0, participants: 12 },
+    { id: 24, title: "Обладатель Кубка Гагарина 2025 года", organizer: "Team Work", rate: 4.2, participants: 1222 },
   ];
 
   const filteredCompetitions =
@@ -82,20 +78,24 @@ function Competitions() {
             Создать
           </button>
         </div>
-        <form className="max-w-[540px] min-w-[510px] w-full bg-none">
-          <div className="relative h-[38px]">
-            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-              <img src={Search} alt="Search" className="cursor-pointer" />
+        {activeButton != 3 ? (
+          <form className="max-w-[540px] min-w-[510px] w-full bg-none">
+            <div className="relative h-[38px]">
+              <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <img src={Search} alt="Search" className="cursor-pointer" />
+              </div>
+              <input
+                type="search"
+                id="default-search"
+                className="block w-full h-[38px] p-4 ps-11 text-base text-dark bg-white focus:outline-none focus:ring-0 placeholder-dark border-b-2 border-turquoise"
+                placeholder="Поиск по соревнованиям..."
+                required
+              />
             </div>
-            <input
-              type="search"
-              id="default-search"
-              className="block w-full h-[38px] p-4 ps-11 text-base text-dark bg-white focus:outline-none focus:ring-0 placeholder-dark border-b-2 border-turquoise"
-              placeholder="Поиск по соревнованиям..."
-              required
-            />
-          </div>
-        </form>
+          </form>
+        ) : (
+          <div></div>
+        )}
       </div>
       {activeButton != 3 ? (
         <div>
@@ -132,25 +132,16 @@ function Competitions() {
             </div>
           </div>
           <div className="flex flex-row flex-wrap gap-[30px]">
-            {filteredCompetitions.map((item) => (
-              <div className="min-w-[136px] max-w-[255px] w-full bg-gray-50 hover:bg-lightwhiteturquoise cursor-pointer text-dark rounded-xl">
-                <img src={CompetTemplate} className="w-[255px]" alt="" />
-                <div className="flex flex-col p-2 gap-y-2">
-                  <p className="line-clamp-2 text-xl mb-2">{item.title}</p>
-                  <span className="">{item.organizer}</span>
-                  <div className="flex flex-row justify-between">
-                    <div className="flex flex-row gap-1">
-                      <img src={User} className="w-5" alt="" />
-                      <span className="">{item.participants}</span>
-                    </div>
-                    <div className="flex flex-row gap-1">
-                      <img src={Star} className="w-5" alt="" />
-                      <span>{item.rate}</span>
-                    </div>
-                  </div>
-                </div>
-                
-              </div>
+            {filteredCompetitions.map((competition) => (
+              <Card
+                key={competition.id}
+                title={competition.title}
+                organizer={competition.organizer}
+                participants={competition.participants}
+                rate={competition.rate}
+                image={CardImage}
+                username={User}
+              />
             ))}
           </div>
         </div>
@@ -159,7 +150,110 @@ function Competitions() {
       
     
       ) : (
-        <div></div>
+        <form className="space-y-4">
+          <div className="flex flex-row text-darkturquoise gap-[30px]">
+            <label htmlFor="title" className="text-lg w-40">Название *</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              required
+              className="block max-w-[550px] w-full h-8 p-4 text-base 
+              placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise
+              rounded-xl focus:outline-none focus:ring-0 border-2"
+            />
+          </div>
+          <div className="flex flex-row text-darkturquoise gap-[30px]">
+            <label htmlFor="description" className="text-lg w-40">Описание *</label>
+            <textarea
+              id="description"
+              name="description"
+              required
+              className="block max-w-[550px] w-full h-8 p-4 text-base 
+              placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise
+              rounded-xl focus:outline-none focus:ring-0 border-2"
+            />
+          </div>
+          <div className="flex flex-row text-darkturquoise gap-[30px]">
+            <label htmlFor="image" className="text-lg w-40">Картинка *</label>
+            <input
+              type="file"
+              id="image"
+              name="image"
+              required
+              className="block max-w-[550px] w-full h-8 text-base 
+              file:mr-5 file:pt-0.5 file:pb-2 file:px-3 file:border-2 file:border-turquoise file:border-solid file:bg-turquoise
+              file:cursor-pointer file:hover:bg-lightturquoise file:hover:border-lightturquoise
+            placeholder-darkturquoise bg-lightwhiteturquoise 
+              focus:outline-none focus:ring-0 
+              border-2 border-turquoise rounded-xl"
+            />
+          </div>
+          <div className="flex flex-row text-darkturquoise gap-[30px]">
+            <label htmlFor="data" className="text-lg w-40">Данные *</label>
+            <input
+              type="file"
+              id="data"
+              name="data"
+              className="block max-w-[550px] w-full h-8 text-base 
+              file:mr-5 file:pt-0.5 file:pb-2 file:px-3 file:border-2 file:border-turquoise file:border-solid file:bg-turquoise
+              file:cursor-pointer file:hover:bg-lightturquoise file:hover:border-lightturquoise
+            placeholder-darkturquoise bg-lightwhiteturquoise 
+              focus:outline-none focus:ring-0 
+              border-2 border-turquoise rounded-xl"
+            />
+          </div>
+          <div className="flex flex-row text-darkturquoise gap-[30px]">
+            <label htmlFor="start_date" className="text-lg w-40">Дата начала *</label>
+            <input
+              type="date"
+              id="start_date"
+              name="start_date"
+              required
+              className="block max-w-[150px] w-full h-8 pl-2 text-base placeholder-darkturquoise bg-lightwhiteturquoise rounded-xl focus:outline-none focus:ring-0 border-2 border-turquoise"
+            />
+          </div>
+          <div className="flex flex-row text-darkturquoise gap-[30px]">
+            <label htmlFor="start_date" className="text-lg w-40">Дата завершения *</label>
+            <input
+              type="date"
+              id="end_date"
+              name="end_date"
+              required
+              className="block max-w-[150px] w-full h-8 pl-2 text-base placeholder-darkturquoise bg-lightwhiteturquoise rounded-xl focus:outline-none focus:ring-0 border-2 border-turquoise"
+            />
+          </div>
+          <div className="flex flex-row text-darkturquoise gap-[30px]">
+            <label htmlFor="tags" className="text-lg w-40">Тэги</label>
+            <input
+              type="text"
+              id="tags"
+              name="tags"
+              required
+              className="block max-w-[550px] w-full h-8 p-4 text-base placeholder-darkturquoise bg-lightwhiteturquoise rounded-xl focus:outline-none focus:ring-0 border-2 border-turquoise"
+            />
+          </div>
+          <div className="flex flex-row text-darkturquoise gap-[30px]">
+            <label htmlFor="rules" className="text-lg w-40">Правила</label>
+            <input
+              type="file"
+              id="rules"
+              name="rules"
+              className="block max-w-[550px] w-full h-8 text-base 
+              file:mr-5 file:pt-0.5 file:pb-2 file:px-3 file:border-2 file:border-turquoise file:border-solid file:bg-turquoise
+              file:cursor-pointer file:hover:bg-lightturquoise file:hover:border-lightturquoise
+            placeholder-darkturquoise bg-lightwhiteturquoise 
+              focus:outline-none focus:ring-0 
+              border-2 border-turquoise rounded-xl"
+            />
+          </div>
+          <button
+            type="submit"
+            className="max-w-[550px] ml-[190px] w-full py-2 px-4 bg-darkturquoise text-white rounded-lg shadow hover:bg-lightturquoise hover:border-lightturquoise focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          >
+            Создать
+          </button>
+        </form>
       )}
       
     </div>

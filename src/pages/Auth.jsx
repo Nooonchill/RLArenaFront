@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import Logo from '/src/assets/icons/Atom.svg';
 
 
@@ -11,6 +12,12 @@ const Auth = () => {
 
   const registerRef = useRef(null);
   const loginRef = useRef(null);
+
+  const navigate = useNavigate();
+
+  const mainNavigate = () => {
+    navigate('/');
+  };
 
   useEffect(() => {
     if (registerRef.current && loginRef.current) {
@@ -25,7 +32,7 @@ const Auth = () => {
     <div className="h-screen w-screen bg-lightwhiteturquoise items-center">
       <div className="flex justify-center h-full items-center">
         <div className="w-[290px] max-w-md bg-white rounded-3xl shadow-lg p-6 text-dark">
-          <div className="flex justify-center mb-2">
+          <div onClick={mainNavigate} className="flex justify-center mb-2 cursor-pointer">
             <img src={Logo} alt="Logo" className="" />
             <span className="text-xl text-black font-semibold whitespace-nowrap">RLArena</span>
           </div>
