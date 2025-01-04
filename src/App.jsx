@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Competitions from './pages/Competitions';
 import Auth from './pages/Auth';
+import Competition from './pages/Competition.jsx'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/profile/" element={<Profile />} />
           <Route path="/competitions/" element={<Competitions />} />
+          <Route path="/competitions/:id" element={<Competition />} />
         </Route>
         <Route path="/auth/" element={<Auth />} />
       </Routes>

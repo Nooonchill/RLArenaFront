@@ -13,14 +13,14 @@ const Sidebar = ({}) => {
   const handleMouseEnter = () => setIsMenuOpen(true);
   const handleMouseLeave = () => setIsMenuOpen(false);
   
-    const navigate = useNavigate();
-  
-    const homeNavigate = () => {
-      navigate('/'); // Замените на нужный вам маршрут
-    };
-    const competitionsNavigate = () => {
-      navigate('/competitions'); // Замените на нужный вам маршрут
-    };
+  const navigate = useNavigate();
+
+  const homeNavigate = () => {
+    navigate('/');
+  };
+  const competitionsNavigate = () => {
+    navigate('/competitions');
+  };
 
   return (
     <aside

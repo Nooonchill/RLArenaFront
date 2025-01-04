@@ -3,33 +3,57 @@ import User from '/src/assets/icons/User.svg'
 import Winner from '/src/assets/icons/Winner.svg'
 import Second from '/src/assets/icons/Second.svg'
 import Third from '/src/assets/icons/Third.svg'
+import Competitions from "./Competitions";
 
 
 function Home() {
   
   const [isLogged, setIsLogged] = useState(true);
-  const solved = 63;
-  const total = 100;
+  const solved = 23;
+  const total = 57;
   const dashValue = 75 * solved / total;
   const position = 236;
   const username = "NoooN"
 
   const timedelta = "PT5H30M";
-  // Парсим строку, используя регулярное выражение
-  const match = timedelta.match(/PT(\d+H)?(\d+M)?/);
 
-  let hours = 0;
-  let minutes = 0;
+  const changeTimeView = (timedelta) => {
+    const match = timedelta.match(/PT(\d+H)?(\d+M)?/);
+    let hours = 0;
+    let minutes = 0;
+    if (match[1]) {
+      hours = parseInt(match[1].replace("H", ""), 10);
+    }
+    if (match[2]) {
+      minutes = parseInt(match[2].replace("M", ""), 10);
+    }
+    return hours + "ч. " + minutes + "мин. ";
+  };
 
-  // Если найдены часы
-  if (match[1]) {
-    hours = parseInt(match[1].replace("H", ""), 10);
+  const lastCompetitionResult = {
+    title: "Предсказание цен на дом",
+    endDate: "23 дек. 2024 г.",
+    users: [
+      { place: 1, username: 'Ivan', time: "PT23H10M", score: 565},
+      { place: 2, username: 'SleepKnight', time: "PT13H30M", score: 432},
+      { place: 3, username: 'MontK', time: "PT53H10M", score: 432},
+      { place: 4, username: 'Dinx', time: "PT35H10M", score: 413},
+      { place: 5, username: 'Korkx', time: "PT27H23M", score: 323},
+      { place: 6, username: 'BlackString', time: "PT29H33M", score: 297},
+      { place: 7, username: 'DownTownMan', time: "PT32H59M", score: 234},
+      { place: 8, username: 'BoringShow', time: "PT97H10M", score: 234},
+      { place: 9, username: '43StartBest', time: "PT123H42M", score: 115},
+      { place: 10, username: 'tiredwarrior', time: "PT12H15M", score: 95},
+    ]
   }
 
-  // Если найдены минуты
-  if (match[2]) {
-    minutes = parseInt(match[2].replace("M", ""), 10);
+  const lastNews = {
+    title: "Разработка",
+    date: "02-01-2024",
+    text: "Это первая новость о разработке фронтенда сайта RLArena. Данный сайт является площадкой для проведения RL/ML соревнований... Данный сайт является площадкой для проведения RL/ML соревнований..."
   }
+
+  
 
   return (
     <div className="max-w-[1110px] mx-auto">
@@ -69,7 +93,7 @@ function Home() {
                 ></circle>
               </svg>
               <div className="absolute top-1/2 start-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-                <span className="text-4xl font-bold text-turquoise dark:text-turquoise">{solved/total * 100}%</span>
+                <span className="text-4xl font-bold text-turquoise dark:text-turquoise">{(solved/total * 100).toFixed(0)}%</span>
                 <span className="text-turquoise font-semibold dark:text-turquoise block">{solved}<span className="text-dark">/{total}</span> </span>
               </div>
             </div>
@@ -77,10 +101,7 @@ function Home() {
           </div>
           <div className="bg-none p-2 rounded-full m-1 w-1/4 items-center justify-center flex flex-col ">
             <h1>
-              <span className="text-dark text-4xl ">{hours}</span>
-              <span className="text-dark text-4xl ">ч.</span>
-              <span className="text-dark text-4xl "> {minutes}</span>
-              <span className="text-dark text-4xl ">м.</span>
+              <span className="text-dark text-4xl ">{changeTimeView(timedelta)}</span>
             </h1>
             <span className="text-sm">Среднее время решения</span>
           </div>
@@ -92,25 +113,25 @@ function Home() {
       <div className="bg-lightwhiteturquoise text-dark p-2 rounded-3xl mb-6">
         <div className=" bg-white border-darkturquoise rounded-[20px] p-4">
           <div className="mb-4">
-            <h2 className="text-2xl">Результаты "Названия сореванования"</h2>
-            <span>"дата окончания"</span>
+            <h2 className="text-2xl">Результаты "{lastCompetitionResult.title}"</h2>
+            <span>{lastCompetitionResult.endDate}</span>
           </div>
           <div className="flex justify-center space-x-4">
             <div className="flex pb-5 pt-8 rounded-full">
               <div className="flex flex-col items-center w-24 mt-3">
                 <img src={User} alt="User" className="w-10 rounded-full border-2" />
                 <img src={Second} alt="Second" className="absolute mt-6 ml-6 w-6" />
-                <span className="truncate max-w-28">username</span>
+                <span className="truncate max-w-28">{lastCompetitionResult['users'][1].username}</span>
               </div>
               <div className="flex flex-col items-center w-24">
                 <img src={User} alt="User" className="w-10 rounded-full border-2" />
                 <img src={Winner} alt="Winner" className="absolute mt-[-24px] w-6" />
-                <span className="truncate max-w-28">username</span>
+                <span className="truncate max-w-28">{lastCompetitionResult['users'][0].username}</span>
               </div>
               <div className="flex flex-col items-center w-24 mt-6">
                 <img src={User} alt="User" className="w-10 rounded-full border-2" />
                 <img src={Third} alt="Third" className="absolute mt-6 ml-6 w-6" />
-                <span className="truncate max-w-28">username</span>
+                <span className="truncate max-w-28">{lastCompetitionResult['users'][2].username}</span>
               </div>
             </div>
           </div>
@@ -134,62 +155,22 @@ function Home() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="odd:bg-white even:bg-gray-50">
-                    <th scope="row" className="pl-6 py-4 font-medium text-dark whitespace-nowrap ">
-                      1
-                    </th>
-                    <td className="px-6 py-4">
-                      Silver
-                    </td>
-                    <td className="px-6 py-4">
-                      23:10
-                    </td>
-                    <td className="px-6 py-4">
-                      565
-                    </td>
-                  </tr>
-                  <tr className="odd:bg-white even:bg-gray-50">
-                    <th scope="row" className="pl-6 py-4 font-medium text-dark whitespace-nowrap ">
-                      2
-                    </th>
-                    <td className="px-6 py-4">
-                      White
-                    </td>
-                    <td className="px-6 py-4">
-                      48:12
-                    </td>
-                    <td className="px-6 py-4">
-                      243
-                    </td>
-                  </tr>
-                  <tr className="odd:bg-white even:bg-gray-50">
-                    <th scope="row" className="pl-6 py-4 font-medium text-dark whitespace-nowrap ">
-                      3
-                    </th>
-                    <td className="px-6 py-4">
-                      Black
-                    </td>
-                    <td className="px-6 py-4">
-                     00:23
-                    </td>
-                    <td className="px-6 py-4">
-                     212
-                    </td>
-                  </tr>
-                  <tr className="odd:bg-white even:bg-gray-50">
-                    <th scope="row" className="pl-6 py-4 font-medium text-dark whitespace-nowrap">
-                      4
-                    </th>
-                    <td className="px-6 py-4">
-                      Gray
-                    </td>
-                    <td className="px-6 py-4">
-                      324:12
-                    </td>
-                    <td className="px-6 py-4">
-                      32
-                    </td>
-                  </tr>
+                  {lastCompetitionResult['users'].map((result) => (
+                    <tr className="odd:bg-white even:bg-gray-50">
+                      <th scope="row" className="pl-6 py-4 font-medium text-dark whitespace-nowrap ">
+                        {result.place}
+                      </th>
+                      <td className="px-6 py-4">
+                        {result.username}
+                      </td>
+                      <td className="px-6 py-4">
+                        {changeTimeView(result.time)}
+                      </td>
+                      <td className="px-6 py-4">
+                        {result.score}
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
@@ -200,10 +181,10 @@ function Home() {
       <div className="bg-lightwhiteturquoise text-dark p-2 rounded-3xl shadow-md">
         <div className=" bg-white border-darkturquoise rounded-[20px] p-4">
           <div className="mb-4">
-            <h2 className="text-2xl">Заголовок новости</h2>
-            <span>дата выхода</span>
+            <h2 className="text-2xl">{lastNews.title}</h2>
+            <span>{lastNews.date}</span>
           </div>
-          <span>Текст</span>
+          <span>{lastNews.text}</span>
         </div>
       </div>
     </div>

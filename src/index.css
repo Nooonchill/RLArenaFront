@@ -71,3 +71,35 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.react-mde {
+  border: none !important;
+  box-shadow: none;
+}
+
+.react-mde .mde-header {
+  background-color: #3AAFAA;
+  color: black;
+  border-radius: 10px 10px 0 0;
+  padding: 8px;
+}
+
+.react-mde .mde-preview {
+  background-color: #E7F9F7;
+  color: black;
+  padding: 8px;
+}
+
+.mde-header ul.mde-header-group li.mde-header-item button {
+  color: white !important; /* Делаем иконки белыми */
+}
+
+.markdown-container pre {
+  white-space: wrap; 
+  overflow-x: auto;
+  max-width: 100%;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 4px;
+  font-family: monospace;
+}
