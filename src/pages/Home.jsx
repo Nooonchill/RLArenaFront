@@ -3,7 +3,7 @@ import User from '/src/assets/icons/User.svg'
 import Winner from '/src/assets/icons/Winner.svg'
 import Second from '/src/assets/icons/Second.svg'
 import Third from '/src/assets/icons/Third.svg'
-import Competitions from "./Competitions";
+import Competitions from '/src/pages/competitions/Competitions.jsx';
 
 
 function Home() {

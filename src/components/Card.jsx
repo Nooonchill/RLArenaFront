@@ -27,7 +27,7 @@ const Card = ({ title, organizer, participants, rate, image, startDate, endDate,
       
       {/* Анимация загрузки, если картинка ещё не загружена */}
       {isLoading ? (
-        <div className="flex justify-center items-center w-full h-64">
+        <div className="flex justify-center items-center w-full h-[143px]">
           <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-b-4 border-turquoise"></div>
         </div>
       ) : (
