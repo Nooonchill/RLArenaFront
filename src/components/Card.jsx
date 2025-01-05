@@ -8,7 +8,9 @@ const Card = ({ title, organizer, participants, rate, image, startDate, endDate,
 
   // Форматируем даты
   startDate = startDate.replaceAll("-", ".");
-  endDate = endDate.replaceAll("-", ".");
+  if (endDate !== undefined) {
+    endDate = endDate.replaceAll("-", ".");
+  }
 
   // Функция для предварительной загрузки изображения
   const checkImageLoaded = (src) => {
@@ -31,7 +33,6 @@ const Card = ({ title, organizer, participants, rate, image, startDate, endDate,
           <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-b-4 border-turquoise"></div>
         </div>
       ) : (
-        // Карточка с изображением, если оно загружено
         <img
           src={image}
           className="w-[255px]"
@@ -42,7 +43,7 @@ const Card = ({ title, organizer, participants, rate, image, startDate, endDate,
       <div className="flex flex-col p-2 gap-y-2">
         <p className="line-clamp-2 text-xl mb-2">{title}</p>
         <span className="">{organizer}</span>
-        <span className="">{startDate} - {endDate}</span>
+        <span className="">{startDate}{endDate !== undefined ? (" - " + endDate) : ("")}</span>
         <div className="flex flex-row justify-between">
           <div className="flex flex-row gap-1">
             <img src={User} className="w-5" alt="" />

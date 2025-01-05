@@ -21,6 +21,12 @@ const Sidebar = ({}) => {
   const competitionsNavigate = () => {
     navigate('/competitions');
   };
+  const dataNavigate = () => {
+    navigate('/data');
+  };
+  const guidesNavigate = () => {
+    navigate('/guides');
+  };
 
   return (
     <aside
@@ -54,7 +60,7 @@ const Sidebar = ({}) => {
               <span className="text-base font-medium text-black pl-1">Главная</span>
             </div>
           </li>
-          <li className="flex items-center px-7 cursor-pointer">
+          <li className="flex items-center px-7 cursor-pointer" onClick={dataNavigate}>
             <img src={Data} alt="Data" />
             <div
               className={`overflow-hidden transition-all duration-300 ml-3 ${
@@ -74,7 +80,7 @@ const Sidebar = ({}) => {
               <span className="text-base font-medium text-black pl-1">Соревнования</span>
             </div>
           </li>
-          <li className="flex items-center px-7 cursor-pointer">
+          <li className="flex items-center px-7 cursor-pointer" onClick={guidesNavigate}>
             <img src={Guides} alt="Guides" />
             <div
               className={`overflow-hidden transition-all duration-300 ml-3 ${

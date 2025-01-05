@@ -52,7 +52,7 @@ const Competition = () => {
       rate: 2.1,
       participants: 2492,
       tags: ["Тест", "Прогноз"],
-      startDate: "27-10-2024",
+      startDxate: "27-10-2024",
       endDate: "27-02-2025",
       description: `
 В этом соревновании участникам необходимо построить модель, которая оценивает стоимость автомобиля 
@@ -265,7 +265,7 @@ const Competition = () => {
   return (
     <div className="max-w-[1110px] mx-auto">
       <div className="flex flex-row gap-20 justify-between pl-2 mt-12 text-dark">
-        <div className="mb-8">
+        <div className="mb-8 flex-grow">
           <div className="text-dark mb-6">
             <h1 className="text-4xl mb-3">{competitionDetail.title}</h1>
             <div className="flex flex-row overflow-hidden flex-nowrap gap-2 mb-2">

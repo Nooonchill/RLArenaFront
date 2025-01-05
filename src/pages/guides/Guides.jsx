@@ -29,7 +29,7 @@ function Competitions() {
   const navigate = useNavigate();
 
   const cardNavigate = (id) => {
-    navigate('/competitions/' + id);
+    navigate('/guides/' + id);
   };
 
   const username = "NoooN"
