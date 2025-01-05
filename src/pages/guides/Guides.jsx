@@ -7,7 +7,7 @@ import CardImage from '/src/assets/imgs/CompetiotionTemplate.png'
 import Card from '/src/components/Card.jsx'
 import Form from '/src/components/Form.jsx'
 
-function Competitions() {
+function Guides() {
   const [activeButton, setActiveButton] = useState(1);
   const [activeSort, setActiveSort] = useState(1);
   const [reverseSort, setReverseSort] = useState(false);
@@ -32,7 +32,22 @@ function Competitions() {
     navigate('/guides/' + id);
   };
 
-  const username = "NoooN"
+  const user = {
+    username: "NoooN",
+    fullName: "Горский Иван Артёмович",
+    organization: "УрФУ",
+    saved: {
+      competitions: [24],
+      guides: [201, 205, 203],
+      data: [101, 103, 104],
+    },
+    created: {
+      competitions: [1],
+      guides: [],
+      data: [],
+    }
+  }
+
 
   const filters = [
     { id: 1, title: "Все" },
@@ -46,51 +61,74 @@ function Competitions() {
     { id: 3, title: "Оценки"},
   ]
 
-  const competitions = [
-    { id: 134, title: "Прогнозирование цен на дома", organizer: "УрФУ", rate: 4.8, participants: 243, startDate: "12-04-2024", endDate: "27-04-2024" },
-    { id: 12, title: "Оценка стоимости автомобиля по его характеристикам", organizer: "James123", rate: 2.1, participants: 2492, startDate: "27-10-2024", endDate: "27-02-2025" },
-    { id: 35, title: "Обладатель Кубка Гагарина 2025 года", organizer: "Team Work", rate: 4.2, participants: 1222, startDate: "12-09-2024", endDate: "12-12-2024" },
-    { id: 1, title: "Студенты, проходящие стажировки в IT-компаниях", organizer: "NoooN", rate: 5.0, participants: 12, startDate: "25-12-2024", endDate: "20-01-2025" },
-    { id: 24, title: "Обладатель Кубка Гагарина 2024 года", organizer: "Team Work", rate: 4.2, participants: 242, startDate: "12-04-2023", endDate: "27-04-2024" },
-    { id: 133, title: "Распознование детского голоса", organizer: "ChildUniverse", rate: 4.4, participants: 242, startDate: "16-01-2025", endDate: "16-02-2025" },
+  const guides = [
+    { 
+      id: 201, 
+      title: "Руководство по прогнозированию цен на недвижимость", 
+      creator: "RealEstate Insights", 
+      createdDate: "22-02-2023", 
+      rate: 4.8, 
+      added: 1240 
+    },
+    { 
+      id: 202, 
+      title: "Как анализировать данные о транспортных средствах", 
+      creator: "DataScience Auto", 
+      createdDate: "15-08-2022", 
+      rate: 4.5, 
+      added: 987 
+    },
+    { 
+      id: 203, 
+      title: "Пошаговое руководство для спортивной аналитики", 
+      creator: "PlayStats", 
+      createdDate: "11-05-2023", 
+      rate: 4.6, 
+      added: 1120 
+    },
+    { 
+      id: 204, 
+      title: "Анализ данных здоровья: от начала до эксперта", 
+      creator: "Wellness Analytics", 
+      createdDate: "28-10-2021", 
+      rate: 4.9, 
+      added: 2345 
+    },
+    { 
+      id: 205, 
+      title: "Создание климатических моделей на основе данных", 
+      creator: "EnviroTech", 
+      createdDate: "18-03-2020", 
+      rate: 4.7, 
+      added: 1823 
+    },
+    { 
+      id: 206, 
+      title: "Основы геоанализа: от POI до пространственных моделей", 
+      creator: "GeoExperts", 
+      createdDate: "29-07-2023", 
+      rate: 4.4, 
+      added: 1012 
+    },
   ];
+  
 
-  const getFilteredCompetitions = () => {
+  const getFilteredGuides = () => {
     const now = new Date();
 
-    // Первый фильтр: по кнопке
     let filtered = activeButton === 2 
-      ? competitions.filter((comp) => comp.organizer === username) 
-      : competitions;
-
-    // Второй фильтр: по времени
-    if (filterType === "Открытые") {
-      filtered = filtered.filter((comp) => {
-        const start = new Date(comp.startDate.split("-").reverse().join("-"));
-        const end = new Date(comp.endDate.split("-").reverse().join("-"));
-        return start <= now && end >= now;
-      });
-    } else if (filterType === "Скоро начнутся") {
-      filtered = filtered.filter((comp) => {
-        const start = new Date(comp.startDate.split("-").reverse().join("-"));
-        return start > now;
-      });
-    } else if (filterType === "Завершенные") {
-      filtered = filtered.filter((comp) => {
-        const end = new Date(comp.endDate.split("-").reverse().join("-"));
-        return end < now;
-      });
-    }
+      ? guides.filter((guide) => user.saved.guides.includes(guide.id) || user.created.guides.includes(guide.id)) 
+      : guides;
 
     if (activeSort) {
       filtered.sort((a, b) => {
         let comparison = 0;
         if (activeSort === 1) {
-          const dateA = new Date(a.startDate.split("-").reverse().join("-"));
-          const dateB = new Date(b.startDate.split("-").reverse().join("-"));
+          const dateA = new Date(a.createdDate.split("-").reverse().join("-"));
+          const dateB = new Date(b.createdDate.split("-").reverse().join("-"));
           comparison = dateA - dateB;
         } else if (activeSort === 2) {
-          comparison = b.participants - a.participants;
+          comparison = b.added - a.added;
         } else if (activeSort === 3) {
           comparison = b.rate - a.rate;
         }
@@ -101,12 +139,12 @@ function Competitions() {
     return filtered;
   };
 
-  const filteredCompetitions = getFilteredCompetitions();
+  const filteredGuides = getFilteredGuides();
 
   return (
     <div className="max-w-[1110px] mx-auto">
       <div className="bg-lightwhiteturquoise p-6 rounded-3xl mb-6">
-        <h1 className="text-dark text-4xl mb-4">Соревнования</h1>
+        <h1 className="text-dark text-4xl">Гайды</h1>
       </div>
       <div className="flex justify-between gap-3 flex-wrap px-1 mb-4">
         <div className="flex flex-row gap-4">
@@ -156,29 +194,18 @@ function Competitions() {
                 </div>
               </div>
             ))}
-            <select
-              value={filterType}
-              onChange={(e) => setFilterType(e.target.value)}
-              className="block px-0 w-40 bg-transparent border-0 border-b-2 border-turquoise appearance-none peer"
-            >
-              <option value="Все">Все</option>
-              <option value="Открытые">Открытые</option>
-              <option value="Скоро начнутся">Скоро начнутся</option>
-              <option value="Завершенные">Завершенные</option>
-            </select>
           </div>
           <div className="flex flex-row flex-wrap gap-[30px]">
-            {filteredCompetitions.map((competition) => (
+            {filteredGuides.map((guide) => (
                 <Card
-                  key={competition.id}
-                  title={competition.title}
-                  organizer={competition.organizer}
-                  participants={competition.participants}
-                  rate={competition.rate}
+                  key={guide.id}
+                  title={guide.title}
+                  organizer={guide.creator}
+                  participants={guide.added}
+                  rate={guide.rate}
                   image={CardImage}
-                  startDate={competition.startDate}
-                  endDate={competition.endDate}
-                  onClick={() => cardNavigate(competition.id)}
+                  startDate={guide.createdDate}
+                  onClick={() => cardNavigate(guide.id)}
                 />
             ))}
           </div>
@@ -191,4 +218,4 @@ function Competitions() {
   );
 }
 
-export default Competitions;
+export default Guides;

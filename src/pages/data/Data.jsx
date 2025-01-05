@@ -32,7 +32,22 @@ function Data() {
     navigate('/data/' + id);
   };
 
-  const username = "NoooN"
+  const user = {
+    username: "NoooN",
+    fullName: "Горский Иван Артёмович",
+    organization: "УрФУ",
+    saved: {
+      competitions: [24],
+      guides: [201, 205, 203],
+      data: [101, 103, 104],
+    },
+    created: {
+      competitions: [1],
+      guides: [],
+      data: [],
+    }
+  }
+
 
   const filters = [
     { id: 1, title: "Все" },
@@ -42,17 +57,17 @@ function Data() {
 
   const sorts = [
     { id: 1, title: "Дата создания"},
-    { id: 2, title: "Скачиваний"},
+    { id: 2, title: "Популярность"},
     { id: 3, title: "Оценки"},
   ]
 
   const data = [
-    { id: 101, title: "Данные о ценах на дома в регионе", creator: "HousingData Inc.", createdDate: "15-03-2023", rate: 4.9, downloaded: 3201 },
-    { id: 102, title: "Характеристики автомобилей и их стоимость", creator: "AutoStats", createdDate: "10-07-2022", rate: 4.7, downloaded: 2845 },
-    { id: 103, title: "Статистика посещаемости спортивных мероприятий", creator: "Sports Analytics", createdDate: "20-11-2023", rate: 4.3, downloaded: 1582 },
-    { id: 104, title: "Анализ здоровья детей и подростков", creator: "Health for Kids", createdDate: "05-09-2021", rate: 4.8, downloaded: 4723 },
-    { id: 105, title: "Данные о погоде и климате за 10 лет", creator: "ClimateTrack", createdDate: "12-01-2020", rate: 4.6, downloaded: 3528 },
-    { id: 106, title: "Геоданные с точками интереса", creator: "GeoData Solutions", createdDate: "03-06-2023", rate: 4.4, downloaded: 2146 },
+    { id: 101, title: "Данные о ценах на дома в регионе", creator: "HousingData Inc.", createdDate: "15-03-2023", rate: 4.9, added: 3201 },
+    { id: 102, title: "Характеристики автомобилей и их стоимость", creator: "AutoStats", createdDate: "10-07-2022", rate: 4.7, added: 2845 },
+    { id: 103, title: "Статистика посещаемости спортивных мероприятий", creator: "Sports Analytics", createdDate: "20-11-2023", rate: 4.3, added: 1582 },
+    { id: 104, title: "Анализ здоровья детей и подростков", creator: "Health for Kids", createdDate: "05-09-2021", rate: 4.8, added: 4723 },
+    { id: 105, title: "Данные о погоде и климате за 10 лет", creator: "ClimateTrack", createdDate: "12-01-2020", rate: 4.6, added: 3528 },
+    { id: 106, title: "Геоданные с точками интереса", creator: "GeoData Solutions", createdDate: "03-06-2023", rate: 4.4, added: 2146 },
   ];
   
 
@@ -61,7 +76,7 @@ function Data() {
 
     // Первый фильтр: по кнопке
     let filtered = activeButton === 2 
-      ? data.filter((datum) => datum.organizer === username) 
+      ? data.filter((datum) => user.saved.data.includes(datum.id) || user.created.data.includes(datum.id)) 
       : data;
 
     if (activeSort) {
@@ -69,9 +84,10 @@ function Data() {
         let comparison = 0;
         if (activeSort === 1) {
           const dateA = new Date(a.createdDate.split("-").reverse().join("-"));
-          comparison = dateA
+          const dateB = new Date(b.createdDate.split("-").reverse().join("-"));
+          comparison = dateA - dateB;
         } else if (activeSort === 2) {
-          comparison = b.participants - a.participants;
+          comparison = b.added - a.added;
         } else if (activeSort === 3) {
           comparison = b.rate - a.rate;
         }
@@ -82,12 +98,12 @@ function Data() {
     return filtered;
   };
 
-  const filteredCompetitions = getFilteredData();
+  const filteredData = getFilteredData();
 
   return (
     <div className="max-w-[1110px] mx-auto">
       <div className="bg-lightwhiteturquoise p-6 rounded-3xl mb-6">
-        <h1 className="text-dark text-4xl mb-4">Данные</h1>
+        <h1 className="text-dark text-4xl">Данные</h1>
       </div>
       <div className="flex justify-between gap-3 flex-wrap px-1 mb-4">
         <div className="flex flex-row gap-4">
@@ -139,16 +155,16 @@ function Data() {
             ))}
           </div>
           <div className="flex flex-row flex-wrap gap-[30px]">
-            {filteredCompetitions.map((competition) => (
+            {filteredData.map((datum) => (
                 <Card
-                  key={competition.id}
-                  title={competition.title}
-                  organizer={competition.organizer}
-                  participants={competition.participants}
-                  rate={competition.rate}
+                  key={datum.id}
+                  title={datum.title}
+                  organizer={datum.creator}
+                  participants={datum.added}
+                  rate={datum.rate}
                   image={CardImage}
-                  startDate={competition.createdDate}
-                  onClick={() => cardNavigate(competition.id)}
+                  startDate={datum.createdDate}
+                  onClick={() => cardNavigate(datum.id)}
                 />
             ))}
           </div>

@@ -32,7 +32,21 @@ function Competitions() {
     navigate('/competitions/' + id);
   };
 
-  const username = "NoooN"
+  const user = {
+    username: "NoooN",
+    fullName: "Горский Иван Артёмович",
+    organization: "УрФУ",
+    saved: {
+      competitions: [24],
+      guides: [201, 205, 203],
+      data: [101, 103, 104],
+    },
+    created: {
+      competitions: [1],
+      guides: [],
+      data: [],
+    }
+  }
 
   const filters = [
     { id: 1, title: "Все" },
@@ -60,7 +74,7 @@ function Competitions() {
 
     // Первый фильтр: по кнопке
     let filtered = activeButton === 2 
-      ? competitions.filter((comp) => comp.organizer === username) 
+      ? competitions.filter((comp) => user.saved.competitions.includes(comp.id) || user.created.competitions.includes(comp.id)) 
       : competitions;
 
     // Второй фильтр: по времени
@@ -106,7 +120,7 @@ function Competitions() {
   return (
     <div className="max-w-[1110px] mx-auto">
       <div className="bg-lightwhiteturquoise p-6 rounded-3xl mb-6">
-        <h1 className="text-dark text-4xl mb-4">Соревнования</h1>
+        <h1 className="text-dark text-4xl">Соревнования</h1>
       </div>
       <div className="flex justify-between gap-3 flex-wrap px-1 mb-4">
         <div className="flex flex-row gap-4">
