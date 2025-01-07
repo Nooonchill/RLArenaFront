@@ -6,33 +6,16 @@ import Third from '/src/assets/icons/Third.svg'
 import Competitions from '/src/pages/competitions/Competitions.jsx';
 import CardImage from '/src/assets/imgs/CompetiotionTemplate.png'
 
+// Моковые данные
+import { user, logged } from '/src/mockdata/userData.js';
+import { lastCompetitionResult, lastNews } from '/src/mockdata/homeData.js';
 
 function Home() {
   
-  const [isLogged, setIsLogged] = useState(true);
-  const solved = 23;
-  const total = 57;
-  const dashValue = 75 * solved / total;
-  const position = 236;
-  const user = {
-    username: "NoooN",
-    fullName: "Горский Иван Артёмович",
-    organization: "УрФУ",
-    registration_date: "5-01-2025",
-    location: "Екатеринбург, Россия",
-    saved: {
-      competitions: [24],
-      guides: [201, 205, 203],
-      data: [101, 103, 104],
-    },
-    created: {
-      competitions: [1],
-      guides: [],
-      data: [],
-    }
-  }
-
-  const timedelta = "PT5H30M";
+  const [isLogged, setIsLogged] = useState(logged);
+  
+  const total = user.saved.competitions.length + user.created.competitions.length
+  const dashValue = 75 * user.stats.solved / total;
 
   const changeTimeView = (timedelta) => {
     const match = timedelta.match(/PT(\d+H)?(\d+M)?/);
@@ -47,31 +30,6 @@ function Home() {
     return hours + "ч. " + minutes + "мин. ";
   };
 
-  const lastCompetitionResult = {
-    title: "Предсказание цен на дом",
-    endDate: "23 дек. 2024 г.",
-    users: [
-      { place: 1, username: 'Ivan', time: "PT23H10M", score: 565},
-      { place: 2, username: 'SleepKnight', time: "PT13H30M", score: 432},
-      { place: 3, username: 'MontK', time: "PT53H10M", score: 432},
-      { place: 4, username: 'Dinx', time: "PT35H10M", score: 413},
-      { place: 5, username: 'Korkx', time: "PT27H23M", score: 323},
-      { place: 6, username: 'BlackString', time: "PT29H33M", score: 297},
-      { place: 7, username: 'DownTownMan', time: "PT32H59M", score: 234},
-      { place: 8, username: 'BoringShow', time: "PT97H10M", score: 234},
-      { place: 9, username: '43StartBest', time: "PT123H42M", score: 115},
-      { place: 10, username: 'tiredwarrior', time: "PT12H15M", score: 95},
-    ]
-  }
-
-  const lastNews = {
-    title: "Разработка",
-    date: "02-01-2024",
-    text: "Это первая новость о разработке фронтенда сайта RLArena. Данный сайт является площадкой для проведения RL/ML соревнований... Данный сайт является площадкой для проведения RL/ML соревнований..."
-  }
-
-  
-
   return (
     <div className="max-w-[1110px] mx-auto">
       {isLogged ? (
@@ -81,7 +39,7 @@ function Home() {
             <div className="bg-none p-2 m-1 w-1/4 items-center justify-center rounded-full flex flex-col">
               <h1>
                 <span className="text-dark text-4xl">#</span>
-                <span className="text-dark text-4xl">{position}</span>
+                <span className="text-dark text-4xl">{user.stats.position}</span>
               </h1>
               <span className="text-sm">Рейтинг</span>
             </div>
@@ -110,15 +68,15 @@ function Home() {
                 ></circle>
               </svg>
               <div className="absolute top-1/2 start-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-                <span className="text-4xl font-bold text-turquoise dark:text-turquoise">{(solved/total * 100).toFixed(0)}%</span>
-                <span className="text-turquoise font-semibold dark:text-turquoise block">{solved}<span className="text-dark">/{total}</span> </span>
+                <span className="text-4xl font-bold text-turquoise dark:text-turquoise">{(user.stats.solved/total * 100).toFixed(0)}%</span>
+                <span className="text-turquoise font-semibold dark:text-turquoise block">{user.stats.solved}<span className="text-dark">/{total}</span> </span>
               </div>
             </div>
             <span className="text-sm mb-2 mt-[-12px]">Процент решений</span>
           </div>
           <div className="bg-none p-2 rounded-full m-1 w-1/4 items-center justify-center flex flex-col ">
             <h1>
-              <span className="text-dark text-4xl ">{changeTimeView(timedelta)}</span>
+              <span className="text-dark text-4xl ">{changeTimeView(user.stats.timedelta)}</span>
             </h1>
             <span className="text-sm">Среднее время решения</span>
           </div>

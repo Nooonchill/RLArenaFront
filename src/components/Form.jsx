@@ -3,7 +3,7 @@ import ReactMde from "react-mde";
 import "react-mde/lib/styles/css/react-mde-all.css";
 import ReactMarkdown from "react-markdown";
 
-const Form = ({ type, isFieldsRow, isCretionForm=false, buttonText }) => {
+const Form = ({ type, isCretionForm=false, buttonText }) => {
 
   const user = {
     username: "NoooN",
@@ -25,12 +25,12 @@ const Form = ({ type, isFieldsRow, isCretionForm=false, buttonText }) => {
   }
 
   const inputStyles = {
-    text: "block max-w-[650px] w-full h-8 p-4 text-base placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise rounded-xl focus:outline-none focus:ring-0 border-2",
-    password: "block max-w-[650px] w-full h-8 p-4 text-base placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise rounded-xl focus:outline-none focus:ring-0 border-2",
-    textarea: "block max-w-[650px] w-full h-8 p-2 min-h-[150px] text-base placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise rounded-xl focus:outline-none focus:ring-0 border-2",
-    file: "block max-w-[650px] w-full h-8 text-base file:mr-5 file:pt-0.5 file:pb-2 file:px-3 file:border-2 file:border-turquoise file:border-solid file:bg-turquoise file:cursor-pointer file:hover:bg-lightturquoise file:hover:border-lightturquoise placeholder-darkturquoise bg-lightwhiteturquoise focus:outline-none focus:ring-0 border-2 border-turquoise rounded-xl",
+    text: "block w-full h-8 p-4 text-base placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise rounded-xl focus:outline-none focus:ring-0 border-2",
+    password: "block  w-full h-8 p-4 text-base placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise rounded-xl focus:outline-none focus:ring-0 border-2",
+    textarea: "block w-full h-8 p-2 min-h-[150px] text-base placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise rounded-xl focus:outline-none focus:ring-0 border-2",
+    file: "block  w-full h-8 text-base file:mr-5 file:pt-0.5 file:pb-2 file:px-3 file:border-2 file:border-turquoise file:border-solid file:bg-turquoise file:cursor-pointer file:hover:bg-lightturquoise file:hover:border-lightturquoise placeholder-darkturquoise bg-lightwhiteturquoise focus:outline-none focus:ring-0 border-2 border-turquoise rounded-xl",
     date: "block max-w-[150px] w-full h-8 pl-2 text-base placeholder-darkturquoise bg-lightwhiteturquoise rounded-xl focus:outline-none focus:ring-0 border-2 border-turquoise",
-    radio: "block max-w-[650px] w-full h-8 p-4 text-base placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise rounded-xl focus:outline-none focus:ring-0 border-2",
+    radio: "block w-full h-8 p-4 text-base placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise rounded-xl focus:outline-none focus:ring-0 border-2",
   };
 
   const formFields = {
@@ -73,10 +73,10 @@ const Form = ({ type, isFieldsRow, isCretionForm=false, buttonText }) => {
   const [selectedTab, setSelectedTab] = useState("write");
 
   return (
-    <form className={`flex flex-col space-y-4 pb-4 h-max ${!isCretionForm ? 'justify-between min-h-[315px] h-full' : ''}`}>
+    <form className={`flex flex-col space-y-4 pb-4 h-max max-w-[650px]`}>
       {formFields[type].map((field) => (
-        <div key={field.id} className={`flex text-darkturquoise ${isFieldsRow ? 'flex-row gap-[30px]' : 'flex-col gap-0.5'}`}>
-          <label htmlFor={field.id} className={`text-lg ${!isCretionForm && isFieldsRow ? 'w-16' : 'w-40'}`}>
+        <div key={field.id} className={`flex text-darkturquoise flex-col gap-0.5`}>
+          <label htmlFor={field.id} className={`text-lg ${isCretionForm ? 'w-40' : ''}`}>
             {field.label}{field.required === true && field.label !== '' ? " *" : ""}
           </label>
           {field.type === "textarea" && field.id === "description" ? (
@@ -100,9 +100,15 @@ const Form = ({ type, isFieldsRow, isCretionForm=false, buttonText }) => {
             </div>
           ) : field.type === "checkbox" ? (
             <label class="relative inline-flex cursor-pointer items-center">
-              <input id="switch" type="checkbox" class="peer sr-only" />
+              <input 
+                type={field.type}
+                id={field.id}
+                name={field.id}
+                required={field.required}
+                placeholder={field.placeholder} 
+                class="peer sr-only" 
+              />
               <div class="peer h-[26px] w-[48px] rounded-full border bg-whiteturquoise relative after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-darkturquoise peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"></div>
-              
             </label>
           ) : (
             <input
@@ -119,7 +125,7 @@ const Form = ({ type, isFieldsRow, isCretionForm=false, buttonText }) => {
       ))}
       <button
         type="submit"
-        className={` ${isCretionForm ? 'ml-[190px] max-w-[650px]' : 'mt-4 max-w-[150px]'}  w-full py-2 px-4 bg-darkturquoise text-white rounded-lg shadow hover:bg-lightturquoise hover:border-lightturquoise`}
+        className={`w-full py-2 px-4 bg-darkturquoise text-white rounded-lg shadow hover:bg-lightturquoise hover:border-lightturquoise`}
       >
         {buttonText}
       </button>

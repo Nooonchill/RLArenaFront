@@ -6,7 +6,7 @@ import LeftArrow from '/src/assets/icons/LeftArrow.svg';
 
 const Header = ({}) => {
   
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useState(true);
 
   const pathname = `${window.location.pathname}`;
   
@@ -72,7 +72,7 @@ const Header = ({}) => {
             </div>
           </form>
           {isLogged ? (
-            <div onClick={profileNavigate} className="flex flex-row text-dark px-2 mb-4 rounded-full border-2 border-turquoise hover:border-lightturquoise bg-white w-fit cursor-pointer h-8">
+            <div onClick={profileNavigate} className="flex flex-row h-[38px] text-dark px-2 items-center rounded-full border-2 border-turquoise hover:border-lightturquoise bg-white w-fit cursor-pointer">
               <User alt="User" className="mr-2 h-6" />
               <h1  className="text-xl mr-1">{user.username}</h1>
             </div>

@@ -6,104 +6,13 @@ import Star from '/src/assets/icons/Star.svg'
 import User from '/src/assets/icons/User.svg'
 import Add from '/src/assets/icons/Add.svg'
 
+// Моковые данные
+import { user, logged } from '/src/mockdata/userData.js';
+import { data, dataDetails } from "/src/mockdata/dataData.js";
 
 const Datum = () => {
   const { id } = useParams();
-
-  const dataDetails = [
-    { 
-      id: 101, 
-      title: "Данные о ценах на дома в регионе", 
-      creator: "HousingData Inc.", 
-      createdDate: "15-03-2023", 
-      rate: 4.9, 
-      added: 3201,
-      description: "Этот набор данных содержит **информацию о ценах на дома**, их характеристиках (площадь, количество комнат и т.д.) и геолокации. Полезен для задач прогнозирования стоимости жилья.",
-      tags: ['Дома', "Цены", "HousingData"],
-      files: [
-        { name: "house_prices.csv", size: "12MB", description: "Основной файл с данными о ценах на дома." },
-        { name: "regions.json", size: "3MB", description: "Справочник регионов с координатами и дополнительной информацией." },
-        { name: "readme.md", size: "10KB", description: "Инструкция по работе с набором данных." },
-      ],
-    },
-    { 
-      id: 102, 
-      title: "Характеристики автомобилей и их стоимость", 
-      creator: "AutoStats", 
-      createdDate: "10-07-2022", 
-      rate: 4.7, 
-      added: 2845,
-      description: "Набор данных включает **информацию об автомобилях**, таких как модель, год выпуска, мощность двигателя и их рыночная стоимость. Используется для задач регрессии и анализа характеристик.",
-      tags: ['Автомобили', "Характеристики", "AutoStats"],
-      files: [
-        { name: "car_stats.csv", size: "8MB", description: "Данные о характеристиках автомобилей и их стоимости." },
-        { name: "brands.csv", size: "1MB", description: "Справочник брендов автомобилей." },
-        { name: "readme.md", size: "15KB", description: "Документация для работы с данными." },
-      ],
-    },
-    { 
-      id: 103, 
-      title: "Статистика посещаемости спортивных мероприятий", 
-      creator: "Sports Analytics", 
-      createdDate: "20-11-2023", 
-      rate: 4.3, 
-      added: 1582,
-      description: "Данные о посещаемости **спортивных мероприятий**, включая виды спорта, даты, количество зрителей и средний возраст аудитории.",
-      tags: ['Посещаемость', "Спорт", "Мероприятия", "SportsAnalytics"],
-      files: [
-        { name: "attendance_data.csv", size: "5MB", description: "Статистика по посещаемости мероприятий." },
-        { name: "sports_types.json", size: "2MB", description: "Справочник видов спорта с описаниями." },
-        { name: "readme.md", size: "8KB", description: "Информация о структуре данных." },
-      ],
-    },
-    { 
-      id: 104, 
-      title: "Анализ здоровья детей и подростков", 
-      creator: "Health for Kids", 
-      createdDate: "05-09-2021", 
-      rate: 4.8, 
-      added: 4723,
-      description: "Этот набор данных содержит **медицинские показатели здоровья детей и подростков**, включая рост, вес, физическую активность и хронические заболевания.",
-      tags: ['Здоровье', "Дети", "Подростки"],
-      files: [
-        { name: "health_data.csv", size: "10MB", description: "Основной файл с медицинскими данными." },
-        { name: "categories.json", size: "500KB", description: "Справочник медицинских категорий и кодов." },
-        { name: "readme.md", size: "12KB", description: "Руководство по использованию данных." },
-      ],
-    },
-    { 
-      id: 105, 
-      title: "Данные о погоде и климате за 10 лет", 
-      creator: "ClimateTrack", 
-      createdDate: "12-01-2020", 
-      rate: 4.6, 
-      added: 3528,
-      description: "Набор данных включает **метеорологические данные за последние 10 лет**, такие как температура, влажность, осадки и направление ветра.",
-      tags: ['Погода', "Климат", "Десятилетие"],
-      files: [
-        { name: "climate_data.csv", size: "25MB", description: "Данные о погоде и климате." },
-        { name: "stations.json", size: "2MB", description: "Список метеорологических станций." },
-        { name: "readme.md", size: "9KB", description: "Инструкция для анализа данных." },
-      ],
-    },
-    { 
-      id: 106, 
-      title: "Геоданные с точками интереса", 
-      creator: "GeoData Solutions", 
-      createdDate: "03-06-2023", 
-      rate: 4.4, 
-      added: 2146,
-      description: "Набор геоданных, содержащий **точки интереса** (POI), включая рестораны, магазины, больницы и образовательные учреждения.",
-      tags: ['География', "Геоданные", "Интересы"],
-      files: [
-        { name: "poi_data.csv", size: "18MB", description: "Данные о точках интереса." },
-        { name: "categories.json", size: "1MB", description: "Классификация типов POI." },
-        { name: "readme.md", size: "7KB", description: "Описание структуры данных." },
-      ],
-    },
-  ];
   
-
   const datumDetails = dataDetails.find((item) => item.id === +id);
 
   const tabs = [
@@ -142,25 +51,6 @@ const Datum = () => {
     }
     return hours + "ч. " + minutes + "мин. ";
   };
-
-  const user = {
-    username: "NoooN",
-    fullName: "Горский Иван Артёмович",
-    email: "nooonchill@gmail.com",
-    organization: "УрФУ",
-    registration_date: "5-01-2025",
-    location: "Екатеринбург, Россия",
-    saved: {
-      competitions: [24],
-      guides: [201, 205, 203],
-      data: [101, 103, 104],
-    },
-    created: {
-      competitions: [1],
-      guides: [],
-      data: [],
-    }
-  }
 
   return (
     <div className="max-w-[1110px] mx-auto">

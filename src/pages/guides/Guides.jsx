@@ -7,6 +7,10 @@ import CardImage from '/src/assets/imgs/CompetiotionTemplate.png'
 import Card from '/src/components/Card.jsx'
 import Form from '/src/components/Form.jsx'
 
+// Моковые данные
+import { user, logged } from '/src/mockdata/userData.js';
+import { guides, guidesDetails } from "/src/mockdata/guideData.js";
+
 function Guides() {
   const [activeButton, setActiveButton] = useState(1);
   const [activeSort, setActiveSort] = useState(1);
@@ -32,24 +36,6 @@ function Guides() {
     navigate('/guides/' + id);
   };
 
-  const user = {
-    username: "NoooN",
-    fullName: "Горский Иван Артёмович",
-    organization: "УрФУ",
-    registration_date: "5-01-2025",
-    location: "Екатеринбург, Россия",
-    saved: {
-      competitions: [24],
-      guides: [201, 205, 203],
-      data: [101, 103, 104],
-    },
-    created: {
-      competitions: [1],
-      guides: [],
-      data: [],
-    }
-  }
-
 
   const filters = [
     { id: 1, title: "Все" },
@@ -62,57 +48,6 @@ function Guides() {
     { id: 2, title: "Популярность"},
     { id: 3, title: "Оценки"},
   ]
-
-  const guides = [
-    { 
-      id: 201, 
-      title: "Руководство по прогнозированию цен на недвижимость", 
-      creator: "RealEstate Insights", 
-      createdDate: "22-02-2023", 
-      rate: 4.8, 
-      added: 1240 
-    },
-    { 
-      id: 202, 
-      title: "Как анализировать данные о транспортных средствах", 
-      creator: "DataScience Auto", 
-      createdDate: "15-08-2022", 
-      rate: 4.5, 
-      added: 987 
-    },
-    { 
-      id: 203, 
-      title: "Пошаговое руководство для спортивной аналитики", 
-      creator: "PlayStats", 
-      createdDate: "11-05-2023", 
-      rate: 4.6, 
-      added: 1120 
-    },
-    { 
-      id: 204, 
-      title: "Анализ данных здоровья: от начала до эксперта", 
-      creator: "Wellness Analytics", 
-      createdDate: "28-10-2021", 
-      rate: 4.9, 
-      added: 2345 
-    },
-    { 
-      id: 205, 
-      title: "Создание климатических моделей на основе данных", 
-      creator: "EnviroTech", 
-      createdDate: "18-03-2020", 
-      rate: 4.7, 
-      added: 1823 
-    },
-    { 
-      id: 206, 
-      title: "Основы геоанализа: от POI до пространственных моделей", 
-      creator: "GeoExperts", 
-      createdDate: "29-07-2023", 
-      rate: 4.4, 
-      added: 1012 
-    },
-  ];
   
 
   const getFilteredGuides = () => {

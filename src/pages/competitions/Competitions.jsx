@@ -7,6 +7,11 @@ import CardImage from '/src/assets/imgs/CompetiotionTemplate.png'
 import Card from '/src/components/Card.jsx'
 import Form from '/src/components/Form.jsx'
 
+// Моковые данные
+import { user, logged } from '/src/mockdata/userData.js';
+import { competitions, competitionsDetails } from "/src/mockdata/competitionData.js";
+
+
 function Competitions() {
   const [activeButton, setActiveButton] = useState(1);
   const [activeSort, setActiveSort] = useState(1);
@@ -32,24 +37,6 @@ function Competitions() {
     navigate('/competitions/' + id);
   };
 
-  const user = {
-    username: "NoooN",
-    fullName: "Горский Иван Артёмович",
-    organization: "УрФУ",
-    registration_date: "5-01-2025",
-    location: "Екатеринбург, Россия",
-    saved: {
-      competitions: [24],
-      guides: [201, 205, 203],
-      data: [101, 103, 104],
-    },
-    created: {
-      competitions: [1],
-      guides: [],
-      data: [],
-    }
-  }
-
   const filters = [
     { id: 1, title: "Все" },
     { id: 2, title: "Ваши" },
@@ -61,15 +48,6 @@ function Competitions() {
     { id: 2, title: "Популярность"},
     { id: 3, title: "Оценки"},
   ]
-
-  const competitions = [
-    { id: 134, title: "Прогнозирование цен на дома", organizer: "УрФУ", rate: 4.8, participants: 243, startDate: "12-04-2024", endDate: "27-04-2024" },
-    { id: 12, title: "Оценка стоимости автомобиля по его характеристикам", organizer: "James123", rate: 2.1, participants: 2492, startDate: "27-10-2024", endDate: "27-02-2025" },
-    { id: 35, title: "Обладатель Кубка Гагарина 2025 года", organizer: "Team Work", rate: 4.2, participants: 1222, startDate: "12-09-2024", endDate: "12-12-2024" },
-    { id: 1, title: "Студенты, проходящие стажировки в IT-компаниях", organizer: "NoooN", rate: 5.0, participants: 12, startDate: "25-12-2024", endDate: "20-01-2025" },
-    { id: 24, title: "Обладатель Кубка Гагарина 2024 года", organizer: "Team Work", rate: 4.2, participants: 242, startDate: "12-04-2023", endDate: "27-04-2024" },
-    { id: 133, title: "Распознование детского голоса", organizer: "ChildUniverse", rate: 4.4, participants: 242, startDate: "16-01-2025", endDate: "16-02-2025" },
-  ];
 
   const getFilteredCompetitions = () => {
     const now = new Date();
@@ -202,7 +180,7 @@ function Competitions() {
           </div>
         </div>
       ) : (
-        <Form type='competitions' isFieldsRow={true} isCretionForm={true} buttonText="Создать" />
+        <Form type='competitions' isCretionForm={true} buttonText="Создать" />
       )}
       
     </div>

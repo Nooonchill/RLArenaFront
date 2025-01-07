@@ -1,66 +1,17 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import Home from '/src/assets/icons/Home.svg';
-import Brain from '/src/assets/icons/Brain.svg';
-import Guides from '/src/assets/icons/Guides.svg';
-import Data from '/src/assets/icons/Data.svg';
-import Settings from '/src/assets/icons/Settings.svg';
-import Search from '/src/assets/icons/Search.svg';
-import Logo from '/src/assets/icons/Atom.svg';
-import User from '/src/assets/icons/User.svg'
-import Winner from '/src/assets/icons/Winner.svg'
-import Second from '/src/assets/icons/Second.svg'
-import Third from '/src/assets/icons/Third.svg'
 import LeftArrow from '/src/assets/icons/LeftArrow.svg'
 import RightArrow from '/src/assets/icons/RightArrow.svg'
-import Layout from "/src/components/Layout.jsx";
 import CardImage from '/src/assets/imgs/CompetiotionTemplate.png'
+
+// Моковые данные
+import { user, logged } from '/src/mockdata/userData.js';
 
 
 function Profile() {
   
   const navigate = useNavigate();
-  const [isLogged, setIsLogged] = useState(true);
-
-  const user = {
-    username: "NoooN",
-    fullName: "Горский Иван Артёмович",
-    organization: "УрФУ",
-    registration_date: "5-01-2025",
-    location: "Екатеринбург, Россия",
-    saved: {
-      competitions: [24],
-      guides: [201, 205, 203],
-      data: [101, 103, 104],
-    },
-    created: {
-      competitions: [1],
-      guides: [],
-      data: [],
-    }
-  }
-
-  const biography = "Студент 3 курса ИРИТ-РТФ. Недавно начал заниматься машинным обучением"
-
-  const achivements = [
-    { id: 1, title: "Начало пути" },
-    { id: 2, title: "Стать сильнее" },
-    { id: 3, title: "Гранит науки" },
-    { id: 4, title: "Первая победа" },
-    { id: 5, title: "Начало пути" },
-    { id: 6, title: "Начало пути" },
-    { id: 7, title: "Начало пути" },
-    { id: 8, title: "Начало пути" },
-    { id: 9, title: "Начало пути" },
-  ];
-
-  const results = [
-    { id: 134, title: "Прогнозирование цен на дома", position: 21 },
-    { id: 12, title: "Оценка стоимости автомобиля по его характеристикам", position: 24 },
-    { id: 35, title: "Обладатель Кубка Гагарина 2025 года", position: 535 },
-    { id: 1, title: "Студенты, проходящие стажировки в IT-компаниях", position: 654 },
-  ];
-
+  const [isLogged, setIsLogged] = useState(logged);
 
   useEffect(() => {
     if (!isLogged) {
@@ -78,7 +29,6 @@ function Profile() {
       });
     }
   };
-
 
   const scrollRight = () => {
     if (scrollRef.current) {
@@ -103,7 +53,7 @@ function Profile() {
             <span>Дата регистрации: {user.registration_date}</span>
           </div>
         </div>
-        <span className="max-w-[600px]">{biography}</span>
+        <span className="max-w-[600px]">{user.biography}</span>
       </div>
       
       <div className="bg-none text-dark mt-5 px-2 py-6 rounded-3xl">
@@ -111,7 +61,7 @@ function Profile() {
         <div className="flex flex-row gap-7 mt-4 items-center">
           <LeftArrow alt="Left Arrow" onClick={scrollLeft} className="cursor-pointer" />
           <div className="flex flex-row overflow-hidden gap-7 flex-grow" ref={scrollRef}>
-            {achivements.map((item) => (
+            {user.achivements.map((item) => (
               <div
                 key={item.id}
                 className="min-w-[112px] w-[112px] min-h-[154px] h-[154px] bg-gray-50 p-3 rounded-xl"
@@ -145,7 +95,7 @@ function Profile() {
               </tr>
             </thead>
             <tbody>
-              {results.map((item) => (
+              {user.results.map((item) => (
                 <tr className="even:bg-white odd:bg-gray-50">
                   <th scope="row" className="pl-6 py-4 font-medium text-dark whitespace-nowrap ">
                     {item.id}

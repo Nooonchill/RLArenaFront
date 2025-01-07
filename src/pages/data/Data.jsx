@@ -7,6 +7,11 @@ import CardImage from '/src/assets/imgs/CompetiotionTemplate.png'
 import Card from '/src/components/Card.jsx'
 import Form from '/src/components/Form.jsx'
 
+// Моковые данные
+import { user, logged } from '/src/mockdata/userData.js';
+import { data, dataDetails } from "/src/mockdata/dataData.js";
+
+
 function Data() {
   const [activeButton, setActiveButton] = useState(1);
   const [activeSort, setActiveSort] = useState(1);
@@ -32,24 +37,6 @@ function Data() {
     navigate('/data/' + id);
   };
 
-  const user = {
-    username: "NoooN",
-    fullName: "Горский Иван Артёмович",
-    organization: "УрФУ",
-    registration_date: "5-01-2025",
-    location: "Екатеринбург, Россия",
-    saved: {
-      competitions: [24],
-      guides: [201, 205, 203],
-      data: [101, 103, 104],
-    },
-    created: {
-      competitions: [1],
-      guides: [],
-      data: [],
-    }
-  }
-
 
   const filters = [
     { id: 1, title: "Все" },
@@ -62,15 +49,6 @@ function Data() {
     { id: 2, title: "Популярность"},
     { id: 3, title: "Оценки"},
   ]
-
-  const data = [
-    { id: 101, title: "Данные о ценах на дома в регионе", creator: "HousingData Inc.", createdDate: "15-03-2023", rate: 4.9, added: 3201 },
-    { id: 102, title: "Характеристики автомобилей и их стоимость", creator: "AutoStats", createdDate: "10-07-2022", rate: 4.7, added: 2845 },
-    { id: 103, title: "Статистика посещаемости спортивных мероприятий", creator: "Sports Analytics", createdDate: "20-11-2023", rate: 4.3, added: 1582 },
-    { id: 104, title: "Анализ здоровья детей и подростков", creator: "Health for Kids", createdDate: "05-09-2021", rate: 4.8, added: 4723 },
-    { id: 105, title: "Данные о погоде и климате за 10 лет", creator: "ClimateTrack", createdDate: "12-01-2020", rate: 4.6, added: 3528 },
-    { id: 106, title: "Геоданные с точками интереса", creator: "GeoData Solutions", createdDate: "03-06-2023", rate: 4.4, added: 2146 },
-  ];
   
 
   const getFilteredData = () => {
