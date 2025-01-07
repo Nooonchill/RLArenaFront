@@ -36,6 +36,8 @@ function Data() {
     username: "NoooN",
     fullName: "Горский Иван Артёмович",
     organization: "УрФУ",
+    registration_date: "5-01-2025",
+    location: "Екатеринбург, Россия",
     saved: {
       competitions: [24],
       guides: [201, 205, 203],
@@ -123,7 +125,7 @@ function Data() {
           <form className="max-w-[540px] min-w-[510px] w-full bg-none">
             <div className="relative h-[38px]">
               <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                <img src={Search} alt="Search" className="cursor-pointer" />
+                <Search alt="Search" className="cursor-pointer" />
               </div>
               <input
                 type="search"
@@ -146,9 +148,9 @@ function Data() {
                 <div onClick={() => handleSortClick(sort.id)} className={`flex flex-row gap-0.5 hover:text-turquoise ${activeSort === sort.id ? 'text-darkturquoise' : 'text-dark'}`}>
                   <span>{sort.title}</span>
                   {activeSort === sort.id && reverseSort ? (
-                    <img src={UpArrow} className="w-4" alt="Убывающая сортировка" />
+                    <UpArrow className="w-4" alt="Убывающая сортировка" />
                   ) : (
-                    <img src={DownArrow} className="w-4" alt="Возрастающая сортировка" />
+                    <DownArrow className="w-4" alt="Возрастающая сортировка" />
                   )}
                 </div>
               </div>

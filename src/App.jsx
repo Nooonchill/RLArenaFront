@@ -3,6 +3,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Auth from './pages/Auth';
+import Test from './pages/Test';
 import Competitions from './pages/competitions/Competitions.jsx';
 import Competition from './pages/competitions/Competition.jsx';
 import Guides from './pages/guides/Guides.jsx';
@@ -15,6 +16,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route element={<Layout />}>
+          <Route path="/test" element={<Test />} />
           <Route path="/" element={<Home />} />
           <Route path="/profile/" element={<Profile />} />
           <Route path="/competitions/" element={<Competitions />} />

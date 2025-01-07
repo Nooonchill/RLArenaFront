@@ -103,3 +103,8 @@ button:focus-visible {
   border-radius: 4px;
   font-family: monospace;
 }
+
+svg {
+  stroke: #17242B;
+  stroke-width: 2;
+}

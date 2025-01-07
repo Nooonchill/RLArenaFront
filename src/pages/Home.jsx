@@ -4,6 +4,7 @@ import Winner from '/src/assets/icons/Winner.svg'
 import Second from '/src/assets/icons/Second.svg'
 import Third from '/src/assets/icons/Third.svg'
 import Competitions from '/src/pages/competitions/Competitions.jsx';
+import CardImage from '/src/assets/imgs/CompetiotionTemplate.png'
 
 
 function Home() {
@@ -13,7 +14,23 @@ function Home() {
   const total = 57;
   const dashValue = 75 * solved / total;
   const position = 236;
-  const username = "NoooN"
+  const user = {
+    username: "NoooN",
+    fullName: "Горский Иван Артёмович",
+    organization: "УрФУ",
+    registration_date: "5-01-2025",
+    location: "Екатеринбург, Россия",
+    saved: {
+      competitions: [24],
+      guides: [201, 205, 203],
+      data: [101, 103, 104],
+    },
+    created: {
+      competitions: [1],
+      guides: [],
+      data: [],
+    }
+  }
 
   const timedelta = "PT5H30M";
 
@@ -59,7 +76,7 @@ function Home() {
     <div className="max-w-[1110px] mx-auto">
       {isLogged ? (
         <div className="bg-lightwhiteturquoise p-6 rounded-3xl mb-6 text-center">
-          <h1 className="text-dark text-4xl mb-4">Добро пожаловать, {username}!</h1>
+          <h1 className="text-dark text-4xl mb-4">Добро пожаловать, {user.username}!</h1>
           <div className="flex justify-around text-dark items-stretch space-x-4">
             <div className="bg-none p-2 m-1 w-1/4 items-center justify-center rounded-full flex flex-col">
               <h1>
@@ -119,18 +136,18 @@ function Home() {
           <div className="flex justify-center space-x-4">
             <div className="flex pb-5 pt-8 rounded-full">
               <div className="flex flex-col items-center w-24 mt-3">
-                <img src={User} alt="User" className="w-10 rounded-full border-2" />
-                <img src={Second} alt="Second" className="absolute mt-6 ml-6 w-6" />
+                <img src={CardImage} alt="User" className="w-10 h-10 rounded-full" />
+                <Second alt="Second" className="absolute mt-6 ml-6 w-6" />
                 <span className="truncate max-w-28">{lastCompetitionResult['users'][1].username}</span>
               </div>
               <div className="flex flex-col items-center w-24">
-                <img src={User} alt="User" className="w-10 rounded-full border-2" />
-                <img src={Winner} alt="Winner" className="absolute mt-[-24px] w-6" />
+                <img src={CardImage} alt="User" className="w-10 h-10 rounded-full" />
+                <Winner alt="Winner" className="absolute mt-[-24px] w-6" />
                 <span className="truncate max-w-28">{lastCompetitionResult['users'][0].username}</span>
               </div>
               <div className="flex flex-col items-center w-24 mt-6">
-                <img src={User} alt="User" className="w-10 rounded-full border-2" />
-                <img src={Third} alt="Third" className="absolute mt-6 ml-6 w-6" />
+                <img src={CardImage} alt="User" className="w-10 h-10 rounded-full" />
+                <Third alt="Third" className="absolute mt-6 ml-6 w-6" />
                 <span className="truncate max-w-28">{lastCompetitionResult['users'][2].username}</span>
               </div>
             </div>

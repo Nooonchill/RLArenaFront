@@ -264,7 +264,7 @@ const Competition = () => {
 
   return (
     <div className="max-w-[1110px] mx-auto">
-      <div className="flex flex-row gap-20 justify-between pl-2 mt-12 text-dark">
+      <div className="flex flex-row gap-20 justify-between pl-2 text-dark">
         <div className="mb-8 flex-grow">
           <div className="text-dark mb-6">
             <h1 className="text-4xl mb-3">{competitionDetail.title}</h1>
@@ -391,11 +391,11 @@ const Competition = () => {
           <div className="flex flex-col gap-y-2 text-lg font-semibold">
             <span>{competitionDetail.organizer}</span> 
             <div className="flex flex-row">
-              <img src={User} className="mr-2" alt="" />
+              <User className="mr-2" alt="" />
               <span>{competitionDetail.participants}</span>
             </div> 
             <div className="flex flex-row">
-              <img src={Star} className="mr-2" alt="" />
+              <Star className="mr-2" alt="" />
               <span className="">{competitionDetail.rate}</span>
             </div>
           </div>

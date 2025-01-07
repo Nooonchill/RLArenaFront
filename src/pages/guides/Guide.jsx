@@ -294,7 +294,7 @@ const Guide = () => {
 
   return (
     <div className="max-w-[1110px] mx-auto">
-      <div className="flex flex-row gap-20 justify-between pl-2 mt-12 text-dark">
+      <div className="flex flex-row gap-20 justify-between pl-2 text-dark">
         <div className="mb-8 flex-grow">
           <div className="text-dark mb-6">
             <h1 className="text-4xl mb-3">{guideDetails.title}</h1>
@@ -347,11 +347,11 @@ const Guide = () => {
           <div className="flex flex-col gap-y-2 text-lg font-semibold">
             <span>{guideDetails.creator}</span> 
             <div className="flex flex-row">
-              <img src={User} className="mr-2" alt="" />
+              <User className="mr-2" alt="" />
               <span>{guideDetails.added}</span>
             </div> 
             <div className="flex flex-row">
-              <img src={Star} className="mr-2" alt="" />
+              <Star className="mr-2" alt="" />
               <span className="">{guideDetails.rate}</span>
             </div>
           </div>

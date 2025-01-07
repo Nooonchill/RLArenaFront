@@ -46,11 +46,11 @@ const Card = ({ title, organizer, participants, rate, image, startDate, endDate,
         <span className="">{startDate}{endDate !== undefined ? (" - " + endDate) : ("")}</span>
         <div className="flex flex-row justify-between">
           <div className="flex flex-row gap-1">
-            <img src={User} className="w-5" alt="" />
+            <User className="w-5" alt="" />
             <span className="">{participants}</span>
           </div>
           <div className="flex flex-row gap-1">
-            <img src={Star} className="w-5" alt="" />
+            <Star className="w-5" alt="" />
             <span>{rate}</span>
           </div>
         </div>

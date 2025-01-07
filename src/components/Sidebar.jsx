@@ -37,21 +37,21 @@ const Sidebar = ({}) => {
       onMouseLeave={handleMouseLeave}
     >
       <div className="flex items-center p-7">
-        <div className="overflow-hidden transition-all duration-300 flex cursor-pointer" onClick={homeNavigate}>
-          <img src={Logo} alt="Logo" className="" />
+        <div className="flex items-center cursor-pointer justify-between" onClick={homeNavigate}>
+            <Logo alt="Home" />
             <div
               className={`overflow-hidden transition-all duration-300 ml-3 ${
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
               }`}
             >
-              <span className="text-xl text-black font-semibold whitespace-nowrap">RLArena</span>
+              <h1 className="text-lg font-semibold text-black pl-1">RLArena</h1>
             </div>
-        </div>
+          </div>
       </div>
       <div className="flex h-screen flex-col justify-between items-start pb-8">
         <ul className="space-y-6 mt-4">
           <li className="flex items-center px-7 cursor-pointer" onClick={homeNavigate}>
-            <img src={Home} alt="Home" />
+            <Home alt="Home" />
             <div
               className={`overflow-hidden transition-all duration-300 ml-3 ${
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
@@ -61,7 +61,7 @@ const Sidebar = ({}) => {
             </div>
           </li>
           <li className="flex items-center px-7 cursor-pointer" onClick={dataNavigate}>
-            <img src={Data} alt="Data" />
+            <Data alt="Data" />
             <div
               className={`overflow-hidden transition-all duration-300 ml-3 ${
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
@@ -71,7 +71,7 @@ const Sidebar = ({}) => {
             </div>
           </li>
           <li className="flex items-center px-7 cursor-pointer" onClick={competitionsNavigate}>
-            <img src={Brain} alt="Competitions" />
+            <Brain alt="Competitions" />
             <div
               className={`overflow-hidden transition-all duration-300 ml-3 ${
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
@@ -81,7 +81,7 @@ const Sidebar = ({}) => {
             </div>
           </li>
           <li className="flex items-center px-7 cursor-pointer" onClick={guidesNavigate}>
-            <img src={Guides} alt="Guides" />
+            <Guides alt="Guides" />
             <div
               className={`overflow-hidden transition-all duration-300 ml-3 ${
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
@@ -93,7 +93,7 @@ const Sidebar = ({}) => {
         </ul>
         <ul className="mb-7">
           <li className="flex items-center px-7 pb-12">
-            <img src={Settings} alt="Settings" className="cursor-pointer" />
+            <Settings alt="Settings" className="cursor-pointer" />
             <div
               className={`overflow-hidden transition-all duration-300 ml-3 ${
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
