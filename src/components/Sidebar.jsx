@@ -4,15 +4,20 @@ import Home from '/src/assets/icons/Home.svg';
 import Brain from '/src/assets/icons/Brain.svg';
 import Guides from '/src/assets/icons/Guides.svg';
 import Data from '/src/assets/icons/Data.svg';
-import Settings from '/src/assets/icons/Settings.svg';
+import SettingsIcon from '/src/assets/icons/Settings.svg';
 import Logo from '/src/assets/icons/Atom.svg';
+import SettingsMenu from '/src/components/Settings.jsx';  // Импорт компонента настроек
 
-const Sidebar = ({}) => {
-  
+const Sidebar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const handleMouseEnter = () => setIsMenuOpen(true);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);  // Состояние для модального окна настроек
+  const handleMouseEnter = () => {
+    if (!isSettingsOpen) {
+      setIsMenuOpen(true);
+    }
+  };
   const handleMouseLeave = () => setIsMenuOpen(false);
-  
+
   const navigate = useNavigate();
 
   const homeNavigate = () => {
@@ -27,6 +32,12 @@ const Sidebar = ({}) => {
   const guidesNavigate = () => {
     navigate('/guides');
   };
+
+  const toggleSettingsMenu = () => {
+    setIsMenuOpen(false);
+    setIsSettingsOpen(!isSettingsOpen);  // Переключение состояния модального окна
+  };
+  
 
   return (
     <aside
@@ -92,8 +103,11 @@ const Sidebar = ({}) => {
           </li>
         </ul>
         <ul className="mb-7">
-          <li className="flex items-center px-7 pb-12">
-            <Settings alt="Settings" className="cursor-pointer" />
+          <li
+            className="flex items-center px-7 pb-12 cursor-pointer"
+            onClick={toggleSettingsMenu}
+          >
+            <SettingsIcon alt="Settings" />
             <div
               className={`overflow-hidden transition-all duration-300 ml-3 ${
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
@@ -104,6 +118,9 @@ const Sidebar = ({}) => {
           </li>
         </ul>
       </div>
+
+      {/* Модальное окно настроек */}
+      {isSettingsOpen && <SettingsMenu onClose={toggleSettingsMenu} />}
     </aside>
   );
 };

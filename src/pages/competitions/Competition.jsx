@@ -10,7 +10,7 @@ import Add from '/src/assets/icons/Add.svg'
 const Competition = () => {
   const { id } = useParams();
 
-  const competitionDetails = [
+  const competitionsDetails = [
     {
       id: 134,
       title: "Прогнозирование цен на дома",
@@ -222,7 +222,7 @@ const Competition = () => {
     }
   ]
 
-  const competitionDetail = competitionDetails.find((item) => item.id === +id);
+  const competitionDetails = competitionsDetails.find((item) => item.id === +id);
 
   const tabs = [
     { id: 1, title: "Обзор" },
@@ -262,24 +262,50 @@ const Competition = () => {
     return hours + "ч. " + minutes + "мин. ";
   };
 
+  const user = {
+    username: "NoooN",
+    fullName: "Горский Иван Артёмович",
+    email: "nooonchill@gmail.com",
+    organization: "УрФУ",
+    registration_date: "5-01-2025",
+    location: "Екатеринбург, Россия",
+    saved: {
+      competitions: [24],
+      guides: [201, 205, 203],
+      data: [101, 103, 104],
+    },
+    created: {
+      competitions: [1],
+      guides: [],
+      data: [],
+    }
+  }
+
   return (
     <div className="max-w-[1110px] mx-auto">
       <div className="flex flex-row gap-20 justify-between pl-2 text-dark">
         <div className="mb-8 flex-grow">
           <div className="text-dark mb-6">
-            <h1 className="text-4xl mb-3">{competitionDetail.title}</h1>
+            <h1 className="text-4xl mb-3">{competitionDetails.title}</h1>
             <div className="flex flex-row overflow-hidden flex-nowrap gap-2 mb-2">
-              {competitionDetail.tags.map((tag) => (
+              {competitionDetails.tags.map((tag) => (
                 <div className="bg-lightwhiteturquoise rounded-full py-1 px-2">
                   <span>#{tag}</span>
                 </div>
               ))}
             </div>
             <div className="flex flex-row justify-between items-end">
-              <span>{competitionDetail.startDate.replaceAll("-", ".")} - {competitionDetail.endDate.replaceAll("-", ".")}</span>
-              <button className="flex flex-row items-center gap-1 w-max h-[38px] py-0 border-none font-medium bg-turquoise text-white hover:bg-lightturquoise active:bg-darkturquoise rounded-full">
-                Участовать
-              </button>
+              <span>{competitionDetails.startDate.replaceAll("-", ".")} - {competitionDetails.endDate.replaceAll("-", ".")}</span>
+              {user.saved.competitions.includes(competitionDetails.id) || user.created.competitions.includes(competitionDetails.id) ? (
+                <button className="h-[38px] py-0 bg-white font-medium border-2 border-turquoise text-turquoise hover:text-lightturquoise hover:border-lightturquoise active:text-darkturquoise active:border-darkturquoise w-max rounded-full">
+                  Отказаться
+                </button>
+              
+              ) : (
+                <button className="flex flex-row items-center gap-1 w-max h-[38px] py-0 border-none font-medium bg-turquoise text-white hover:bg-lightturquoise active:bg-darkturquoise rounded-full">
+                  Участовать
+                </button>
+              )}
             </div>
           </div>
           <div className="relative flex flex-row gap-[30px] mb-6 text-lg">
@@ -305,7 +331,7 @@ const Competition = () => {
             activeTab == 1 ? (
             <div className="shadow-md rounded-lg">
               <div className="markdown-container p-4">
-                <ReactMarkdown>{competitionDetail.description}</ReactMarkdown>
+                <ReactMarkdown>{competitionDetails.description}</ReactMarkdown>
               </div>
             </div>
             ) : (
@@ -325,7 +351,7 @@ const Competition = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {competitionDetail.data.map((file) => (
+                    {competitionDetails.data.map((file) => (
                       <tr className="odd:bg-white even:bg-gray-50">
                         <th scope="row" className="pl-6 py-4 font-medium text-dark whitespace-nowrap ">
                           {file.fileName}
@@ -365,7 +391,7 @@ const Competition = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {competitionDetail.solutions.map((result) => (
+                  {competitionDetails.solutions.map((result) => (
                     <tr className="odd:bg-white even:bg-gray-50">
                       <th scope="row" className="pl-6 py-4 font-medium text-dark whitespace-nowrap ">
                         {result.place}
@@ -389,14 +415,14 @@ const Competition = () => {
         <div className="min-w-[320px]">
           <img src={CompetitionImage} className="w-[320px] h-[180px] mb-4" alt="" />
           <div className="flex flex-col gap-y-2 text-lg font-semibold">
-            <span>{competitionDetail.organizer}</span> 
+            <span>{competitionDetails.organizer}</span> 
             <div className="flex flex-row">
               <User className="mr-2" alt="" />
-              <span>{competitionDetail.participants}</span>
+              <span>{competitionDetails.participants}</span>
             </div> 
             <div className="flex flex-row">
               <Star className="mr-2" alt="" />
-              <span className="">{competitionDetail.rate}</span>
+              <span className="">{competitionDetails.rate}</span>
             </div>
           </div>
         </div>

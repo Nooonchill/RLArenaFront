@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import Logo from '/src/assets/icons/Atom.svg';
+import Form from '/src/components/Form.jsx';
 
 
 const Auth = () => {
@@ -33,7 +34,7 @@ const Auth = () => {
       <div className="flex justify-center h-full items-center">
         <div className="w-[290px] max-w-md bg-white rounded-3xl shadow-lg p-6 text-dark">
           <div onClick={mainNavigate} className="flex justify-center mb-2 cursor-pointer">
-            <img src={Logo} alt="Logo" className="" />
+            <Logo alt="Logo" className="" />
             <span className="text-xl text-black font-semibold whitespace-nowrap">RLArena</span>
           </div>
           {/* Навигация между формами */}
@@ -69,73 +70,9 @@ const Auth = () => {
 
           {/* Форма */}
           {isRegister ? (
-            <form className="space-y-4">
-              <div>
-                <input
-                  type="text"
-                  id="username"
-                  name="username"
-                  placeholder="Имя"
-                  required
-                  className="block w-full h-8 p-4 text-base placeholder-darkturquoise text-darkturquoise bg-lightwhiteturquoise rounded-xl focus:outline-none focus:ring-0 border-2 border-turquoise"
-                />
-              </div>
-              <div>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Эл. почта"
-                  required
-                  className="block w-full h-8 p-4 text-base placeholder-darkturquoise text-darkturquoise bg-lightwhiteturquoise rounded-xl focus:outline-none focus:ring-0 border-2 border-turquoise"
-                />
-              </div>
-              <div>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="Пароль"
-                  required
-                  className="block w-full h-8 p-4 text-base placeholder-darkturquoise text-darkturquoise bg-lightwhiteturquoise rounded-xl focus:outline-none focus:ring-0 border-2 border-turquoise"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full py-2 px-4 bg-darkturquoise text-white rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-              >
-                Зарегестрироваться
-              </button>
-            </form>
+            <Form type='signup' isFieldsRow={false} isCretionForm={false} buttonText="Регистрация" />
           ) : (
-            <form className="space-y-4">
-              <div>
-                <input
-                  type="text"
-                  id="usernameOrEmail"
-                  name="usernameOrEmail"
-                  placeholder="Имя или Эл. почта"
-                  required
-                  className="block w-full h-8 p-4 text-base placeholder-darkturquoise text-darkturquoise bg-lightwhiteturquoise rounded-xl focus:outline-none focus:ring-0 border-2 border-turquoise"
-                />
-              </div>
-              <div>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="Пароль"
-                  required
-                  className="block w-full h-8 p-4 text-base placeholder-darkturquoise text-darkturquoise bg-lightwhiteturquoise rounded-xl focus:outline-none focus:ring-0 border-2 border-turquoise"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full py-2 px-4 bg-darkturquoise text-white rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-              >
-                Войти
-              </button>
-            </form>
+            <Form type='login' isFieldsRow={false} isCretionForm={false} buttonText="Регистрация" />
           )}
         </div>
       </div>

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import Star from '/src/assets/icons/Star.svg'
-import User from '/src/assets/icons/User.svg'
+import Star from '/src/assets/icons/Star.svg';
+import User from '/src/assets/icons/User.svg';
+import Add from '/src/assets/icons/Add.svg';
+import Remove from '/src/assets/icons/Remove.svg';
 
-const Card = ({ title, organizer, participants, rate, image, startDate, endDate, onClick }) => {
+const Card = ({ title, organizer, participants, rate, image, startDate, endDate, onClick, onButtonClick, added }) => {
   const [isLoading, setIsLoading] = useState(true); // Состояние загрузки картинки
 
   // Форматируем даты
@@ -45,14 +47,29 @@ const Card = ({ title, organizer, participants, rate, image, startDate, endDate,
         <span className="">{organizer}</span>
         <span className="">{startDate}{endDate !== undefined ? (" - " + endDate) : ("")}</span>
         <div className="flex flex-row justify-between">
-          <div className="flex flex-row gap-1">
-            <User className="w-5" alt="" />
-            <span className="">{participants}</span>
+          <div className="flex flex-row gap-2">
+            <div className="flex flex-row gap-1">
+              <Star className="w-5" alt="" />
+              <span>{rate}</span>
+            </div>
+            <div className="flex flex-row gap-1">
+              <User className="w-5" alt="" />
+              <span className="">{participants}</span>
+            </div>
           </div>
-          <div className="flex flex-row gap-1">
-            <Star className="w-5" alt="" />
-            <span>{rate}</span>
-          </div>
+          <button
+            className="bg-transparent p-0 mr-2 hover:border-transparent"
+            onClick={(e) => {
+              e.stopPropagation(); // Предотвращаем срабатывание клика на карточке
+              onButtonClick(); // Вызываем переданную функцию для кнопки
+            }}
+          >
+            {added ? (
+              <Remove className="stroke-turquoise"/>
+            ) : (
+              <Add className="stroke-turquoise"/>
+            )}
+          </button>
         </div>
       </div>
     </div>

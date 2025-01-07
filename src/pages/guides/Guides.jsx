@@ -208,6 +208,8 @@ function Guides() {
                   image={CardImage}
                   startDate={guide.createdDate}
                   onClick={() => cardNavigate(guide.id)}
+                  onButtonClick={() => console.log('button clicked')}
+                  added={user.saved.guides.includes(guide.id) || user.created.guides.includes(guide.id)}
                 />
             ))}
           </div>

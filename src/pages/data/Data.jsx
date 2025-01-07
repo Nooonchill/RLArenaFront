@@ -167,6 +167,8 @@ function Data() {
                   image={CardImage}
                   startDate={datum.createdDate}
                   onClick={() => cardNavigate(datum.id)}
+                  onButtonClick={() => console.log('button clicked')}
+                  added={user.saved.data.includes(datum.id) || user.created.data.includes(datum.id)}
                 />
             ))}
           </div>

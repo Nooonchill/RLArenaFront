@@ -104,7 +104,7 @@ const Datum = () => {
   ];
   
 
-  const datumDetail = dataDetails.find((item) => item.id === +id);
+  const datumDetails = dataDetails.find((item) => item.id === +id);
 
   const tabs = [
     { id: 1, title: "Обзор" },
@@ -143,24 +143,49 @@ const Datum = () => {
     return hours + "ч. " + minutes + "мин. ";
   };
 
+  const user = {
+    username: "NoooN",
+    fullName: "Горский Иван Артёмович",
+    email: "nooonchill@gmail.com",
+    organization: "УрФУ",
+    registration_date: "5-01-2025",
+    location: "Екатеринбург, Россия",
+    saved: {
+      competitions: [24],
+      guides: [201, 205, 203],
+      data: [101, 103, 104],
+    },
+    created: {
+      competitions: [1],
+      guides: [],
+      data: [],
+    }
+  }
+
   return (
     <div className="max-w-[1110px] mx-auto">
       <div className="flex flex-row gap-20 justify-between pl-2 text-dark">
         <div className="mb-8 flex-grow">
           <div className="text-dark mb-6">
-            <h1 className="text-4xl mb-3">{datumDetail.title}</h1>
+            <h1 className="text-4xl mb-3">{datumDetails.title}</h1>
             <div className="flex flex-row overflow-hidden flex-nowrap gap-2 mb-2">
-              {datumDetail.tags.map((tag) => (
+              {datumDetails.tags.map((tag) => (
                 <div className="bg-lightwhiteturquoise rounded-full py-1 px-2">
                   <span>#{tag}</span>
                 </div>
               ))}
             </div>
             <div className="flex flex-row justify-between items-end">
-              <span>{datumDetail.createdDate.replaceAll("-", ".")}</span>
-              <button className="flex flex-row items-center gap-1 w-max h-[38px] py-0 border-none font-medium bg-turquoise text-white hover:bg-lightturquoise active:bg-darkturquoise rounded-full">
-                Сохранить
-              </button>
+              <span>{datumDetails.createdDate.replaceAll("-", ".")}</span>
+              {user.saved.data.includes(datumDetails.id) || user.created.data.includes(datumDetails.id) ? (
+                <button className="h-[38px] py-0 bg-white font-medium border-2 border-turquoise text-turquoise hover:text-lightturquoise hover:border-lightturquoise active:text-darkturquoise active:border-darkturquoise w-max rounded-full">
+                  Удалить
+                </button>
+              ) : (
+                <button className="flex flex-row items-center gap-1 w-max h-[38px] py-0 border-none font-medium bg-turquoise text-white hover:bg-lightturquoise active:bg-darkturquoise rounded-full">
+                  Сохранить
+                </button>
+              )}
             </div>
           </div>
           <div className="relative flex flex-row gap-[30px] mb-6 text-lg">
@@ -185,7 +210,7 @@ const Datum = () => {
           {activeTab == 1 ? (
             <div className="shadow-md rounded-lg">
               <div className="markdown-container p-4">
-                <ReactMarkdown>{datumDetail.description}</ReactMarkdown>
+                <ReactMarkdown>{datumDetails.description}</ReactMarkdown>
               </div>
             </div>
           ) : (
@@ -205,7 +230,7 @@ const Datum = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {datumDetail.files.map((file) => (
+                  {datumDetails.files.map((file) => (
                     <tr className="odd:bg-white even:bg-gray-50">
                       <th scope="row" className="pl-6 py-4 font-medium text-dark whitespace-nowrap ">
                         {file.name}
@@ -229,14 +254,14 @@ const Datum = () => {
         <div className="min-w-[320px]">
           <img src={CompetitionImage} className="w-[320px] h-[180px] mb-4" alt="" />
           <div className="flex flex-col gap-y-2 text-lg font-semibold">
-            <span>{datumDetail.creator}</span> 
+            <span>{datumDetails.creator}</span> 
             <div className="flex flex-row">
               <User className="mr-2" alt="" />
-              <span>{datumDetail.added}</span>
+              <span>{datumDetails.added}</span>
             </div> 
             <div className="flex flex-row">
               <Star className="mr-2" alt="" />
-              <span className="">{datumDetail.rate}</span>
+              <span className="">{datumDetails.rate}</span>
             </div>
           </div>
         </div>

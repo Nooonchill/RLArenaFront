@@ -291,6 +291,24 @@ const Guide = () => {
     setActiveTab(tabId);
   };
 
+  const user = {
+    username: "NoooN",
+    fullName: "Горский Иван Артёмович",
+    email: "nooonchill@gmail.com",
+    organization: "УрФУ",
+    registration_date: "5-01-2025",
+    location: "Екатеринбург, Россия",
+    saved: {
+      competitions: [24],
+      guides: [201, 205, 203],
+      data: [101, 103, 104],
+    },
+    created: {
+      competitions: [1],
+      guides: [],
+      data: [],
+    }
+  }
 
   return (
     <div className="max-w-[1110px] mx-auto">
@@ -307,9 +325,15 @@ const Guide = () => {
             </div>
             <div className="flex flex-row justify-between items-end">
               <span>{guideDetails.createdDate.replaceAll("-", ".")}</span>
-              <button className="flex flex-row items-center gap-1 w-max h-[38px] py-0 border-none font-medium bg-turquoise text-white hover:bg-lightturquoise active:bg-darkturquoise rounded-full">
-                Сохранить
-              </button>
+              {user.saved.guides.includes(guideDetails.id) || user.created.guides.includes(guideDetails.id) ? (
+                <button className="h-[38px] py-0 bg-white font-medium border-2 border-turquoise text-turquoise hover:text-lightturquoise hover:border-lightturquoise active:text-darkturquoise active:border-darkturquoise w-max rounded-full">
+                  Удалить
+                </button>
+              ) : (
+                <button className="flex flex-row items-center gap-1 w-max h-[38px] py-0 border-none font-medium bg-turquoise text-white hover:bg-lightturquoise active:bg-darkturquoise rounded-full">
+                  Сохранить
+                </button>
+              )}
             </div>
           </div>
           <div className="relative flex flex-row gap-[30px] mb-6 text-lg">

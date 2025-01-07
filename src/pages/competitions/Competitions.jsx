@@ -195,12 +195,14 @@ function Competitions() {
                   startDate={competition.startDate}
                   endDate={competition.endDate}
                   onClick={() => cardNavigate(competition.id)}
+                  onButtonClick={() => console.log('button clicked')}
+                  added={user.saved.competitions.includes(competition.id) || user.created.competitions.includes(competition.id)}
                 />
             ))}
           </div>
         </div>
       ) : (
-        <Form type='competitions' />
+        <Form type='competitions' isFieldsRow={true} isCretionForm={true} buttonText="Создать" />
       )}
       
     </div>
