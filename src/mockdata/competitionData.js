@@ -25,9 +25,9 @@ export const competitionsDetails = [
 Это соревнование помогает улучшить навыки работы с табличными данными и настройкой гиперпараметров.
     `,
     data: [
-      { fileName: "house_train.csv", size: "10.5MB", description: "Обучающий набор данных с 5000 строками." },
-      { fileName: "house_test.csv", size: "2.1MB", description: "Тестовые данные для проверки модели (1000 строк)." },
-      { fileName: "features_info.txt", size: "4KB", description: "Описание характеристик домов и их форматов." }
+      { name: "house_train.csv", size: "10.5MB", description: "Обучающий набор данных с 5000 строками." },
+      { name: "house_test.csv", size: "2.1MB", description: "Тестовые данные для проверки модели (1000 строк)." },
+      { name: "features_info.txt", size: "4KB", description: "Описание характеристик домов и их форматов." }
     ],
     solutions: [
       { place: 1, username: "Ivan", time: "PT23H10M", score: 565 },
@@ -59,10 +59,10 @@ export const competitionsDetails = [
 и обработкой данных с пропусками.
     `,
     data: [
-      { fileName: "cars_train.csv", size: "15MB", description: "Таблица с обучающими данными (8000 строк)." },
-      { fileName: "cars_test.csv", size: "3.2MB", description: "Таблица для тестирования (2000 строк)." },
-      { fileName: "features_description.txt", size: "3KB", description: "Описание характеристик автомобилей." },
-      { fileName: "data_preprocessing_tips.pdf", size: "1.2MB", description: "Советы по обработке данных." }
+      { name: "cars_train.csv", size: "15MB", description: "Таблица с обучающими данными (8000 строк)." },
+      { name: "cars_test.csv", size: "3.2MB", description: "Таблица для тестирования (2000 строк)." },
+      { name: "features_description.txt", size: "3KB", description: "Описание характеристик автомобилей." },
+      { name: "data_preprocessing_tips.pdf", size: "1.2MB", description: "Советы по обработке данных." }
     ],
     solutions: [
       { place: 1, username: "FastDriver", time: "PT21H45M", score: 0.965 },
@@ -93,10 +93,10 @@ export const competitionsDetails = [
 и другие метрики. Цель — спрогнозировать вероятность победы для каждой из команд.
     `,
     data: [
-      { fileName: "teams_stats.csv", size: "10MB", description: "Статистика команд за предыдущие сезоны (2000 строк)." },
-      { fileName: "players_stats.csv", size: "6MB", description: "Данные о игроках (1000 строк)." },
-      { fileName: "game_results.csv", size: "8MB", description: "Результаты матчей предыдущих сезонов." },
-      { fileName: "game_rules.txt", size: "1KB", description: "Правила проведения Кубка Гагарина." }
+      { name: "teams_stats.csv", size: "10MB", description: "Статистика команд за предыдущие сезоны (2000 строк)." },
+      { name: "players_stats.csv", size: "6MB", description: "Данные о игроках (1000 строк)." },
+      { name: "game_results.csv", size: "8MB", description: "Результаты матчей предыдущих сезонов." },
+      { name: "game_rules.txt", size: "1KB", description: "Правила проведения Кубка Гагарина." }
     ],
     solutions: [
       { place: 1, username: "IceMaster", time: "PT12H30M", score: 0.92 },
@@ -126,9 +126,9 @@ export const competitionsDetails = [
 Задача заключается в максимизации удовлетворенности студентов и работодателей, с учетом доступных вакансий и критериев.
     `,
     data: [
-      { fileName: "students_data.csv", size: "4MB", description: "Данные студентов, их навыки и предпочтения (100 строк)." },
-      { fileName: "companies_requirements.csv", size: "2MB", description: "Требования к стажерам от IT-компаний (50 строк)." },
-      { fileName: "placement_rules.txt", size: "1KB", description: "Правила распределения студентов по компаниям." }
+      { name: "students_data.csv", size: "4MB", description: "Данные студентов, их навыки и предпочтения (100 строк)." },
+      { name: "companies_requirements.csv", size: "2MB", description: "Требования к стажерам от IT-компаний (50 строк)." },
+      { name: "placement_rules.txt", size: "1KB", description: "Правила распределения студентов по компаниям." }
     ],
     solutions: [
       { place: 1, username: "OptimumMatcher", time: "PT8H30M", score: 1500 },
@@ -162,10 +162,10 @@ export const competitionsDetails = [
 на исход матчей.
     `,
     data: [
-      { fileName: "team_stats.csv", size: "10MB", description: "Статистика команд за последние сезоны (500 строк)." },
-      { fileName: "player_data.csv", size: "8MB", description: "Данные игроков, их индивидуальная статистика и физическая форма (200 строк)." },
-      { fileName: "game_history.csv", size: "6MB", description: "История матчей, включая результаты, детали и тактические данные (1000 строк)." },
-      { fileName: "match_conditions.txt", size: "1KB", description: "Технические характеристики поля, погодные условия и другие параметры матчей." }
+      { name: "team_stats.csv", size: "10MB", description: "Статистика команд за последние сезоны (500 строк)." },
+      { name: "player_data.csv", size: "8MB", description: "Данные игроков, их индивидуальная статистика и физическая форма (200 строк)." },
+      { name: "game_history.csv", size: "6MB", description: "История матчей, включая результаты, детали и тактические данные (1000 строк)." },
+      { name: "match_conditions.txt", size: "1KB", description: "Технические характеристики поля, погодные условия и другие параметры матчей." }
     ],
     solutions: [
       { place: 1, username: "PuckPredictor", time: "PT5H30M", score: 3000 },
@@ -197,10 +197,10 @@ export const competitionsDetails = [
 различать эмоции, возраст или пол ребенка. Дополнительно требуется распознавание речи с высокой точностью.
     `,
     data: [
-      { fileName: "voice_samples.wav", size: "25MB", description: "Записи голосов детей с различными эмоциями и произнесенными фразами (2000 записей)." },
-      { fileName: "emotions_labels.csv", size: "5MB", description: "Метки эмоций для каждой записи (радость, грусть, страх, удивление и т.д.)." },
-      { fileName: "age_labels.csv", size: "3MB", description: "Возрастная группа для каждого образца (0-3 года, 4-6 лет и т.д.)." },
-      { fileName: "speech_transcriptions.txt", size: "8KB", description: "Транскрипты речи, произнесенной детьми (1000 строк)." }
+      { name: "voice_samples.wav", size: "25MB", description: "Записи голосов детей с различными эмоциями и произнесенными фразами (2000 записей)." },
+      { name: "emotions_labels.csv", size: "5MB", description: "Метки эмоций для каждой записи (радость, грусть, страх, удивление и т.д.)." },
+      { name: "age_labels.csv", size: "3MB", description: "Возрастная группа для каждого образца (0-3 года, 4-6 лет и т.д.)." },
+      { name: "speech_transcriptions.txt", size: "8KB", description: "Транскрипты речи, произнесенной детьми (1000 строк)." }
     ],
     solutions: [
       { place: 1, username: "VoiceMaster", time: "PT1H00M", score: 97 },

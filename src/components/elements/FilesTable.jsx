@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 
 
-const FilesTable = ({details}) => {
+const FilesTable = ({details: data}) => {
 
   return (
     <div className="flex flex-col items-center">
@@ -20,10 +20,10 @@ const FilesTable = ({details}) => {
           </tr>
         </thead>
         <tbody>
-          {details.data.map((file) => (
+          {data.map((file) => (
             <tr className="odd:bg-white even:bg-gray-50">
               <th scope="row" className="pl-6 py-4 font-medium text-dark whitespace-nowrap ">
-                {file.fileName}
+                {file.name}
               </th>
               <td className="px-6 py-4">
                 {file.size}

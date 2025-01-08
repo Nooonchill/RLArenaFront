@@ -2,11 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import CompetitionImage from '/src/assets/imgs/CompetiotionTemplate.png'
-import Star from '/src/assets/icons/Star.svg'
-import User from '/src/assets/icons/User.svg'
-import Info from "/src/components/elements/Info.jsx";
+import MainInfo from "/src/components/elements/MainInfo.jsx";
 import Tabs from "/src/components/elements/Tabs.jsx";
-import FilesTable from "/src/components/elements/FilesTable.jsx";
+import RightInfo from "/src/components/elements/RightInfo";
 
 // Моковые данные
 import { user, logged } from '/src/mockdata/userData.js';
@@ -31,8 +29,11 @@ const Guide = () => {
     <div className="max-w-[1110px] mx-auto">
       <div className="flex flex-row gap-20 justify-between pl-2 text-dark">
         <div className="mb-8 flex-grow">
-          <Info
+          <MainInfo
+            user={user}
             details={guideDetails}
+            addButtonText="Добавить"
+            removeButtonText="Удалить"
           />
           <Tabs tabs={tabs} activeTab={activeTab} onTabChange={handleTabClick} />
           {activeTab == 1 ? (
@@ -46,20 +47,12 @@ const Guide = () => {
             </div>
           )}
         </div>
-        <div className="min-w-[320px]">
-          <img src={CompetitionImage} className="w-[320px] h-[180px] mb-4" alt="" />
-          <div className="flex flex-col gap-y-2 text-lg font-semibold">
-            <span>{guideDetails.creator}</span> 
-            <div className="flex flex-row">
-              <User className="mr-2" alt="" />
-              <span>{guideDetails.added}</span>
-            </div> 
-            <div className="flex flex-row">
-              <Star className="mr-2" alt="" />
-              <span className="">{guideDetails.rate}</span>
-            </div>
-          </div>
-        </div>
+        <RightInfo 
+          image={CompetitionImage}
+          creator={guideDetails.creator}
+          people={guideDetails.added}
+          rate={guideDetails.rate}
+        />
       </div>
     </div>
   );
