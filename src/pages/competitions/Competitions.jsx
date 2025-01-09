@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import Search from '/src/assets/icons/Search.svg'
-import DownArrow from '/src/assets/icons/DownArrow.svg'
-import UpArrow from '/src/assets/icons/UpArrow.svg'
 import CardImage from '/src/assets/imgs/CompetiotionTemplate.png'
 import Card from '/src/components/Card.jsx'
 import Form from '/src/components/Form.jsx'

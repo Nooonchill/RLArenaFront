@@ -1,21 +1,9 @@
 import React, { useState } from "react";
+import { changeTimeView } from "/src/utils/TimeView.js"
 
 const UserStat = ({user, isLogged}) => {
   const total = user.saved.competitions.length + user.created.competitions.length
   const dashValue = 75 * user.stats.solved / total;
-
-  const changeTimeView = (timedelta) => {
-    const match = timedelta.match(/PT(\d+H)?(\d+M)?/);
-    let hours = 0;
-    let minutes = 0;
-    if (match[1]) {
-      hours = parseInt(match[1].replace("H", ""), 10);
-    }
-    if (match[2]) {
-      minutes = parseInt(match[2].replace("M", ""), 10);
-    }
-    return hours + "ч. " + minutes + "мин. ";
-  };
 
   return (
     <div className="bg-lightwhiteturquoise p-6 rounded-3xl mb-6 text-center">

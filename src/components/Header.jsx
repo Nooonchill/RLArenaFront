@@ -4,6 +4,9 @@ import Search from '/src/assets/icons/Search.svg';
 import User from '/src/assets/icons/User.svg';
 import LeftArrow from '/src/assets/icons/LeftArrow.svg';
 
+// Моковые данные
+import { user, logged } from '/src/mockdata/userData.js';
+
 const Header = ({}) => {
   
   const [isLogged, setIsLogged] = useState(true);
@@ -25,34 +28,12 @@ const Header = ({}) => {
     return "none";
   }
 
-  const user = {
-    username: "NoooN",
-    fullName: "Горский Иван Артёмович",
-    organization: "УрФУ",
-    registration_date: "5-01-2025",
-    location: "Екатеринбург, Россия",
-    saved: {
-      competitions: [24],
-      guides: [201, 205, 203],
-      data: [101, 103, 104],
-    },
-    created: {
-      competitions: [1],
-      guides: [],
-      data: [],
-    }
-  }
-
   const navigate = useNavigate();
 
   const profileNavigate = () => {
     navigate('/profile');
   };
-
-  const backNavigate = () => {
-    navigate(pathname);
-  }
-
+  
   return (
     <div className="max-w-[1110px] mx-auto">
       <header className="flex flex-col gap-4">
