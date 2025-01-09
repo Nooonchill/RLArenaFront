@@ -7,6 +7,7 @@ import Tabs from "/src/components/elements/Tabs.jsx";
 import FilesTable from "/src/components/elements/FilesTable.jsx";
 import ResultsTable from "/src/components/elements/ResultsTable.jsx";
 import RightInfo from "/src/components/elements/RightInfo";
+import { changeTimeView } from "/src/utils/TimeView.js";
 
 // Моковые данные
 import { user, logged } from '/src/mockdata/userData.js';
@@ -52,10 +53,18 @@ const Competition = () => {
               details={competitionDetails.data}            
             />
           ) : (
-            <ResultsTable
-              results={competitionDetails.solutions}
-              rows={20}
-            />
+            <div className="relative overflow-x-auto sm:rounded-lg m-auto max-w-[800px]">
+              <ResultsTable
+                results={competitionDetails.solutions}
+                rows={20}
+                columns={[
+                  { key: "place", label: "Место" },
+                  { key: "username", label: "Пользователь" },
+                  { key: "time", label: "Время", format: (value) => changeTimeView(value) },
+                  { key: "score", label: "Оценка" },
+                ]}
+              />
+            </div>
           )}
         </div>
         <RightInfo 

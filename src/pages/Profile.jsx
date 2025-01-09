@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import LeftArrow from '/src/assets/icons/LeftArrow.svg'
 import RightArrow from '/src/assets/icons/RightArrow.svg'
 import CardImage from '/src/assets/imgs/CompetiotionTemplate.png'
+import ResultsTable from "/src/components/elements/ResultsTable.jsx";
 
 // Моковые данные
 import { user, logged } from '/src/mockdata/userData.js';
@@ -79,37 +80,16 @@ function Profile() {
       </div>
       <div className="bg-none  mt-5  rounded-3xl">
         <h2 className="text-2xl ml-[60px] mb-4">Результаты участия в соренованиях</h2>
-        <div className="relative overflow-x-auto sm:rounded-lg flex flex-grow">
-          <table className="w-full text-sm text-left rtl:text-right text-dark">
-            <thead className="text-xs text-dark uppercase bg-lightwhiteturquoise">
-              <tr>
-                <th scope="col" className="pl-6 py-3">
-                  #
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Название
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Позиция
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {user.results.map((item) => (
-                <tr className="even:bg-white odd:bg-gray-50">
-                  <th scope="row" className="pl-6 py-4 font-medium text-dark whitespace-nowrap ">
-                    {item.id}
-                  </th>
-                  <td className="px-6 py-4">
-                    {item.title}
-                  </td>
-                  <td className="px-6 py-4">
-                    {item.position}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="relative overflow-x-auto sm:rounded-lg m-auto">
+          <ResultsTable
+            results={user.results}
+            rows={20}
+            columns={[
+              { key: "id", label: "#" },
+              { key: "title", label: "Название" },
+              { key: "place", label: "Позиция" },
+            ]}
+          />
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ import Second from '/src/assets/icons/Second.svg'
 import Third from '/src/assets/icons/Third.svg'
 import CardImage from '/src/assets/imgs/CompetiotionTemplate.png'
 import ResultsTable from "/src/components/elements/ResultsTable.jsx";
+import { changeTimeView } from "/src/utils/TimeView.js";
 
 
 const CompetitionNews = ({ competition }) => {
@@ -39,10 +40,18 @@ const CompetitionNews = ({ competition }) => {
           </div>
         </div>
         <div>
-          <ResultsTable
-            results={competition.solutions}
-            rows={10}
-          />
+          <div className="relative overflow-x-auto sm:rounded-lg m-auto max-w-[800px]">
+            <ResultsTable
+              results={competition.solutions}
+              rows={10}
+              columns={[
+                { key: "place", label: "Место" },
+                { key: "username", label: "Пользователь" },
+                { key: "time", label: "Время", format: (value) => changeTimeView(value) },
+                { key: "score", label: "Оценка" },
+              ]}
+            />
+          </div>
         </div>
       </div>
     </div>

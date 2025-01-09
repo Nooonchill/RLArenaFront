@@ -1,28 +1,27 @@
 import React, { useState } from "react";
-import { changeTimeView } from "/src/utils/TimeView.js"
+import { changeTimeView } from "/src/utils/TimeView.js";
 
-const ResultsTable = ({ results, rows }) => {
+const ResultsTable = ({ results, rows, columns }) => {
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
 
+  // Сортировка данных
   const sortedResults = [...results].sort((a, b) => {
     if (!sortConfig.key) return 0;
     const direction = sortConfig.direction === "asc" ? 1 : -1;
 
-    if (sortConfig.key === "place") {
-      return direction * (parseInt(a.place, 10) - parseInt(b.place, 10));
+    const aValue = a[sortConfig.key];
+    const bValue = b[sortConfig.key];
+
+    if (typeof aValue === "string") {
+      return direction * aValue.localeCompare(bValue);
+    } else if (typeof aValue === "number") {
+      return direction * (aValue - bValue);
+    } else {
+      return 0;
     }
-    if (sortConfig.key === "username") {
-      return direction * a.username.localeCompare(b.username);
-    }
-    if (sortConfig.key === "time") {
-      return direction * a.time.localeCompare(b.time);
-    }
-    if (sortConfig.key === "score") {
-      return direction * (b.score - a.score);
-    }
-    return 0;
   });
 
+  // Обработчик клика по заголовку для сортировки
   const handleSort = (key) => {
     setSortConfig((prevConfig) => ({
       key,
@@ -31,78 +30,40 @@ const ResultsTable = ({ results, rows }) => {
   };
 
   return (
-    <div className="relative overflow-x-auto sm:rounded-lg m-auto max-w-[800px]">
       <table className="w-full text-sm text-left rtl:text-right text-dark">
         <thead className="text-xs text-dark uppercase bg-lightwhiteturquoise">
           <tr>
-            <th
-              scope="col"
-              className="pl-6 py-3 cursor-pointer"
-              onClick={() => handleSort("place")}
-            >
-              #
-              <span className="inline-block ml-1 w-4 text-xs opacity-70">
-                {sortConfig.key === "place" && (sortConfig.direction === "asc" ? "↑" : "↓")}
-              </span>
-            </th>
-            <th
-              scope="col"
-              className="px-6 py-3 cursor-pointer"
-              onClick={() => handleSort("username")}
-            >
-              Пользователь
-              <span className="inline-block ml-1 w-4 text-xs opacity-70">
-                {sortConfig.key === "username" && (sortConfig.direction === "asc" ? "↑" : "↓")}
-              </span>
-            </th>
-            <th
-              scope="col"
-              className="px-6 py-3 cursor-pointer"
-              onClick={() => handleSort("time")}
-            >
-              Время
-              <span className="inline-block ml-1 w-4 text-xs opacity-70">
-                {sortConfig.key === "time" && (sortConfig.direction === "asc" ? "↑" : "↓")}
-              </span>
-            </th>
-            <th
-              scope="col"
-              className="px-6 py-3 cursor-pointer"
-              onClick={() => handleSort("score")}
-            >
-              Оценка
-              <span className="inline-block ml-1 w-4 text-xs opacity-70">
-                {sortConfig.key === "score" && (sortConfig.direction === "asc" ? "↑" : "↓")}
-              </span>
-            </th>
+            {columns.map((column) => (
+              <th
+                key={column.key}
+                scope="col"
+                className="px-6 py-3 cursor-pointer"
+                onClick={() => handleSort(column.key)}
+              >
+                {column.label}
+                <span className="inline-block ml-1 w-4 text-xs opacity-70">
+                  {sortConfig.key === column.key &&
+                    (sortConfig.direction === "asc" ? "↑" : "↓")}
+                </span>
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody>
           {sortedResults.slice(0, rows).map((result, rowIndex) => (
-            <tr
-              key={rowIndex}
-              className="odd:bg-white even:bg-gray-50"
-            >
-              <th
-                scope="row"
-                className="pl-6 py-4 font-medium text-dark whitespace-nowrap"
-              >
-                {result.place}
-              </th>
-              <td className="px-6 py-4">
-                {result.username}
-              </td>
-              <td className="px-6 py-4">
-                {changeTimeView(result.time)}
-              </td>
-              <td className="px-6 py-4">
-                {result.score}
-              </td>
+            <tr key={rowIndex} className="odd:bg-white even:bg-gray-50">
+              {columns.map((column) => (
+                <td
+                  key={column.key}
+                  className="px-6 py-4"
+                >
+                  {column.format ? column.format(result[column.key]) : result[column.key]}
+                </td>
+              ))}
             </tr>
           ))}
         </tbody>
       </table>
-    </div>
   );
 };
 
