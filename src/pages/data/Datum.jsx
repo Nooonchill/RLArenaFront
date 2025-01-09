@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import CompetitionImage from '/src/assets/imgs/CompetiotionTemplate.png'
-import Star from '/src/assets/icons/Star.svg'
-import User from '/src/assets/icons/User.svg'
 import MainInfo from "/src/components/elements/MainInfo.jsx";
 import Tabs from "/src/components/elements/Tabs.jsx";
 import FilesTable from "/src/components/elements/FilesTable.jsx";

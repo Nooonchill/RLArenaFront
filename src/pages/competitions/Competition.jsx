@@ -65,8 +65,9 @@ const Competition = () => {
               details={competitionDetails.data}            
             />
           ) : (
-            <ResultsTable 
+            <ResultsTable
               results={competitionDetails.solutions}
+              rows={20}
             />
           )}
         </div>

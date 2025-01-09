@@ -141,7 +141,7 @@ export const competitionsDetails = [
       { place: 8, username: "PlacementPro", time: "PT22H10M", score: 800 },
       { place: 9, username: "FutureBuilder", time: "PT24H15M", score: 700 },
       { place: 10, username: "CareerBoost", time: "PT27H00M", score: 600 },
-        { place: 11, username: "InternSuccess", time: "PT30H20M", score: 500 },
+      { place: 11, username: "InternSuccess", time: "PT30H20M", score: 500 },
       { place: 12, username: "SkillSharer", time: "PT32H50M", score: 400 }
     ]
   },
@@ -214,7 +214,7 @@ export const competitionsDetails = [
       { place: 9, username: "SpeechHero", time: "PT5H00M", score: 60 },
       { place: 10, username: "TinyListener", time: "PT5H30M", score: 55 },
       { place: 11, username: "ChildTalker", time: "PT6H00M", score: 50 },
-      { place: 12, username: "MiniMinds", time: "PT7H00M", score: 45 }
+      { place: 12, username: "MiniMinds", time: "PT7H00M", score: 45 },
     ]
   }
 ];
