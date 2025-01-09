@@ -7,11 +7,11 @@ import Tabs from "/src/components/elements/Tabs.jsx";
 import FilesTable from "/src/components/elements/FilesTable.jsx";
 import ResultsTable from "/src/components/elements/ResultsTable.jsx";
 import RightInfo from "/src/components/elements/RightInfo";
-import { changeTimeView } from "/src/utils/TimeView.js";
+import { changeTimeView, formatDateTime } from "/src/utils/TimeView.js";
 
 // Моковые данные
 import { user, logged } from '/src/mockdata/userData.js';
-import { competitions, competitionsDetails } from "/src/mockdata/competitionData.js";
+import { competitions, competitionsDetails, userSolutions } from "/src/mockdata/competitionData.js";
 
 
 const Competition = () => {
@@ -53,17 +53,37 @@ const Competition = () => {
               details={competitionDetails.data}            
             />
           ) : (
-            <div className="relative overflow-x-auto sm:rounded-lg m-auto max-w-[800px]">
-              <ResultsTable
-                results={competitionDetails.solutions}
-                rows={20}
-                columns={[
-                  { key: "place", label: "Место" },
-                  { key: "username", label: "Пользователь" },
-                  { key: "time", label: "Время", format: (value) => changeTimeView(value) },
-                  { key: "score", label: "Оценка" },
-                ]}
-              />
+            <div>
+              <div>
+                <h1 className="text-lg mb-1">Ваши решения:</h1>
+                <div className="relative overflow-x-auto sm:rounded-lg m-auto max-w-[800px] mb-4">
+                  <ResultsTable
+                    results={userSolutions}
+                    rows={20}
+                    columns={[
+                      { key: "place", label: "Место" },
+                      { key: "datetime", label: "Время", format: (value) => formatDateTime(value) },
+                      { key: "title", label: "Решение" },
+                      { key: "score", label: "Оценка" },
+                    ]}
+                  />
+                </div>
+              </div>
+              <div>
+                <h1 className="text-lg mb-1">Лучшие решения:</h1>
+                <div className="relative overflow-x-auto sm:rounded-lg m-auto max-w-[800px]">
+                  <ResultsTable
+                    results={competitionDetails.solutions}
+                    rows={20}
+                    columns={[
+                      { key: "place", label: "Место" },
+                      { key: "username", label: "Пользователь" },
+                      { key: "time", label: "Время", format: (value) => changeTimeView(value) },
+                      { key: "score", label: "Оценка" },
+                    ]}
+                  />
+                </div>
+              </div>
             </div>
           )}
         </div>

@@ -24,8 +24,8 @@ const CompetitionNews = ({ competition }) => {
           <div className="flex pb-5 pt-8 rounded-full">
             <div className="flex flex-col items-center w-24 mt-3">
               <img src={CardImage} alt="User" className="w-10 h-10 rounded-full" />
-              <Second alt="Second" className="absolute mt-6 ml-6 w-6" />
-              <span className="truncate max-w-28">{competition.solutions[1].username}</span>
+              <Second alt="Second" className="absolute mt-7 ml-6 w-6" />
+              <span className="truncate max-w-28 mt-2">{competition.solutions[1].username}</span>
             </div>
             <div className="flex flex-col items-center w-24">
               <img src={CardImage} alt="User" className="w-10 h-10 rounded-full" />
@@ -34,8 +34,8 @@ const CompetitionNews = ({ competition }) => {
             </div>
             <div className="flex flex-col items-center w-24 mt-6">
               <img src={CardImage} alt="User" className="w-10 h-10 rounded-full" />
-              <Third alt="Third" className="absolute mt-6 ml-6 w-6" />
-              <span className="truncate max-w-28">{competition.solutions[2].username}</span>
+              <Third alt="Third" className="absolute mt-7 ml-6 w-6" />
+              <span className="truncate max-w-28 mt-2">{competition.solutions[2].username}</span>
             </div>
           </div>
         </div>

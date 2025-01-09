@@ -218,3 +218,30 @@ export const competitionsDetails = [
     ]
   }
 ];
+
+export const userSolutions = [
+  {
+    place: 25,
+    datetime: "2025-01-08T14:30:00Z",
+    title: "solution_v1.zip",
+    score: 85.5,
+  },
+  {
+    place: 43,
+    datetime: "2025-01-08T16:00:00Z",
+    title: "solution_v2.zip",
+    score: 90.0,
+  },
+  {
+    place: 23,
+    datetime: "2025-01-09T10:15:00Z",
+    title: "solution_v3.zip",
+    score: 88.0,
+  },
+  {
+    place: 21,
+    datetime: "2025-01-09T12:45:00Z",
+    title: "final_solution.zip",
+    score: 92.5,
+  },
+];

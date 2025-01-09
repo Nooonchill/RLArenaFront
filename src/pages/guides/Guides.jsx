@@ -44,8 +44,11 @@ function Guides() {
   const filters = [
     { id: 1, title: "Все" },
     { id: 2, title: "Ваши" },
-    { id: 3, title: "Создать" }
   ]
+
+  if (user.role === "Teacher" || user.role === "Admin") {
+    filters.push({ id: 3, title: "Создать" });
+  }
 
   const sorts = [
     { id: 1, title: "Дата создания"},

@@ -38,12 +38,15 @@ function Competitions() {
   const cardNavigate = (id) => {
     navigate('/competitions/' + id);
   };
-
+  
   const filters = [
     { id: 1, title: "Все" },
     { id: 2, title: "Ваши" },
-    { id: 3, title: "Создать" }
   ]
+  
+  if (user.role === "Teacher" || user.role === "Admin") {
+    filters.push({ id: 3, title: "Создать" });
+  }
 
   const additionalFilter = [
     {value: "Все", title: "Все"},
@@ -95,19 +98,19 @@ function Competitions() {
           />
           <div className="flex flex-row flex-wrap gap-[30px]">
             {filteredCompetitions.map((competition) => (
-                <Card
-                  key={competition.id}
-                  title={competition.title}
-                  organizer={competition.organizer}
-                  participants={competition.participants}
-                  rate={competition.rate}
-                  image={CardImage}
-                  startDate={competition.startDate}
-                  endDate={competition.endDate}
-                  onClick={() => cardNavigate(competition.id)}
-                  onButtonClick={() => console.log('button clicked')}
-                  added={user.saved.competitions.includes(competition.id) || user.created.competitions.includes(competition.id)}
-                />
+              <Card
+                key={competition.id}
+                title={competition.title}
+                organizer={competition.organizer}
+                participants={competition.participants}
+                rate={competition.rate}
+                image={CardImage}
+                startDate={competition.startDate}
+                endDate={competition.endDate}
+                onClick={() => cardNavigate(competition.id)}
+                onButtonClick={() => console.log('button clicked')}
+                added={user.saved.competitions.includes(competition.id) || user.created.competitions.includes(competition.id)}
+              />
             ))}
           </div>
         </div>

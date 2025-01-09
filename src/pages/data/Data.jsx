@@ -43,8 +43,11 @@ function Data() {
   const filters = [
     { id: 1, title: "Все" },
     { id: 2, title: "Ваши" },
-    { id: 3, title: "Создать" }
   ]
+  
+  if (user.role === "Teacher" || user.role === "Admin") {
+    filters.push({ id: 3, title: "Создать" });
+  }
 
   const sorts = [
     { id: 1, title: "Дата создания"},
@@ -55,7 +58,8 @@ function Data() {
 
   const filteredData = getFiltered({
     items: data,
-    user,
+    savedItems: user.saved.data,
+    createdItems: user.created.data,
     activeButton,
     activeSort,
     reverseSort,

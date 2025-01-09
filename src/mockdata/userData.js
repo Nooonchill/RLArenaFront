@@ -6,7 +6,7 @@ export const user = {
   organization: "УрФУ",
   registration_date: "5-01-2025",
   location: "Екатеринбург, Россия",
-  role: "Teacher",
+  role: "Student", // "Admin", "Teacher", "Student"
   biography: "Студент 3 курса ИРИТ-РТФ. Недавно начал заниматься машинным обучением",
   achivements: [
       { id: 1, title: "Начало пути" },
