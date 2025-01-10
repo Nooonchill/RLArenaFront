@@ -1,8 +1,42 @@
-# React + Vite
+# RLArena Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Общее о проекте
+RLArena — платформа для проведения соревнований по усиленному обучению (РL) и анализу данных. Данный репозиторий содержит frontend часть проекта, разработанную с использованием React и Tailwind CSS.
 
-Currently, two official plugins are available:
+## Запуск проекта
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Требования
+- Node.js версии 16.x или выше
+- npm или yarn
+
+### Установка
+
+1. Клонируйте репозиторий:
+   ```bash
+   git clone <URL_репозитория>
+   cd RLArenaFront
+   ```
+
+2. Установите зависимости:
+   ```bash
+   npm install
+   ```
+
+### Запуск в режиме разработчика
+   ```bash
+   npm run dev
+   ```
+   Проект будет доступен по адресу: http://localhost:5173
+
+### Сборка проекта
+   ```bash
+   npm run build
+   ```
+
+## Для запуска через Docker
+
+    Выполните 
+    ```bash
+    cd RLArenaFront
+    docker-compose up --build
+    ```
