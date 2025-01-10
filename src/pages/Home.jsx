@@ -1,19 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
-import User from '/src/assets/icons/User.svg'
-import Winner from '/src/assets/icons/Winner.svg'
-import Second from '/src/assets/icons/Second.svg'
-import Third from '/src/assets/icons/Third.svg'
-import Competitions from '/src/pages/competitions/Competitions.jsx';
-import CardImage from '/src/assets/imgs/CompetiotionTemplate.png'
-import ResultsTable from "/src/components/elements/ResultsTable.jsx";
-import CompetitionNews from "/src/components/CompetitionNews.jsx";
-import UserStat from "/src/components/UserStat.jsx";
+import CompetitionNews from "../components/CompetitionNews.jsx";
+import UserStat from "../components/UserStat.jsx";
 
 
 // Моковые данные
-import { user, logged } from '/src/mockdata/userData.js';
-import { lastCompetition, lastNews } from '/src/mockdata/homeData.js';
+import { user, logged } from '../mockdata/userData.js';
+import { lastCompetition, lastNews } from '../mockdata/homeData.js';
 
 function Home() {
   const [isLogged, setIsLogged] = useState(logged);

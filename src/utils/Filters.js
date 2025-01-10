@@ -10,7 +10,6 @@ export const getFiltered = ({
   dateFields = { start: "startDate", end: "endDate" }, // Поля дат в объектах
 }) => {
   const now = new Date();
-
   // Фильтрация по кнопке
   let filtered =
     activeButton === 2
@@ -22,9 +21,10 @@ export const getFiltered = ({
   // Фильтрация по типу (если указано)
   if (filterType) {
     filtered = filtered.filter((item) => {
+      
+      
       const start = new Date(item[dateFields.start]?.split("-").reverse().join("-"));
-      const end = new Date(item[dateFields.end]?.split("-").reverse().join("-"));
-
+      const end = new Date(item["endDate"]?.split("-").reverse().join("-"));
       if (filterType === "Открытые") {
         return start <= now && end >= now;
       } else if (filterType === "Скоро начнутся") {
@@ -49,7 +49,7 @@ export const getFiltered = ({
       if (activeSort === 1) {
         const dateA = new Date(a[dateFields.start]?.split("-").reverse().join("-"));
         const dateB = new Date(b[dateFields.start]?.split("-").reverse().join("-"));
-        comparison = dateA - dateB;
+        comparison = -(dateA - dateB);
       } else if (activeSort === 2) {
         comparison = b.added - a.added;
       } else if (activeSort === 3) {

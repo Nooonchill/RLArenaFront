@@ -4,7 +4,6 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Auth from './pages/Auth';
-import Test from './pages/Test';
 import Competition from './pages/Competitions/Competition.jsx';
 import Competitions from './pages/Competitions/Competitions.jsx';
 import Guides from './pages/guides/Guides.jsx';
@@ -26,7 +25,6 @@ const App = () => {
     <Router>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/test" element={<Test />} />
           <Route path="/" element={<Home />} />
           <Route path="/profile/" element={<Profile />} />
           <Route path="/competitions/" element={<Competitions />} />

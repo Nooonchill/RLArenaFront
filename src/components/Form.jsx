@@ -3,41 +3,7 @@ import ReactMde from "react-mde";
 import "react-mde/lib/styles/css/react-mde-all.css";
 import ReactMarkdown from "react-markdown";
 
-const Form = ({ type, isCretionForm=false, buttonText }) => {
-
-
-  function handleClick() {
-    if (localStorage.theme === "dark" || !("theme" in localStorage)) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-
-    if (localStorage.theme === "dark") {
-      localStorage.theme = "light";
-    } else {
-      localStorage.theme = "dark";
-    }
-  }
-
-  const user = {
-    username: "NoooN",
-    fullName: "Горский Иван Артёмович",
-    email: "nooonchill@gmail.com",
-    organization: "УрФУ",
-    registration_date: "5-01-2025",
-    location: "Екатеринбург, Россия",
-    saved: {
-      competitions: [24],
-      guides: [201, 205, 203],
-      data: [101, 103, 104],
-    },
-    created: {
-      competitions: [1],
-      guides: [],
-      data: [],
-    }
-  }
+const Form = ({ user={}, type, isCretionForm=false, buttonText }) => {
 
   const inputStyles = {
     text: "block w-full h-8 p-4 text-base placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise rounded-xl focus:outline-none focus:ring-0 border-2",

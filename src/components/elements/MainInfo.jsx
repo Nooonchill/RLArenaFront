@@ -34,14 +34,14 @@ const MainInfo = ({user, details, addButtonText, removeButtonText, addSolutionBu
           {isAdded ? (
             <button
               onClick={removeButtonClick}
-              className="h-[38px] py-0 bg-white font-medium border-2 border-turquoise text-turquoise hover:text-lightturquoise hover:border-lightturquoise active:text-darkturquoise active:border-darkturquoise w-max rounded-full"
+              className="h-[38px] py-0 bg-transparent font-medium border-2 border-turquoise text-turquoise hover:text-lightturquoise hover:border-lightturquoise active:text-darkturquoise active:border-darkturquoise w-max rounded-full"
             >
               {removeButtonText}
             </button>
           ) : (
             <button
               onClick={addButtonClick}
-              className="flex flex-row items-center gap-1 w-max h-[38px] py-0 border-none font-medium bg-turquoise text-white hover:bg-lightturquoise active:bg-darkturquoise rounded-full"
+              className="h-[38px] py-0 border-none font-medium bg-turquoise text-white hover:bg-lightturquoise active:bg-darkturquoise rounded-full"
             >
               {addButtonText}
             </button>
@@ -49,7 +49,7 @@ const MainInfo = ({user, details, addButtonText, removeButtonText, addSolutionBu
           {isAdded && addSolutionButtonClick ? (
             <button
               onClick={addSolutionButtonClick}
-              className="flex flex-row items-center gap-1 w-max h-[38px] py-0 border-none font-medium bg-turquoise text-white hover:bg-lightturquoise active:bg-darkturquoise rounded-full"
+              className="w-max h-[38px] py-0 border-none font-medium bg-turquoise text-white hover:bg-lightturquoise active:bg-darkturquoise rounded-full"
             >
               Отправить решение
             </button>

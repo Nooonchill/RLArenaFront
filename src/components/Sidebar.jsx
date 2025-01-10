@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import Home from '/src/assets/icons/Home.svg';
-import Brain from '/src/assets/icons/Brain.svg';
-import Guides from '/src/assets/icons/Guides.svg';
-import Data from '/src/assets/icons/Data.svg';
-import SettingsIcon from '/src/assets/icons/Settings.svg';
-import Logo from '/src/assets/icons/Atom.svg';
-import SettingsMenu from '/src/components/Settings.jsx';  // Импорт компонента настроек
+import Home from '../assets/icons/Home.svg';
+import Brain from '../assets/icons/Brain.svg';
+import Guides from '../assets/icons/Guides.svg';
+import Data from '../assets/icons/Data.svg';
+import SettingsIcon from '../assets/icons/Settings.svg';
+import Logo from '../assets/icons/Atom.svg';
+import SettingsMenu from '../components/Settings.jsx';  // Импорт компонента настроек
 
 const Sidebar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

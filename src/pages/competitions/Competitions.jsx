@@ -1,125 +1,27 @@
-import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
-import CardImage from '/src/assets/imgs/CompetiotionTemplate.png'
-import Card from '/src/components/Card.jsx'
-import Form from '/src/components/Form.jsx'
-import ListHead from "/src/components/list/ListHead";
-import Filters from "/src/components/list/Filters";
-import ListSearch from "/src/components/list/ListSearch";
-import Sorts from "/src/components/list/Sorts"
-import { getFiltered } from "/src/utils/filters";
+import ListPage from '../../components/ListPage.jsx';
+import CardImage from '../../assets/imgs/CompetiotionTemplate.png';
+import { competitions } from "../../mockdata/competitionData.js";
+import { user } from '../../mockdata/userData.js';
 
-// Моковые данные
-import { user, logged } from '/src/mockdata/userData.js';
-import { competitions, competitionsDetails } from "/src/mockdata/competitionData.js";
-
-
-function Competitions() {
-  const [activeButton, setActiveButton] = useState(1);
-  const [activeSort, setActiveSort] = useState(1);
-  const [reverseSort, setReverseSort] = useState(false);
-  const [filterType, setFilterType] = useState("Все");
-
-  const handleButtonClick = (buttonId) => {
-    setActiveButton(buttonId);
-  };
-
-  const handleSortClick = (SortId) => {
-    if (activeSort === SortId) {
-      setReverseSort(!reverseSort);
-    } else {
-      setActiveSort(SortId);
-      setReverseSort(false);
-    }
-  };
-
-  const navigate = useNavigate();
-
-  const cardNavigate = (id) => {
-    navigate('/competitions/' + id);
-  };
-  
-  const filters = [
-    { id: 1, title: "Все" },
-    { id: 2, title: "Ваши" },
-  ]
-  
-  if (user.role === "Teacher" || user.role === "Admin") {
-    filters.push({ id: 3, title: "Создать" });
-  }
-
-  const additionalFilter = [
-    {value: "Все", title: "Все"},
-    {value: "Открытые", title: "Открытые"},
-    {value: "Скоро начнутся", title: "Скоро начнутся"},
-    {value: "Завершенные", title: "Завершенные"},
-  ]
-
-  const sorts = [
-    { id: 1, title: "Дата создания"},
-    { id: 2, title: "Популярность"},
-    { id: 3, title: "Оценки"},
-  ]
-  
-  const filteredCompetitions = getFiltered({
-    items: competitions,
-    savedItems: user.saved.competitions,
-    createdItems: user.created.competitions,
-    activeButton,
-    filterType,
-    activeSort,
-    reverseSort,
-    dateFields: { start: "startDate", end: "endDate" },
-  });
-
+export default function Competitions() {
   return (
-    <div className="max-w-[1110px] mx-auto">
-      <ListHead 
-        title="Соревнования"
-      />
-      <div className="flex justify-between gap-3 flex-wrap-reverse px-1 mb-2">
-        <Filters
-          filters={filters}
-          additionalFilter={additionalFilter}
-          activeButton={activeButton}
-          filterType={filterType}
-          handleButtonClick={handleButtonClick}
-          setFilterType={setFilterType}
-        />
-        {activeButton !== 3 && <ListSearch />}
-      </div>
-      {activeButton != 3 ? (
-        <div className="text-lg text-dark">
-          <Sorts
-            sorts={sorts}
-            activeSort={activeSort}
-            reverseSort={reverseSort}
-            handleSortClick={handleSortClick}
-          />
-          <div className="flex flex-row flex-wrap gap-[30px]">
-            {filteredCompetitions.map((competition) => (
-              <Card
-                key={competition.id}
-                title={competition.title}
-                organizer={competition.organizer}
-                participants={competition.participants}
-                rate={competition.rate}
-                image={CardImage}
-                startDate={competition.startDate}
-                endDate={competition.endDate}
-                onClick={() => cardNavigate(competition.id)}
-                onButtonClick={() => console.log('button clicked')}
-                added={user.saved.competitions.includes(competition.id) || user.created.competitions.includes(competition.id)}
-              />
-            ))}
-          </div>
-        </div>
-      ) : (
-        <Form type='createCompetition' isCretionForm={true} buttonText="Создать" />
-      )}
-      
-    </div>
+    <ListPage 
+      title="Соревнования"
+      items={competitions}
+      user={user}
+      savedItems={user.saved.competitions}
+      createdItems={user.created.competitions}
+      cardImage={CardImage}
+      dateField="startDate"
+      endDate="endDate"
+      createFormType="createCompetition"
+      buttonText="Создать"
+      additionalFilters={[
+        {value: "Все", title: "Все"},
+        {value: "Открытые", title: "Открытые"},
+        {value: "Скоро начнутся", title: "Скоро начнутся"},
+        {value: "Завершенные", title: "Завершенные"},
+      ]}
+    />
   );
 }
-
-export default Competitions;

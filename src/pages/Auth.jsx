@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import Logo from '/src/assets/icons/Atom.svg';
-import Form from '/src/components/Form.jsx';
+import Logo from '../assets/icons/Atom.svg';
+import Form from '../components/Form.jsx';
 
 
 const Auth = () => {

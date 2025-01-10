@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { changeTimeView } from "/src/utils/TimeView.js";
 
 const ResultsTable = ({ results, rows, columns }) => {
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });

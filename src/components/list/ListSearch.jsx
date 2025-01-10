@@ -1,5 +1,5 @@
 import React from "react";
-import Search from '/src/assets/icons/Search.svg'
+import Search from '../../assets/icons/Search.svg'
 
 
 function ListSearch() {
@@ -8,7 +8,7 @@ function ListSearch() {
     <form className="max-w-[540px]  w-full bg-none">
       <div className="relative h-[38px]">
         <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-          <Search alt="Search" className="cursor-pointer" />
+          <Search alt="Поиск" className="cursor-pointer" />
         </div>
         <input
           type="search"

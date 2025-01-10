@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
-import Star from '/src/assets/icons/Star.svg';
-import User from '/src/assets/icons/User.svg';
-import Add from '/src/assets/icons/Add.svg';
-import Remove from '/src/assets/icons/Remove.svg';
+import Star from '../assets/icons/Star.svg';
+import User from '../assets/icons/User.svg';
+import Add from '../assets/icons/Add.svg';
+import Remove from '../assets/icons/Remove.svg';
 
 const Card = ({ title, organizer, participants, rate, image, startDate, endDate, onClick, onButtonClick, added }) => {
   const [isLoading, setIsLoading] = useState(true); // Состояние загрузки картинки
   const [isAdded, setIsAdded] = useState(added);
-  // Форматируем даты
   startDate = startDate.replaceAll("-", ".");
   if (endDate !== undefined) {
     endDate = endDate.replaceAll("-", ".");
@@ -38,7 +36,7 @@ const Card = ({ title, organizer, participants, rate, image, startDate, endDate,
         <img
           src={image}
           className="w-[255px]"
-          alt="Check"
+          alt="Картинка карточки"
         />
       )}
 
@@ -49,11 +47,11 @@ const Card = ({ title, organizer, participants, rate, image, startDate, endDate,
         <div className="flex flex-row justify-between">
           <div className="flex flex-row gap-2">
             <div className="flex flex-row gap-1">
-              <Star className="w-5" alt="" />
+              <Star className="w-5" alt="Оценка" />
               <span>{rate}</span>
             </div>
             <div className="flex flex-row gap-1">
-              <User className="w-5" alt="" />
+              <User className="w-5" alt="Пользователи" />
               <span className="">{participants}</span>
             </div>
           </div>
@@ -68,13 +66,14 @@ const Card = ({ title, organizer, participants, rate, image, startDate, endDate,
             <div className="mr-5 mb-6">
               <Remove
                 className={`absolute transition-opacity duration-200 stroke-turquoise ${
-                  isAdded ? "opacity-100" : "opacity-0"
-                }`}
+                  isAdded ? "opacity-100" : "opacity-0"}`}
+                alt="Удалить"
               />
               <Add
                 className={`absolute transition-opacity duration-200 stroke-turquoise ${
                   isAdded ? "opacity-0" : "opacity-100"
                 }`}
+                alt="Добавить"
               />
             </div>
           </button>

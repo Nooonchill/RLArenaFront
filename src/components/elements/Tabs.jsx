@@ -16,7 +16,7 @@ const Tabs = ({ tabs, activeTab, onTabChange }) => {
   }, [activeTab]);
 
   return (
-    <div className="relative flex flex-row gap-[30px] mb-6 text-lg w-max border-b-2 border-darkturquoise">
+    <div className="relative flex flex-row gap-[30px] mb-6 text-lg w-max border-b-[1px] border-darkturquoise">
       {tabs.map((tab, index) => (
         <button
           key={tab.id}

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import Form from '/src/components/Form.jsx';
-import ThemeToggle from '/src/components/ThemeToggle.jsx';
-import Close from '/src/assets/icons/Close.svg';
+import Form from '../components/Form.jsx';
+import ThemeToggle from '../components/ThemeToggle.jsx';
+import Close from '../assets/icons/Close.svg';
+
+// Моковые данные
+import { user, logged } from '../mockdata/userData.js';
 
 const SettingsMenu = ({ onClose }) => {
   const handleOutsideClick = (e) => {
@@ -49,7 +52,8 @@ const SettingsMenu = ({ onClose }) => {
         </div>
         <div className="w-2/3 p-4">
           {selectedCategory in settingsForms ? (
-            <Form 
+            <Form
+              user={user}
               type={settingsForms[selectedCategory].type}
               isFieldsRow={settingsForms[selectedCategory].isFieldsRow}
               buttonText={settingsForms[selectedCategory].buttonText}

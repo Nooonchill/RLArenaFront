@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from 'react-router-dom';
-import Search from '/src/assets/icons/Search.svg';
-import User from '/src/assets/icons/User.svg';
-import LeftArrow from '/src/assets/icons/LeftArrow.svg';
+import Search from '../assets/icons/Search.svg';
+import User from '../assets/icons/User.svg';
+import LeftArrow from '../assets/icons/LeftArrow.svg';
 
 // Моковые данные
-import { user, logged } from '/src/mockdata/userData.js';
+import { user, logged } from '../mockdata/userData.js';
 
 const Header = ({}) => {
   

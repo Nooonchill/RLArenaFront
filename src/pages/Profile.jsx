@@ -1,13 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import LeftArrow from '/src/assets/icons/LeftArrow.svg'
-import RightArrow from '/src/assets/icons/RightArrow.svg'
-import CardImage from '/src/assets/imgs/CompetiotionTemplate.png'
-import ResultsTable from "/src/components/elements/ResultsTable.jsx";
-import Achivements from "/src/components/Achivements";
+import CardImage from '../assets/imgs/CompetiotionTemplate.png'
+import ResultsTable from "../components/elements/ResultsTable.jsx";
+import Achivements from "../components/Achivements";
 
 // Моковые данные
-import { user, logged } from '/src/mockdata/userData.js';
+import { user, logged } from '../mockdata/userData.js';
 
 
 function Profile() {

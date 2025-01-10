@@ -1,6 +1,6 @@
 import React from "react";
-import Star from '/src/assets/icons/Star.svg'
-import User from '/src/assets/icons/User.svg'
+import Star from '../../assets/icons/Star.svg'
+import User from '../../assets/icons/User.svg'
 
 const RightInfo = ({image, creator, people, rate}) => {
   return (
@@ -9,12 +9,12 @@ const RightInfo = ({image, creator, people, rate}) => {
       <div className="flex flex-col gap-y-2 text-lg font-semibold">
         <span>{creator}</span> 
         <div className="flex flex-row">
-          <User className="mr-2" alt="" />
+          <User className="mr-2" alt="Пользователи" />
           <span>{people}</span>
         </div> 
         <div className="flex flex-row">
-          <Star className="mr-2" alt="" />
-          <span className="">{rate}</span>
+          <Star className="mr-2" alt="Рейтинг" />
+          <span >{rate}</span>
         </div>
       </div>
     </div>
