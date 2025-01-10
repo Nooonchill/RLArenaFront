@@ -12,8 +12,8 @@ const SortButtons = ({ sorts, activeSort, reverseSort, handleSortClick }) => {
         >
           <div
             onClick={() => handleSortClick(sort.id)}
-            className={`relative flex flex-row gap-0.5 hover:text-turquoise items-center  ${
-              activeSort === sort.id ? "text-darkturquoise" : "text-dark"
+            className={`relative flex flex-row gap-0.5 hover:text-turquoise dark:hover:text-turquoise items-center  ${
+              activeSort === sort.id ? "text-darkturquoise dark:text-lightturquoise" : "text-dark dark:text-lightwhiteturquoise"
             }`}
           >
             <span className="mr-[18px]">{sort.title}</span>

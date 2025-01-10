@@ -6,12 +6,18 @@ import ReactMarkdown from "react-markdown";
 const Form = ({ user={}, type, isCretionForm=false, buttonText }) => {
 
   const inputStyles = {
-    text: "block w-full h-8 p-4 text-base placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise rounded-xl focus:outline-none focus:ring-0 border-2",
-    password: "block  w-full h-8 p-4 text-base placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise rounded-xl focus:outline-none focus:ring-0 border-2",
-    textarea: "block w-full h-8 p-2 min-h-[150px] text-base placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise rounded-xl focus:outline-none focus:ring-0 border-2",
-    file: "block  w-full h-8 text-base file:mr-5 file:pt-0.5 file:pb-2 file:px-3 file:border-2 file:border-turquoise file:border-solid file:bg-turquoise file:cursor-pointer file:hover:bg-lightturquoise file:hover:border-lightturquoise placeholder-darkturquoise bg-lightwhiteturquoise focus:outline-none focus:ring-0 border-2 border-turquoise rounded-xl",
-    date: "block max-w-[150px] w-full h-8 pl-2 text-base placeholder-darkturquoise bg-lightwhiteturquoise rounded-xl focus:outline-none focus:ring-0 border-2 border-turquoise",
-    radio: "block w-full h-8 p-4 text-base placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise rounded-xl focus:outline-none focus:ring-0 border-2",
+    text: `block w-full h-8 p-4 text-base placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise rounded-xl focus:outline-none focus:ring-0 border-2
+    dark:bg-dark dark:placeholder-lightwhiteturquoise dark:text-lightwhiteturquoise dark:border-lightwhiteturquoise`,
+    password: `block  w-full h-8 p-4 text-base placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise rounded-xl focus:outline-none focus:ring-0 border-2
+    dark:bg-dark dark:placeholder-lightwhiteturquoise dark:text-lightwhiteturquoise dark:border-lightwhiteturquoise`,
+    textarea: `block w-full h-8 p-2 min-h-[150px] text-base placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise rounded-xl focus:outline-none focus:ring-0 border-2
+    dark:bg-dark dark:placeholder-lightwhiteturquoise dark:text-lightwhiteturquoise dark:border-lightwhiteturquoise`,
+    file: `block  w-full h-8 text-base file:mr-5 file:pt-0.5 file:pb-2 file:px-3 file:border-2 file:border-turquoise file:border-solid file:bg-turquoise file:cursor-pointer file:hover:bg-lightturquoise file:hover:border-lightturquoise placeholder-darkturquoise bg-lightwhiteturquoise focus:outline-none focus:ring-0 border-2 border-turquoise rounded-xl
+    dark:file:border-lightwhiteturquoise dark:file:bg-lightwhiteturquoise dark:border-lightwhiteturquoise dark:bg-dark dark:file:text-dark`,
+    date: `block max-w-[150px] w-full h-8 pl-2 text-base placeholder-darkturquoise bg-lightwhiteturquoise rounded-xl focus:outline-none focus:ring-0 border-2 border-turquoise
+    dark:bg-dark dark:placeholder-lightwhiteturquoise dark:text-lightwhiteturquoise dark:border-lightwhiteturquoise`,
+    radio: `block w-full h-8 p-4 text-base placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise rounded-xl focus:outline-none focus:ring-0 border-2
+    `,
   };
 
   const formFields = {
@@ -67,12 +73,12 @@ const Form = ({ user={}, type, isCretionForm=false, buttonText }) => {
   return (
     <form className={`flex flex-col space-y-4 pb-4 h-max max-w-[650px]`}>
       {formFields[type].map((field) => (
-        <div key={field.id} className={`flex text-darkturquoise flex-col gap-0.5`}>
+        <div key={field.id} className={`flex text-darkturquoise dark:text-lightwhiteturquoise flex-col gap-0.5`}>
           <label htmlFor={field.id} className={`text-lg ${isCretionForm ? 'w-40' : ''}`}>
             {field.label}{field.required === true && field.label !== '' ? " *" : ""}
           </label>
           {field.type === "textarea" ? (
-            <div className="max-w-[650px] w-full">
+            <div className="max-w-[650px] w-full text-dark dark:text-lightwhiteturquoise">
               <ReactMde
                 value={markdownValue}
                 onChange={setMarkdownValue}
@@ -83,10 +89,10 @@ const Form = ({ user={}, type, isCretionForm=false, buttonText }) => {
                 }
                 childProps={{
                   container: { className: "border-0 shadow-none" },
-                  writeButton: { className: "text-white" },
-                  previewButton: { className: "text-white" },
-                  textArea: { className: "p-2 w-full bg-lightwhiteturquoise rounded-b-[10px]" },
-                  previewContent: { className: "p-2 w-full bg-lightwhiteturquoise rounded-b-[10px]" },
+                  writeButton: { className: "text-white text-lg p-1 px-2" },
+                  previewButton: { className: "text-white text-lg p-1 px-2" },
+                  textArea: { className: "p-2 w-full bg-lightwhiteturquoise dark:bg-dark rounded-b-[10px]" },
+                  previewContent: { className: "p-2 w-full bg-lightwhiteturquoise dark:bg-dark rounded-b-[10px]" },
                 }}
               />
             </div>
@@ -105,7 +111,7 @@ const Form = ({ user={}, type, isCretionForm=false, buttonText }) => {
       ))}
       <button
         type="submit"
-        className={`w-full py-2 px-4 bg-darkturquoise text-white rounded-lg shadow hover:bg-lightturquoise hover:border-lightturquoise`}
+        className={`w-full py-2 px-4 bg-darkturquoise dark:bg-lightwhiteturquoise text-white dark:text-dark rounded-lg shadow hover:bg-lightturquoise dark:hover:bg-whiteturquoise hover:border-lightturquoise`}
       >
         {buttonText}
       </button>

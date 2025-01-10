@@ -41,7 +41,7 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`fixed top-0 left-0 h-screen text-white bg-whiteturquoise shadow-lg transition-all duration-300 z-10 ${
+      className={`fixed top-0 left-0 h-screen text-dark dark:text-lightwhiteturquoise bg-whiteturquoise dark:bg-dark shadow-lg transition-all duration-300 z-10 ${
         isMenuOpen ? "w-60" : "w-20"
       }`}
       onMouseEnter={handleMouseEnter}
@@ -55,7 +55,7 @@ const Sidebar = () => {
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
               }`}
             >
-              <h1 className="text-lg font-semibold text-black pl-1">RLArena</h1>
+              <h1 className="text-lg font-semibold pl-1">RLArena</h1>
             </div>
           </div>
       </div>
@@ -68,7 +68,7 @@ const Sidebar = () => {
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
               }`}
             >
-              <span className="text-base font-medium text-black pl-1">Главная</span>
+              <span className="text-base font-medium pl-1">Главная</span>
             </div>
           </li>
           <li className="flex items-center px-7 cursor-pointer" onClick={dataNavigate}>
@@ -78,7 +78,7 @@ const Sidebar = () => {
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
               }`}
             >
-              <span className="text-base font-medium text-black pl-1">Данные</span>
+              <span className="text-base font-medium pl-1">Данные</span>
             </div>
           </li>
           <li className="flex items-center px-7 cursor-pointer" onClick={competitionsNavigate}>
@@ -88,7 +88,7 @@ const Sidebar = () => {
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
               }`}
             >
-              <span className="text-base font-medium text-black pl-1">Соревнования</span>
+              <span className="text-base font-medium pl-1">Соревнования</span>
             </div>
           </li>
           <li className="flex items-center px-7 cursor-pointer" onClick={guidesNavigate}>
@@ -98,7 +98,7 @@ const Sidebar = () => {
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
               }`}
             >
-              <span className="text-base font-medium text-black pl-1">Гайды</span>
+              <span className="text-base font-medium pl-1">Гайды</span>
             </div>
           </li>
         </ul>
@@ -113,7 +113,7 @@ const Sidebar = () => {
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
               }`}
             >
-              <span className="text-base font-medium text-black pl-1">Настройки</span>
+              <span className="text-base font-medium pl-1">Настройки</span>
             </div>
           </li>
         </ul>

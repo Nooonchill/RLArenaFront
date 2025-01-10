@@ -84,14 +84,27 @@ button:focus-visible {
   padding: 8px;
 }
 
+.dark .react-mde .mde-header {
+  background-color: #17242B;
+  color: black;
+  border-radius: 10px 10px 0 0;
+  padding: 8px;
+}
+
 .react-mde .mde-preview {
   background-color: #E7F9F7;
-  color: black;
+  color: #17242B;
+  padding: 8px;
+}
+
+.dark .react-mde .mde-preview {
+  background-color: #17242B;
+  color: #E7F9F7;
   padding: 8px;
 }
 
 .mde-header ul.mde-header-group li.mde-header-item button {
-  color: white !important; /* Делаем иконки белыми */
+  color: #E7F9F7 !important;
 }
 
 .markdown-container pre {
@@ -106,5 +119,10 @@ button:focus-visible {
 
 svg {
   stroke: #17242B;
+  stroke-width: 2;
+}
+
+.dark svg {
+  stroke: #E7F9F7;
   stroke-width: 2;
 }

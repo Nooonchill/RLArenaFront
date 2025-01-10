@@ -13,7 +13,7 @@ function ListSearch() {
         <input
           type="search"
           id="default-search"
-          className="block w-full h-[38px] p-4 ps-11 text-base text-dark bg-white focus:outline-none focus:ring-0 placeholder-dark border-b-2 border-turquoise"
+          className="block w-full h-[38px] p-4 ps-11 text-base text-dark dark:text-lightwhiteturquoise bg-transparent focus:outline-none focus:ring-0 placeholder-dark dark:placeholder-lightwhiteturquoise border-b-2 border-turquoise"
           placeholder="Поиск по соревнованиям..."
           required
         />

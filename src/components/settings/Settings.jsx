@@ -27,7 +27,7 @@ const SettingsMenu = ({ onClose }) => {
       onClick={handleOutsideClick}
       className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50"
     >
-      <div className="relative flex bg-white rounded-lg w-3/4 md:w-1/2 shadow-xl overflow-hidden text-dark min-h-[350px] max-w-[600px]">
+      <div className="relative flex bg-white dark:bg-blackturquoise rounded-lg w-3/4 md:w-1/2 shadow-xl overflow-hidden text-dark min-h-[350px] max-w-[600px]">
         
         <button 
           onClick={onClose}
@@ -35,14 +35,14 @@ const SettingsMenu = ({ onClose }) => {
         >
           <Close />
         </button>
-        <div className="w-1/3 bg-whiteturquoise p-4">
+        <div className="w-1/3 bg-whiteturquoise dark:text-lightwhiteturquoise dark:bg-dark p-4">
           <ul>
             {categories.map((category) => (
               <li
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`cursor-pointer py-2 px-4 rounded-lg hover:bg-lightwhiteturquoise ${
-                  selectedCategory === category ? 'bg-white hover:bg-white' : ''
+                className={`cursor-pointer py-2 px-4 rounded-lg hover:bg-white dark:hover:bg-blackturquoise ${
+                  selectedCategory === category ? 'bg-white dark:bg-blackturquoise hover:bg-white dark:hover:bg-blackturquoise' : ''
                 }`}
               >
                 {category}

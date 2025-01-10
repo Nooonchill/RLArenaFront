@@ -30,17 +30,17 @@ const Auth = () => {
   }, []);
 
   return (
-    <div className="h-screen w-screen bg-lightwhiteturquoise items-center">
+    <div className="h-screen w-screen bg-lightwhiteturquoise dark:bg-blackturquoise items-center">
       <div className="flex justify-center h-full items-center">
-        <div className="w-[290px] max-w-md bg-white rounded-3xl shadow-lg p-6 text-dark">
-          <div onClick={mainNavigate} className="flex justify-center mb-2 cursor-pointer">
+        <div className="w-[290px] max-w-md bg-white dark:bg-dark rounded-3xl shadow-lg p-6 text-dark">
+          <div onClick={mainNavigate} className="flex justify-center mb-2 cursor-pointer gap-2">
             <Logo alt="Logo" className="" />
-            <span className="text-xl text-black font-semibold whitespace-nowrap">RLArena</span>
+            <span className="text-xl text-dark dark:text-lightwhiteturquoise font-semibold whitespace-nowrap">RLArena</span>
           </div>
           {/* Навигация между формами */}
-          <div className="flex justify-around mb-6 relative text-darkturquoise">
+          <div className="flex justify-around mb-6 relative dark:text-lightwhiteturquoise">
             <button
-              className={`text-xl text-darkturquoise p-0 mb-2 bg-white border-none ${
+              className={`text-xl p-0 mb-2 bg-transparent border-none ${
                 !isRegister ? "font-bold" : "font-thin"
               }`}
               onClick={() => setIsRegister(false)}
@@ -50,7 +50,7 @@ const Auth = () => {
             </button>
             |
             <button
-              className={`text-xl text-darkturquoise p-0 mb-2 bg-white border-none ${
+              className={`text-xl p-0 mb-2 bg-transparent border-none ${
                 isRegister ? "font-bold" : "font-thin"
               }`}
               onClick={() => setIsRegister(true)}
@@ -60,7 +60,7 @@ const Auth = () => {
             </button>
             {/* Подчеркивание */}
             <div
-              className="absolute bottom-0 h-1 bg-darkturquoise transition-all duration-300"
+              className="absolute bottom-0 h-1 bg-darkturquoise dark:bg-lightwhiteturquoise transition-all duration-300"
               style={{
                 width: isRegister ? registerWidth : loginWidth,
                 left: isRegister ? registerLeft : loginLeft,

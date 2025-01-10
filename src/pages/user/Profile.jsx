@@ -22,7 +22,7 @@ function Profile() {
   const scrollRef = useRef(null);
   
   return (
-    <div className="h-full max-w-[1110px] mx-auto text-dark">
+    <div className="h-full max-w-[1110px] mx-auto text-dark dark:text-lightwhiteturquoise">
       <div className="flex flex-row justify-between">
         <div className="flex gap-7">
           <img src={CardImage} alt="Logo" className="w-40 h-40" />

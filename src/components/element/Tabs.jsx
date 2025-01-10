@@ -16,14 +16,14 @@ const Tabs = ({ tabs, activeTab, onTabChange }) => {
   }, [activeTab]);
 
   return (
-    <div className="relative flex flex-row gap-[30px] mb-6 text-lg w-max border-b-[1px] border-darkturquoise">
+    <div className="relative flex flex-row gap-[30px] mb-6 text-lg w-max border-b-[1px] border-whiteturquoise dark:border-gray-600">
       {tabs.map((tab, index) => (
         <button
           key={tab.id}
           onClick={() => onTabChange(tab.id)}
           ref={(el) => (tabsRef.current[index] = el)}
           className={`p-0 mb-0.25 bg-transparent border-none ${
-            activeTab === tab.id ? "text-darkturquoise" : "text-dark"
+            activeTab === tab.id ? "text-darkturquoise dark:text-gray-300" : "text-dark dark:text-lightwhiteturquoise"
           }`}
         >
           {tab.title}
@@ -31,7 +31,7 @@ const Tabs = ({ tabs, activeTab, onTabChange }) => {
       ))}
       {/* Подчеркивание */}
       <div
-        className="absolute bottom-0 h-[2px] bg-darkturquoise transition-all duration-300"
+        className="absolute bottom-0 h-[2px] bg-darkturquoise dark:bg-lightwhiteturquoise transition-all duration-300"
         style={underlineStyle}
       ></div>
     </div>

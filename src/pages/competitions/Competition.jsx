@@ -29,7 +29,7 @@ const Competition = () => {
       case 1:
         return (
           <div className="shadow-md rounded-lg">
-            <div className="markdown-container p-4">
+            <div className="markdown-container p-2">
               <ReactMarkdown>{competitionDetails.description}</ReactMarkdown>
             </div>
           </div>

@@ -15,11 +15,11 @@ const MainInfo = ({user, details, addButtonText, removeButtonText, addSolutionBu
   };
 
   return (
-    <div className="text-dark mb-6">
+    <div className="text-dark dark:text-lightwhiteturquoise mb-6">
       <h1 className="text-4xl mb-3">{details.title}</h1>
       <div className="flex flex-row overflow-hidden flex-nowrap gap-2 mb-2">
         {details.tags.map((tag) => (
-          <div key={tag} className="bg-lightwhiteturquoise rounded-full py-1 px-2">
+          <div key={tag} className="bg-lightwhiteturquoise dark:bg-dark rounded-full py-1 px-2 cursor-pointer">
             <span>#{tag}</span>
           </div>
         ))}
@@ -34,14 +34,14 @@ const MainInfo = ({user, details, addButtonText, removeButtonText, addSolutionBu
           {isAdded ? (
             <button
               onClick={removeButtonClick}
-              className="h-[38px] py-0 bg-transparent font-medium border-2 border-turquoise text-turquoise hover:text-lightturquoise hover:border-lightturquoise active:text-darkturquoise active:border-darkturquoise w-max rounded-full"
+              className="h-[38px] py-0 bg-transparent font-medium border-2 border-turquoise dark:border-lightwhiteturquoise text-turquoise dark:text-lightwhiteturquoise hover:text-lightturquoise hover:border-lightturquoise active:text-darkturquoise active:border-darkturquoise w-max rounded-full"
             >
               {removeButtonText}
             </button>
           ) : (
             <button
               onClick={addButtonClick}
-              className="h-[38px] py-0 border-none font-medium bg-turquoise text-white hover:bg-lightturquoise active:bg-darkturquoise rounded-full"
+              className="h-[38px] py-0 border-none font-medium bg-turquoise dark:bg-lightwhiteturquoise text-white dark:hover:bg-gray-300 dark:text-dark hover:bg-lightturquoise active:bg-darkturquoise rounded-full"
             >
               {addButtonText}
             </button>
@@ -49,7 +49,7 @@ const MainInfo = ({user, details, addButtonText, removeButtonText, addSolutionBu
           {isAdded && addSolutionButtonClick ? (
             <button
               onClick={addSolutionButtonClick}
-              className="w-max h-[38px] py-0 border-none font-medium bg-turquoise text-white hover:bg-lightturquoise active:bg-darkturquoise rounded-full"
+              className="h-[38px] py-0 border-none font-medium bg-turquoise dark:bg-lightwhiteturquoise text-white dark:hover:bg-gray-300 dark:text-dark hover:bg-lightturquoise active:bg-darkturquoise rounded-full"
             >
               Отправить решение
             </button>

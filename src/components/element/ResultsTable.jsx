@@ -29,8 +29,8 @@ const ResultsTable = ({ results, rows, columns }) => {
   };
 
   return (
-      <table className="w-full text-sm text-left rtl:text-right text-dark">
-        <thead className="text-xs text-dark uppercase bg-lightwhiteturquoise">
+      <table className="w-full text-sm text-left rtl:text-right text-dark dark:text-lightwhiteturquoise">
+        <thead className="text-xs uppercase bg-lightwhiteturquoise dark:bg-blackturquoise">
           <tr>
             {columns.map((column) => (
               <th
@@ -50,7 +50,7 @@ const ResultsTable = ({ results, rows, columns }) => {
         </thead>
         <tbody>
           {sortedResults.slice(0, rows).map((result, rowIndex) => (
-            <tr key={rowIndex} className="odd:bg-white even:bg-gray-50">
+            <tr key={rowIndex} className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-800 dark:even:bg-gray-700">
               {columns.map((column) => (
                 <td
                   key={column.key}

@@ -13,8 +13,8 @@ function Home() {
     <div className="max-w-[1110px] mx-auto">
       {isLogged && <UserStat user={user} isLogged={logged} />}
       <CompetitionNews competition={lastCompetition} />
-      <div className="bg-lightwhiteturquoise text-dark p-2 rounded-3xl shadow-md">
-        <div className=" bg-white border-darkturquoise rounded-[20px] p-4">
+      <div className="bg-lightwhiteturquoise dark:bg-lightwhiteturquoise text-dark dark:text-lightwhiteturquoise p-2 rounded-3xl shadow-md">
+        <div className=" bg-white dark:bg-dark border-darkturquoise rounded-[20px] p-4">
           <div className="mb-4">
             <h2 className="text-2xl">{lastNews.title}</h2>
             <span>{lastNews.date}</span>

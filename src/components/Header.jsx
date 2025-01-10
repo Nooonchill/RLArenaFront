@@ -9,7 +9,7 @@ import { user, logged } from '../mockdata/userData.js';
 
 const Header = ({}) => {
   
-  const [isLogged, setIsLogged] = useState(true);
+  const [isLogged, setIsLogged] = useState(logged);
 
   const pathname = `${window.location.pathname}`;
   
@@ -41,20 +41,20 @@ const Header = ({}) => {
           <form className="max-w-[540px] w-full bg-none">
             <div className="relative h-[38px]">
               <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                <Search alt="Search" className="cursor-pointer" />
+                <Search alt="Поиск" className="cursor-pointer" />
               </div>
               <input
                 type="search"
                 id="default-search"
-                className="block w-full h-[38px] p-4 ps-11 text-base text-dark bg-lightwhiteturquoise rounded-full focus:outline-none focus:ring-0 placeholder-dark border-2 border-turquoise"
+                className="block w-full h-[38px] p-4 ps-11 text-base text-dark dark:text-lightwhiteturquoise bg-lightwhiteturquoise dark:bg-dark rounded-full focus:outline-none focus:ring-0 placeholder-dark dark:placeholder-lightwhiteturquoise border-2 border-turquoise dark:border-lightwhiteturquoise"
                 placeholder="Поиск..."
                 required
               />
             </div>
           </form>
           {isLogged ? (
-            <div onClick={profileNavigate} className="flex flex-row h-[38px] text-dark px-2 items-center rounded-full border-2 border-turquoise hover:border-lightturquoise bg-white w-fit cursor-pointer">
-              <User alt="User" className="mr-2 h-6" />
+            <div onClick={profileNavigate} className="flex flex-row h-[38px] text-dark dark:text-lightwhiteturquoise px-2 items-center rounded-full border-2 border-turquoise dark:border-lightwhiteturquoise dark:hover:border-lightturquoise hover:border-lightturquoise bg-transparent w-fit cursor-pointer">
+              <User alt="Пользователь" className="mr-2 h-6" />
               <h1  className="text-xl mr-1">{user.username}</h1>
             </div>
           ) : (
@@ -72,9 +72,9 @@ const Header = ({}) => {
         </div>
         {translateRoute(pathname) !== "none" ? (
           <div className="flex flex-row pl-2 items-center gap-0.5">
-            <Link to={pathname.replace(/\/\d+$/, "")} className="text-darkturquoise hover:text-turquoise cursor-pointer">{translateRoute(pathname)}</Link>
+            <Link to={pathname.replace(/\/\d+$/, "")} className="text-darkturquoise dark:text-whiteturquoise hover:text-turquoise cursor-pointer">{translateRoute(pathname)}</Link>
             <LeftArrow className="w-4 mt-1" alt="" />
-            <p className="text-darkturquoise">...</p>
+            <p className="text-darkturquoise dark:text-whiteturquoise">...</p>
           </div>
         ) : (
           <div></div>

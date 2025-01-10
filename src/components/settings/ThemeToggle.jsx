@@ -21,7 +21,7 @@ const ThemeToggle = () => {
   };
 
   return (
-    <div className="flex flex-col gap-2 mt-1 text-darkturquoise">
+    <div className="flex flex-col gap-2 mt-1 text-darkturquoise dark:text-lightwhiteturquoise text-lg">
       <p className="mr-6">Тема</p>
       <div className="flex flex-row gap-2">
         <label className="relative inline-block w-12 h-6">
@@ -33,7 +33,7 @@ const ThemeToggle = () => {
           />
           <span className="block w-full h-full bg-whiteturquoise dark:bg-turquoise rounded-full cursor-pointer transition" />
           <span
-            className={`absolute top-1 left-1 w-4 h-4 bg-white dark:bg-darkturquoise rounded-full transition-transform ${
+            className={`absolute top-1 left-1 w-4 h-4 bg-white dark:bg-dark rounded-full transition-transform ${
               isDark ? "transform translate-x-6" : ""
             }`}
           />

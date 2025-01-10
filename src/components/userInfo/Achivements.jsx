@@ -27,7 +27,7 @@ const Achivements = ({ user }) => {
   };
 
   return (
-    <div className="bg-none text-dark mt-5 px-2 py-6 rounded-3xl">
+    <div className="bg-none mt-5 px-2 py-6 rounded-3xl">
       <h2 className="text-2xl ml-[60px]">Достижения</h2>
       <div className="flex flex-row gap-7 mt-4 items-center">
         <LeftArrow alt="Листать влево" onClick={scrollLeft} className="cursor-pointer" />
@@ -35,7 +35,7 @@ const Achivements = ({ user }) => {
           {user.achivements.map((item) => (
             <div
               key={item.id}
-              className="min-w-[112px] w-[112px] min-h-[154px] h-[154px] bg-gray-50 p-3 rounded-xl"
+              className="min-w-[112px] w-[112px] min-h-[154px] h-[164px] bg-gray-50 dark:bg-dark p-3 rounded-xl"
             >
               <img src={CardImage} alt="Иконка достижения" className="w-[90px] h-[90px] mb-3" />
               <p className="text-sm text-center text-ellipsis overflow-hidden">

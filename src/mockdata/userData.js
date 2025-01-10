@@ -2,6 +2,7 @@ export const logged = true;
 
 export const user = {
   username: "NoooN",
+  email: "nooonmail@mail.com",
   fullName: "Горский Иван Артёмович",
   organization: "УрФУ",
   registration_date: "5-01-2025",

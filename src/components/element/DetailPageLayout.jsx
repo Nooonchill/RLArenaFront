@@ -21,6 +21,10 @@ const DetailPageLayout = ({
   const [lockRightInfo, setLockRightInfo] = useState(false);
   const leftRef = useRef();
 
+  const handleAddSolutionClick = () => {
+    setActiveTab(4);
+  }
+
   useEffect(() => {
     const handleResize = () => {
       if (leftRef.current) {
@@ -46,13 +50,14 @@ const DetailPageLayout = ({
 
   return (
     <div className="max-w-[1110px] mx-auto">
-      <div className="flex flex-row gap-20 justify-between pl-2 text-dark">
+      <div className="flex flex-row gap-20 justify-between pl-2 text-dark dark:text-lightwhiteturquoise">
         <div ref={leftRef} className="mb-8 flex-grow flex-shrink max-w-[750px]">
           <MainInfo
             user={user}
             details={details}
             addButtonText={addButtonText}
             removeButtonText={removeButtonText}
+            addSolutionButtonClick={handleAddSolutionClick}
           />
           <Tabs tabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
           {contentRenderer(activeTab)}
