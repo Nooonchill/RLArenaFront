@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import DetailPageLayout from "../../components/element/DetailPageLayout.jsx";
@@ -8,6 +8,7 @@ import { formatDateTime, changeTimeView } from "../../utils/TimeView.js";
 import FilesTable from "../../components/element/FilesTable.jsx";
 import ResultsTable from "../../components/element/ResultsTable.jsx";
 import Form from "../../components/Form.jsx";
+import NotFound from '../errors/NotFound.jsx';
 
 // Моковые данные
 import { user, logged } from '../../mockdata/userData.js';
@@ -15,7 +16,26 @@ import { user, logged } from '../../mockdata/userData.js';
 
 const Competition = () => {
   const { id } = useParams();
-  const competitionDetails = competitionsDetails.find((item) => item.id === +id);
+  const [competition, setCompetition] = useState(null);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    try {
+      const competitionDetails = competitionsDetails.find((item) => item.id === +id);
+
+      if (!competitionDetails) {
+        throw new Error('Competition not found');
+      }
+
+      setCompetition(competitionDetails);
+    } catch (err) {
+      setError(true);
+    }
+  }, [id]);
+
+  if (error || !competition) {
+    return <NotFound />;
+  }
 
   const tabs = [
     { id: 1, title: "Обзор" },
@@ -30,12 +50,12 @@ const Competition = () => {
         return (
           <div className="shadow-md rounded-lg">
             <div className="markdown-container p-2">
-              <ReactMarkdown>{competitionDetails.description}</ReactMarkdown>
+              <ReactMarkdown>{competition.description}</ReactMarkdown>
             </div>
           </div>
         );
       case 2:
-        return <FilesTable details={competitionDetails.data} />;
+        return <FilesTable details={competition.data} />;
       case 3:
         return (
           <div className="flex flex-col gap-4">
@@ -55,7 +75,7 @@ const Competition = () => {
             <div>
               <span>Лучшие решения: </span>
               <ResultsTable
-                results={competitionDetails.solutions}
+                results={competition.solutions}
                 rows={20}
                 columns={[
                   { key: "place", label: "Место" },
@@ -78,13 +98,13 @@ const Competition = () => {
   return (
     <DetailPageLayout
       user={user}
-      details={competitionDetails}
+      details={competition}
       tabs={tabs}
       contentRenderer={renderContent}
       image={CompetitionImage}
-      creator={competitionDetails.organizer}
-      people={competitionDetails.participants}
-      rate={competitionDetails.rate}
+      creator={competition.organizer}
+      people={competition.participants}
+      rate={competition.rate}
       addButtonText="Участвовать"
       removeButtonText="Отказаться"
     />

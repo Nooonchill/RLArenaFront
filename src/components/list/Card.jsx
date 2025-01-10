@@ -25,7 +25,7 @@ const Card = ({ title, organizer, participants, rate, image, startDate, endDate,
   }, [image]);
 
   return (
-    <div onClick={onClick} className="min-w-[136px] max-w-[255px] w-full bg-gray-50 dark:bg-dark hover:bg-lightwhiteturquoise cursor-pointer text-dark dark:text-lightwhiteturquoise rounded-xl">
+    <div onClick={onClick} className="min-w-[136px] max-w-[255px] w-full bg-gray-50 dark:bg-dark hover:bg-lightwhiteturquoise dark:hover:bg-gray-800 cursor-pointer text-dark dark:text-lightwhiteturquoise rounded-xl">
       
       {/* Анимация загрузки, если картинка ещё не загружена */}
       {isLoading ? (

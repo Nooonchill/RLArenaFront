@@ -31,13 +31,13 @@ const Achivements = ({ user }) => {
       <h2 className="text-2xl ml-[60px]">Достижения</h2>
       <div className="flex flex-row gap-7 mt-4 items-center">
         <LeftArrow alt="Листать влево" onClick={scrollLeft} className="cursor-pointer" />
-        <div className="flex flex-row overflow-hidden gap-7 flex-grow" ref={scrollRef}>
+        <div className="flex flex-row overflow-hidden gap-5 flex-grow" ref={scrollRef}>
           {user.achivements.map((item) => (
             <div
               key={item.id}
-              className="min-w-[112px] w-[112px] min-h-[154px] h-[164px] bg-gray-50 dark:bg-dark p-3 rounded-xl"
+              className="min-w-[112px] w-[112px] min-h-[154px] h-[154x] bg-gray-50 dark:bg-dark p-3 rounded-xl"
             >
-              <img src={CardImage} alt="Иконка достижения" className="w-[90px] h-[90px] mb-3" />
+              <img src={CardImage} alt="Иконка достижения" className="w-[90px] h-[90px] mb-1" />
               <p className="text-sm text-center text-ellipsis overflow-hidden">
                 {item.title}
               </p>

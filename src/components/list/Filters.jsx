@@ -23,7 +23,7 @@ const Filters = ({ filters, additionalFilters=[], activeButton, filterType, hand
           <select
             value={filterType}
             onChange={(e) => setFilterType(e.target.value)}
-            className="block px-4 bg-transparent h-[38px] border-2 w-max rounded-lg border-turquoise dark:border-lightwhiteturquoise text-turquoise dark:text-lightwhiteturquoise focus:text-turquoise hover:text-lightturquoise hover:border-lightturquoise appearance-none peer"
+            className="block cursor-pointer px-4 bg-transparent h-[38px] border-2 w-max rounded-lg border-turquoise dark:border-lightwhiteturquoise text-turquoise dark:text-lightwhiteturquoise focus:text-turquoise dark:focus:bg-dark hover:text-lightturquoise hover:border-lightturquoise appearance-none peer"
           >
             {additionalFilters.map((option) => (
               <option key={option.value} value={option.value}>
@@ -32,7 +32,7 @@ const Filters = ({ filters, additionalFilters=[], activeButton, filterType, hand
             ))}
           </select>
         </div>
-      ) : (<div></div>)}
+      ) : null}
     </div>
   );
 };

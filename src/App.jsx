@@ -10,7 +10,7 @@ import Guides from './pages/guides/Guides.jsx';
 import Guide from './pages/guides/Guide.jsx';
 import Data from './pages/data/Data.jsx';
 import Datum from './pages/data/Datum.jsx';
-
+import NotFound from './pages/errors/NotFound.jsx';
 
 const App = () => {
 
@@ -33,6 +33,7 @@ const App = () => {
           <Route path="/guides/:id" element={<Guide />} />
           <Route path="/data/" element={<Data />} />
           <Route path="/data/:id" element={<Datum />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
         <Route path="/auth/" element={<Auth />} />
       </Routes>

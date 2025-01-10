@@ -216,7 +216,7 @@ export const competitionsDetails = [
       { place: 11, username: "ChildTalker", time: "PT6H00M", score: 50 },
       { place: 12, username: "MiniMinds", time: "PT7H00M", score: 45 },
     ]
-  }
+  },
 ];
 
 export const userSolutions = [

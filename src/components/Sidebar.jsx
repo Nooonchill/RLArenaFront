@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import Home from '../assets/icons/Home.svg';
 import Brain from '../assets/icons/Brain.svg';
@@ -6,19 +6,47 @@ import Guides from '../assets/icons/Guides.svg';
 import Data from '../assets/icons/Data.svg';
 import SettingsIcon from '../assets/icons/Settings.svg';
 import Logo from '../assets/icons/Atom.svg';
-import SettingsMenu from './settings/Settings';  // Импорт компонента настроек
+import SettingsMenu from './settings/Settings';
 
 const Sidebar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);  // Состояние для модального окна настроек
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); // Состояние для определения сенсорного устройства
+
+  const navigate = useNavigate();
+
+  // Обработчик для сенсорных устройств
+  const handleSidebarToggle = () => {
+    if (isMobile) {
+      setIsMenuOpen(!isMenuOpen); // Меняем состояние только при клике на сенсорных устройствах
+    }
+  };
+
+  // Детектируем, является ли устройство мобильным (сенсорным)
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 768); // Если ширина окна меньше 768px, считаем, что это мобильное устройство
+    };
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkIfMobile);
+    };
+  }, []);
+
+  // Обработчики для обычных устройств (наведение мышки)
   const handleMouseEnter = () => {
-    if (!isSettingsOpen) {
+    if (!isMobile && !isSettingsOpen) {
       setIsMenuOpen(true);
     }
   };
-  const handleMouseLeave = () => setIsMenuOpen(false);
-
-  const navigate = useNavigate();
+  
+  const handleMouseLeave = () => {
+    if (!isMobile) {
+      setIsMenuOpen(false);
+    }
+  };
 
   const homeNavigate = () => {
     navigate('/');
@@ -35,9 +63,8 @@ const Sidebar = () => {
 
   const toggleSettingsMenu = () => {
     setIsMenuOpen(false);
-    setIsSettingsOpen(!isSettingsOpen);  // Переключение состояния модального окна
+    setIsSettingsOpen(!isSettingsOpen);
   };
-  
 
   return (
     <aside
@@ -46,18 +73,19 @@ const Sidebar = () => {
       }`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleSidebarToggle} // Добавляем обработчик клика для сенсорных устройств
     >
       <div className="flex items-center p-7">
         <div className="flex items-center cursor-pointer justify-between" onClick={homeNavigate}>
-            <Logo alt="Home" />
-            <div
-              className={`overflow-hidden transition-all duration-300 ml-3 ${
-                isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
-              }`}
-            >
-              <h1 className="text-lg font-semibold pl-1">RLArena</h1>
-            </div>
+          <Logo alt="Home" />
+          <div
+            className={`overflow-hidden transition-all duration-300 ml-3 ${
+              isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
+            }`}
+          >
+            <h1 className="text-lg font-semibold pl-1">RLArena</h1>
           </div>
+        </div>
       </div>
       <div className="flex h-screen flex-col justify-between items-start pb-8">
         <ul className="space-y-6 mt-4">
