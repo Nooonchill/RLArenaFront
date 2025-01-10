@@ -19,6 +19,9 @@ export default {
         'darkturquoise': "#2A7A78",
         'dark': "#17242B",
         'blackturquoise': "#121D23",
+        'blackblue': "#0F191E",
+        'darkblue': "#1E2D35",
+        'grayblue': "#293D48",
         primary: "#4F46E5", // Основной цвет из вашего макета
         secondary: "#9333EA", // Второстепенный цвет
       },

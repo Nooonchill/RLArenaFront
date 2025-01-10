@@ -12,10 +12,10 @@ export default function Guides() {
       user={user}
       savedItems={user.saved.guides}
       createdItems={user.created.guides}
-      cardImage={CardImage}
       dateField="createdDate"
       createFormType="createGuide"
       buttonText="Создать"
+      successMessage="Заявка на добавление гайда была отправлена. Через некоторе время он появится в списках."
     />
   );
 }

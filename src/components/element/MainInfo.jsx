@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { saveElement } from "../../utils/SavedElements.js";
 
 
 const MainInfo = ({user, details, addButtonText, removeButtonText, addSolutionButtonClick}) => {
@@ -6,18 +7,19 @@ const MainInfo = ({user, details, addButtonText, removeButtonText, addSolutionBu
     user.saved.competitions.includes(details.id) || user.created.competitions.includes(details.id)
   );
 
-  const removeButtonClick = () => {
-    setIsAdded(false);
-  };
-
-  const addButtonClick = () => {
-    setIsAdded(true);
+  const handleButtonClick = () => {
+    setIsAdded(!isAdded);
+    saveElement({
+      add: !isAdded,
+      type: location.pathname.match(/\/([^\/]+)/)[1],
+      id: details.id,
+    });
   };
 
   return (
     <div className="text-dark dark:text-lightwhiteturquoise mb-6">
       <h1 className="text-4xl mb-3">{details.title}</h1>
-      <div className="flex flex-row overflow-hidden flex-nowrap gap-2 mb-2">
+      <div className="flex flex-row overflow-hidden flex-wrap gap-2 mb-2">
         {details.tags.map((tag) => (
           <div key={tag} className="bg-lightwhiteturquoise dark:bg-dark rounded-full py-1 px-2 cursor-pointer">
             <span>#{tag}</span>
@@ -33,14 +35,14 @@ const MainInfo = ({user, details, addButtonText, removeButtonText, addSolutionBu
         <div className="flex flex-row gap-2">
           {isAdded ? (
             <button
-              onClick={removeButtonClick}
+              onClick={handleButtonClick}
               className="h-[38px] py-0 bg-transparent font-medium border-2 border-turquoise dark:border-lightwhiteturquoise text-turquoise dark:text-lightwhiteturquoise hover:text-lightturquoise hover:border-lightturquoise active:text-darkturquoise active:border-darkturquoise w-max rounded-full"
             >
               {removeButtonText}
             </button>
           ) : (
             <button
-              onClick={addButtonClick}
+              onClick={handleButtonClick}
               className="h-[38px] py-0 border-none font-medium bg-turquoise dark:bg-lightwhiteturquoise text-white dark:hover:bg-gray-300 dark:text-dark hover:bg-lightturquoise active:bg-darkturquoise rounded-full"
             >
               {addButtonText}

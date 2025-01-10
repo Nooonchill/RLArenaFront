@@ -3,8 +3,9 @@ import Star from '../../assets/icons/Star.svg';
 import User from '../../assets/icons/User.svg';
 import Add from '../../assets/icons/Add.svg';
 import Remove from '../../assets/icons/Remove.svg';
+import { saveElement } from "../../utils/SavedElements.js";
 
-const Card = ({ title, organizer, participants, rate, image, startDate, endDate, onClick, onButtonClick, added }) => {
+const Card = ({ id, title, organizer, participants, rate, imageSrc, startDate, endDate, onClick, added }) => {
   const [isLoading, setIsLoading] = useState(true); // Состояние загрузки картинки
   const [isAdded, setIsAdded] = useState(added);
   startDate = startDate.replaceAll("-", ".");
@@ -21,8 +22,8 @@ const Card = ({ title, organizer, participants, rate, image, startDate, endDate,
   };
 
   useEffect(() => {
-    checkImageLoaded(image); // Вызываем проверку при изменении src изображения
-  }, [image]);
+    checkImageLoaded(imageSrc); // Вызываем проверку при изменении src изображения
+  }, [imageSrc]);
 
   return (
     <div onClick={onClick} className="min-w-[136px] max-w-[255px] w-full bg-gray-50 dark:bg-dark hover:bg-lightwhiteturquoise dark:hover:bg-gray-800 cursor-pointer text-dark dark:text-lightwhiteturquoise rounded-xl">
@@ -34,7 +35,7 @@ const Card = ({ title, organizer, participants, rate, image, startDate, endDate,
         </div>
       ) : (
         <img
-          src={image}
+          src={imageSrc}
           className="w-[255px]"
           alt="Картинка карточки"
         />
@@ -59,8 +60,12 @@ const Card = ({ title, organizer, participants, rate, image, startDate, endDate,
             className="bg-transparent p-0 mr-2 hover:border-transparent"
             onClick={(e) => {
               e.stopPropagation(); // Предотвращаем срабатывание клика на карточке
-              onButtonClick(); // Вызываем переданную функцию для кнопки
               setIsAdded(!isAdded);
+              saveElement({
+                add: !isAdded,
+                type: location.pathname.match(/\/([^\/]+)/)[1],
+                id: id,
+              });
             }}
           >
             <div className="mr-5 mb-6">

@@ -1,16 +1,17 @@
 export const data = [
-  { id: 101, title: "Данные о ценах на дома в регионе", creator: "HousingData Inc.", createdDate: "15-03-2023", rate: 4.9, added: 3201 },
-  { id: 102, title: "Характеристики автомобилей и их стоимость", creator: "AutoStats", createdDate: "10-07-2022", rate: 4.7, added: 2845 },
-  { id: 103, title: "Статистика посещаемости спортивных мероприятий", creator: "Sports Analytics", createdDate: "20-11-2023", rate: 4.3, added: 1582 },
-  { id: 104, title: "Анализ здоровья детей и подростков", creator: "Health for Kids", createdDate: "05-09-2021", rate: 4.8, added: 4723 },
-  { id: 105, title: "Данные о погоде и климате за 10 лет", creator: "ClimateTrack", createdDate: "12-01-2020", rate: 4.6, added: 3528 },
-  { id: 106, title: "Геоданные с точками интереса", creator: "GeoData Solutions", createdDate: "03-06-2023", rate: 4.4, added: 2146 },
+  { id: 101, title: "Данные о ценах на дома в регионе", image: "/src/assets/imgs/CompetiotionTemplate.png", creator: "HousingData Inc.", createdDate: "15-03-2023", rate: 4.9, added: 3201 },
+  { id: 102, title: "Характеристики автомобилей и их стоимость", image: "/src/assets/imgs/CompetiotionTemplate.png", creator: "AutoStats", createdDate: "10-07-2022", rate: 4.7, added: 2845 },
+  { id: 103, title: "Статистика посещаемости спортивных мероприятий", image: "/src/assets/imgs/CompetiotionTemplate.png", creator: "Sports Analytics", createdDate: "20-11-2023", rate: 4.3, added: 1582 },
+  { id: 104, title: "Анализ здоровья детей и подростков", image: "/src/assets/imgs/CompetiotionTemplate.png", creator: "Health for Kids", createdDate: "05-09-2021", rate: 4.8, added: 4723 },
+  { id: 105, title: "Данные о погоде и климате за 10 лет", image: "/src/assets/imgs/CompetiotionTemplate.png", creator: "ClimateTrack", createdDate: "12-01-2020", rate: 4.6, added: 3528 },
+  { id: 106, title: "Геоданные с точками интереса", image: "/src/assets/imgs/CompetiotionTemplate.png", creator: "GeoData Solutions", createdDate: "03-06-2023", rate: 4.4, added: 2146 },
 ];
 
 export const dataDetails = [
   { 
     id: 101, 
     title: "Данные о ценах на дома в регионе", 
+    image: "/src/assets/imgs/CompetiotionTemplate.png",
     creator: "HousingData Inc.", 
     createdDate: "15-03-2023", 
     rate: 4.9, 
@@ -26,6 +27,7 @@ export const dataDetails = [
   { 
     id: 102, 
     title: "Характеристики автомобилей и их стоимость", 
+    image: "/src/assets/imgs/CompetiotionTemplate.png",
     creator: "AutoStats", 
     createdDate: "10-07-2022", 
     rate: 4.7, 
@@ -41,6 +43,7 @@ export const dataDetails = [
   { 
     id: 103, 
     title: "Статистика посещаемости спортивных мероприятий", 
+    image: "/src/assets/imgs/CompetiotionTemplate.png",
     creator: "Sports Analytics", 
     createdDate: "20-11-2023", 
     rate: 4.3, 
@@ -56,7 +59,8 @@ export const dataDetails = [
   { 
     id: 104, 
     title: "Анализ здоровья детей и подростков", 
-    creator: "Health for Kids", 
+    creator: "Health for Kids",
+    image: "/src/assets/imgs/CompetiotionTemplate.png", 
     createdDate: "05-09-2021", 
     rate: 4.8, 
     added: 4723,
@@ -72,6 +76,7 @@ export const dataDetails = [
     id: 105, 
     title: "Данные о погоде и климате за 10 лет", 
     creator: "ClimateTrack", 
+    image: "/src/assets/imgs/CompetiotionTemplate.png",
     createdDate: "12-01-2020", 
     rate: 4.6, 
     added: 3528,
@@ -87,6 +92,7 @@ export const dataDetails = [
     id: 106, 
     title: "Геоданные с точками интереса", 
     creator: "GeoData Solutions", 
+    image: "/src/assets/imgs/CompetiotionTemplate.png",
     createdDate: "03-06-2023", 
     rate: 4.4, 
     added: 2146,

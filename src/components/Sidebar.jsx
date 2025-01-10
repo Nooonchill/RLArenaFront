@@ -77,7 +77,7 @@ const Sidebar = () => {
     >
       <div className="flex items-center p-7">
         <div className="flex items-center cursor-pointer justify-between" onClick={homeNavigate}>
-          <Logo alt="Home" />
+          <Logo alt="Лого" />
           <div
             className={`overflow-hidden transition-all duration-300 ml-3 ${
               isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
@@ -88,9 +88,9 @@ const Sidebar = () => {
         </div>
       </div>
       <div className="flex h-screen flex-col justify-between items-start pb-8">
-        <ul className="space-y-6 mt-4">
-          <li className="flex items-center px-7 cursor-pointer" onClick={homeNavigate}>
-            <Home alt="Home" />
+        <ul className="space-y-4 mt-4">
+          <li className="flex items-center mx-5 cursor-pointer hover:bg-gray-50 dark:hover:bg-blackblue p-2 rounded-xl" onClick={homeNavigate}>
+            <Home alt="Главная" />
             <div
               className={`overflow-hidden transition-all duration-300 ml-3 ${
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
@@ -99,18 +99,18 @@ const Sidebar = () => {
               <span className="text-base font-medium pl-1">Главная</span>
             </div>
           </li>
-          <li className="flex items-center px-7 cursor-pointer" onClick={dataNavigate}>
-            <Data alt="Data" />
+          <li className="flex items-center mx-5 cursor-pointer hover:bg-gray-50 dark:hover:bg-blackblue p-2 rounded-xl" onClick={dataNavigate}>
+            <Data alt="Данные" />
             <div
-              className={`overflow-hidden transition-all duration-300 ml-3 ${
+              className={`overflow-hidden transition-all duration-300 ml-3  ${
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
               }`}
             >
               <span className="text-base font-medium pl-1">Данные</span>
             </div>
           </li>
-          <li className="flex items-center px-7 cursor-pointer" onClick={competitionsNavigate}>
-            <Brain alt="Competitions" />
+          <li className="flex items-center mx-5 cursor-pointer hover:bg-gray-50 dark:hover:bg-blackblue p-2 rounded-xl" onClick={competitionsNavigate}>
+            <Brain alt="Соревнования" />
             <div
               className={`overflow-hidden transition-all duration-300 ml-3 ${
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
@@ -119,8 +119,8 @@ const Sidebar = () => {
               <span className="text-base font-medium pl-1">Соревнования</span>
             </div>
           </li>
-          <li className="flex items-center px-7 cursor-pointer" onClick={guidesNavigate}>
-            <Guides alt="Guides" />
+          <li className="flex items-center mx-5 mt-2 cursor-pointer hover:bg-gray-50 dark:hover:bg-blackblue dark:hover:bg-blackblue p-2 rounded-xl" onClick={guidesNavigate}>
+            <Guides alt="Гайды" />
             <div
               className={`overflow-hidden transition-all duration-300 ml-3 ${
                 isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
@@ -132,7 +132,7 @@ const Sidebar = () => {
         </ul>
         <ul className="mb-7">
           <li
-            className="flex items-center px-7 pb-12 cursor-pointer"
+            className="flex items-center mx-5 hover:bg-gray-50 dark:hover:bg-blackblue  rounded-xl p-2 mb-12 cursor-pointer"
             onClick={toggleSettingsMenu}
           >
             <SettingsIcon alt="Settings" />

@@ -49,7 +49,6 @@ const Guide = () => {
       details={guide}
       tabs={tabs}
       contentRenderer={renderContent}
-      image={CompetitionImage}
       creator={guide.creator}
       people={guide.added}
       rate={guide.rate}

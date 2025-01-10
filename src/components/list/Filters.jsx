@@ -4,7 +4,7 @@ const Filters = ({ filters, additionalFilters=[], activeButton, filterType, hand
 
   return (
     <div className='flex flex-col gap-2'>
-      <div className="flex flex-row gap-4 flex-wrap">
+      <div className="flex flex-row gap-4 flex-wrap mb-2">
         {filters.map((filter) => (
           <button
             key={filter.id}

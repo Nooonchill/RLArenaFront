@@ -9,23 +9,24 @@ import Sorts from "./Sorts.jsx";
 import { getFiltered } from "../../utils/Filters.js";
 
 export default function ListPageLayout({
-  title, items, user, savedItems, createdItems, cardImage, dateField, endDate, createFormType, buttonText, additionalFilters
+  title, items, user, savedItems, createdItems, dateField, endDate, createFormType, buttonText, additionalFilters, successMessage
 }) {
   const [activeButton, setActiveButton] = useState(1);
   const [activeSort, setActiveSort] = useState(1);
   const [reverseSort, setReverseSort] = useState(false);
   const [filterType, setFilterType] = useState("Все");
+  const [searchTerm, setSearchTerm] = useState(""); // Состояние для поиска
 
   const navigate = useNavigate();
 
   const handleButtonClick = (buttonId) => setActiveButton(buttonId);
-
   const handleSortClick = (sortId) => {
     setActiveSort(sortId === activeSort ? activeSort : sortId);
     setReverseSort(sortId === activeSort ? !reverseSort : false);
   };
-
   const cardNavigate = (id) => navigate(`${id}`);
+
+  const handleSearchChange = (e) => setSearchTerm(e.target.value.toLowerCase()); // Обновление текста поиска
 
   const filters = [
     { id: 1, title: "Все" },
@@ -41,14 +42,16 @@ export default function ListPageLayout({
 
   const filteredItems = getFiltered({
     items,
-    savedItems: savedItems,
-    createdItems: createdItems,
+    savedItems,
+    createdItems,
     activeButton,
     filterType,
     activeSort,
     reverseSort,
     dateFields: { start: dateField },
-  });
+  }).filter(item => 
+    item.title.toLowerCase().includes(searchTerm.toLowerCase()) // Преобразование для регистронезависимого поиска
+  );
 
   return (
     <div className="max-w-[1110px] mx-auto pb-8">
@@ -62,7 +65,9 @@ export default function ListPageLayout({
           handleButtonClick={handleButtonClick}
           setFilterType={setFilterType}
         />
-        {activeButton !== 3 && <ListSearch />}
+        {activeButton !== 3 && (
+          <ListSearch searchTerm={searchTerm} onSearchChange={handleSearchChange} />
+        )}
       </div>
       {activeButton !== 3 ? (
         <div className="text-lg text-dark">
@@ -76,22 +81,22 @@ export default function ListPageLayout({
             {filteredItems.map((item) => (
               <Card
                 key={item.id}
+                id={item.id}
                 title={item.title}
                 organizer={item.creator || item.organizer}
                 participants={item.participants || item.added}
                 rate={item.rate}
-                image={cardImage}
+                imageSrc={item.image}
                 startDate={item[dateField]}
                 endDate={item[endDate]}
                 onClick={() => cardNavigate(item.id)}
-                onButtonClick={() => console.log('button clicked')}
                 added={savedItems.includes(item.id) || createdItems.includes(item.id)}
               />
             ))}
           </div>
         </div>
       ) : (
-        <Form user={user} type={createFormType} isCretionForm={true} buttonText={buttonText} />
+        <Form user={user} type={createFormType} isCretionForm={true} buttonText={buttonText} successMessage={successMessage}/>
       )}
     </div>
   );

@@ -30,7 +30,7 @@ const ResultsTable = ({ results, rows, columns }) => {
 
   return (
       <table className="w-full text-sm text-left rtl:text-right text-dark dark:text-lightwhiteturquoise">
-        <thead className="text-xs uppercase bg-lightwhiteturquoise dark:bg-blackturquoise">
+        <thead className="text-xs uppercase bg-lightwhiteturquoise dark:bg-blackblue">
           <tr>
             {columns.map((column) => (
               <th
@@ -50,7 +50,7 @@ const ResultsTable = ({ results, rows, columns }) => {
         </thead>
         <tbody>
           {sortedResults.slice(0, rows).map((result, rowIndex) => (
-            <tr key={rowIndex} className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-800 dark:even:bg-gray-700">
+            <tr key={rowIndex} className="odd:bg-white even:bg-gray-50 dark:odd:bg-darkblue dark:even:bg-grayblue">
               {columns.map((column) => (
                 <td
                   key={column.key}

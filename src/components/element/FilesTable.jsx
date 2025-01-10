@@ -6,7 +6,7 @@ const FilesTable = ({details: data}) => {
   return (
     <div className="flex flex-col items-center">
       <table className="w-full rounded-lg overflow-hidden text-sm text-left rtl:text-right text-dark dark:text-lightwhiteturquoise mb-4">
-        <thead className=" uppercase bg-lightwhiteturquoise dark:bg-blackturquoise">
+        <thead className=" uppercase bg-lightwhiteturquoise dark:bg-blackblue">
           <tr>
             <th scope="col" className="px-6 py-3">
               Файл
@@ -21,7 +21,7 @@ const FilesTable = ({details: data}) => {
         </thead>
         <tbody>
           {data.map((file) => (
-            <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-800 dark:even:bg-gray-700">
+            <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-darkblue dark:even:bg-grayblue">
               <th scope="row" className="pl-6 py-4 font-mediumwhitespace-nowrap ">
                 {file.name}
               </th>

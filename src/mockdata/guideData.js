@@ -1,7 +1,8 @@
 export const guides = [
     { 
       id: 201, 
-      title: "Руководство по прогнозированию цен на недвижимость", 
+      title: "Руководство по прогнозированию цен на недвижимость",
+      image: "/src/assets/imgs/CompetiotionTemplate.png",
       creator: "RealEstate Insights", 
       createdDate: "22-02-2023", 
       rate: 4.8, 
@@ -10,6 +11,7 @@ export const guides = [
     { 
       id: 202, 
       title: "Как анализировать данные о транспортных средствах", 
+      image: "/src/assets/imgs/CompetiotionTemplate.png",
       creator: "DataScience Auto", 
       createdDate: "15-08-2022", 
       rate: 4.5, 
@@ -18,6 +20,7 @@ export const guides = [
     { 
       id: 203, 
       title: "Пошаговое руководство для спортивной аналитики", 
+      image: "/src/assets/imgs/CompetiotionTemplate.png",
       creator: "PlayStats", 
       createdDate: "11-05-2023", 
       rate: 4.6, 
@@ -26,6 +29,7 @@ export const guides = [
     { 
       id: 204, 
       title: "Анализ данных здоровья: от начала до эксперта", 
+      image: "/src/assets/imgs/CompetiotionTemplate.png",
       creator: "Wellness Analytics", 
       createdDate: "28-10-2021", 
       rate: 4.9, 
@@ -34,6 +38,7 @@ export const guides = [
     { 
       id: 205, 
       title: "Создание климатических моделей на основе данных", 
+      image: "/src/assets/imgs/CompetiotionTemplate.png",
       creator: "EnviroTech", 
       createdDate: "18-03-2020", 
       rate: 4.7, 
@@ -42,6 +47,7 @@ export const guides = [
     { 
       id: 206, 
       title: "Основы геоанализа: от POI до пространственных моделей", 
+      image: "/src/assets/imgs/CompetiotionTemplate.png",
       creator: "GeoExperts", 
       createdDate: "29-07-2023", 
       rate: 4.4, 
@@ -53,6 +59,7 @@ export const guidesDetails = [
   { 
     id: 201, 
     title: "Руководство по прогнозированию цен на недвижимость", 
+    image: "/src/assets/imgs/CompetiotionTemplate.png",
     creator: "RealEstate Insights", 
     createdDate: "22-02-2023", 
     rate: 4.8, 
@@ -93,6 +100,7 @@ Python (библиотеки: Pandas, Scikit-learn, Matplotlib).
   { 
     id: 202, 
     title: "Как анализировать данные о транспортных средствах", 
+    image: "/src/assets/imgs/CompetiotionTemplate.png",
     creator: "DataScience Auto", 
     createdDate: "15-08-2022", 
     rate: 4.5, 
@@ -135,6 +143,7 @@ Python (библиотеки: Pandas, Scikit-learn, Seaborn).
   { 
     id: 203, 
     title: "Пошаговое руководство для спортивной аналитики", 
+    image: "/src/assets/imgs/CompetiotionTemplate.png",
     creator: "PlayStats", 
     createdDate: "11-05-2023", 
     rate: 4.6, 
@@ -176,6 +185,7 @@ Python (библиотеки: Matplotlib, Pandas, Statsmodels).
   { 
     id: 204, 
     title: "Анализ данных здоровья: от начала до эксперта", 
+    image: "/src/assets/imgs/CompetiotionTemplate.png",
     creator: "Wellness Analytics", 
     createdDate: "28-10-2021", 
     rate: 4.9, 
@@ -217,6 +227,7 @@ Python (библиотеки: Matplotlib, Pandas, Statsmodels).
   { 
     id: 205, 
     title: "Создание климатических моделей на основе данных", 
+    image: "/src/assets/imgs/CompetiotionTemplate.png",
     creator: "EnviroTech", 
     createdDate: "18-03-2020", 
     rate: 4.7, 
@@ -258,7 +269,8 @@ CSV-файлы для анализа, графические отчеты в PDF
   },
   { 
     id: 206, 
-    title: "Основы геоанализа: от POI до пространственных моделей", 
+    title: "Основы геоанализа: от POI до пространственных моделей",
+    image: "/src/assets/imgs/CompetiotionTemplate.png", 
     creator: "GeoExperts", 
     createdDate: "29-07-2023", 
     rate: 4.4, 

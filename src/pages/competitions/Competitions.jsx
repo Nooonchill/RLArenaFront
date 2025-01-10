@@ -11,7 +11,6 @@ export default function Competitions() {
       user={user}
       savedItems={user.saved.competitions}
       createdItems={user.created.competitions}
-      cardImage={CardImage}
       dateField="startDate"
       endDate="endDate"
       createFormType="createCompetition"
@@ -22,6 +21,7 @@ export default function Competitions() {
         {value: "Скоро начнутся", title: "Скоро начнутся"},
         {value: "Завершенные", title: "Завершенные"},
       ]}
+      successMessage="Заявка на создание соревновния была отправлена. Через некоторе время оно появится в списках."
     />
   );
 }

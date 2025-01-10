@@ -59,7 +59,6 @@ const Datum = () => {
       details={datum}
       tabs={tabs}
       contentRenderer={renderContent}
-      image={CompetitionImage}
       creator={datum.creator}
       people={datum.added}
       rate={datum.rate}

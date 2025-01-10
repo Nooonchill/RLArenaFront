@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import UserImage from '../../assets/imgs/UserImage.png'
 import CardImage from '../../assets/imgs/CompetiotionTemplate.png'
 import ResultsTable from "../../components/element/ResultsTable.jsx";
 import Achivements from "../../components/userInfo/Achivements.jsx";
@@ -25,11 +26,14 @@ function Profile() {
     <div className="h-full max-w-[1110px] mx-auto text-dark dark:text-lightwhiteturquoise mt-4">
       <div className="flex flex-row justify-between">
         <div className="flex gap-7">
-          <img src={CardImage} alt="Logo" className="w-40 h-40" />
+          <div className="w-40 h-40 overflow-hidden">
+            <img src={UserImage} alt="Logo" className="w-full h-full object-cover" />
+          </div>
           <div className="flex flex-col justify-between">
             <div className="flex flex-col">
-              <h2 className="text-2xl mb-4">{user.username}</h2>
-              <span className="mb-3">{user.organization}</span>
+              <h2 className="text-2xl">{user.username}</h2>
+              <span className="mb-4">{user.fullName}</span>
+              <span className="">{user.organization}</span>
               <span>{user.location}</span>
             </div>
             <span>Дата регистрации: {user.registration_date}</span>

@@ -89,7 +89,12 @@ const Competition = () => {
           </div>
         );
       case 4:
-        return <Form type="addSolution" isCretionForm={false} buttonText="Отправить" />;
+        return <Form
+          type="addSolution"
+          isCretionForm={false} 
+          buttonText="Отправить" 
+          successMessage="Вы успешно загрузили решение. Через некоторое время результаты ототбразятся в таблице."
+        />;
       default:
         return null;
     }
@@ -101,7 +106,6 @@ const Competition = () => {
       details={competition}
       tabs={tabs}
       contentRenderer={renderContent}
-      image={CompetitionImage}
       creator={competition.organizer}
       people={competition.participants}
       rate={competition.rate}

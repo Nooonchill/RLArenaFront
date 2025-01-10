@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Tabs from "./Tabs.jsx";
-import RightInfo from "./RightInfo.jsx";
+import AdditionalInfo from "./AdditionalInfo.jsx";
 import MainInfo from "./MainInfo.jsx";
 
 const DetailPageLayout = ({
@@ -8,7 +8,6 @@ const DetailPageLayout = ({
   details,
   tabs,
   contentRenderer,
-  image,
   creator,
   people,
   rate,
@@ -51,7 +50,7 @@ const DetailPageLayout = ({
   return (
     <div className="max-w-[1110px] mx-auto">
       <div className="flex flex-row gap-20 justify-between pl-2 text-dark dark:text-lightwhiteturquoise">
-        <div ref={leftRef} className="mb-8 flex-grow flex-shrink max-w-[750px]">
+        <div ref={leftRef} className="mb-4 flex-grow flex-shrink max-w-[750px]">
           <MainInfo
             user={user}
             details={details}
@@ -59,11 +58,19 @@ const DetailPageLayout = ({
             removeButtonText={removeButtonText}
             addSolutionButtonClick={handleAddSolutionClick}
           />
+          <div className="flex flex-row gap-5 mb-4">
+            {hideRightInfo && <AdditionalInfo creator={creator} people={people} rate={rate} />}
+          </div>
           <Tabs tabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
           {contentRenderer(activeTab)}
         </div>
         {!hideRightInfo && (
-          <RightInfo image={image} creator={creator} people={people} rate={rate} />
+          <div className="min-w-[152px] max-w-[320px] w-full flex-1">
+            <img src={details.image} className="w-full min-h-[85px] mb-4" alt="" />
+            <div className="flex flex-col gap-y-2 text-lg font-semibold">
+              <AdditionalInfo creator={creator} people={people} rate={rate} />
+            </div>
+          </div>
         )}
       </div>
     </div>

@@ -11,10 +11,10 @@ export default function Data() {
       user={user}
       savedItems={user.saved.data}
       createdItems={user.created.data}
-      cardImage={CardImage}
       dateField="createdDate"
       createFormType="createData"
       buttonText="Создать"
+      successMessage="Заявка на добавление данных была отправлена. Через некоторе время они появится в списках."
     />
   );
 }
