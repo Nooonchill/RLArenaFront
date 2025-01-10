@@ -7,7 +7,7 @@ import Remove from '/src/assets/icons/Remove.svg';
 
 const Card = ({ title, organizer, participants, rate, image, startDate, endDate, onClick, onButtonClick, added }) => {
   const [isLoading, setIsLoading] = useState(true); // Состояние загрузки картинки
-
+  const [isAdded, setIsAdded] = useState(added);
   // Форматируем даты
   startDate = startDate.replaceAll("-", ".");
   if (endDate !== undefined) {
@@ -27,7 +27,7 @@ const Card = ({ title, organizer, participants, rate, image, startDate, endDate,
   }, [image]);
 
   return (
-    <div onClick={onClick} className="min-w-[136px] max-w-[255px] w-full bg-gray-50 hover:bg-lightwhiteturquoise cursor-pointer text-dark rounded-xl">
+    <div onClick={onClick} className="min-w-[136px] max-w-[255px] w-full dark:bg-red-500 bg-gray-50 hover:bg-lightwhiteturquoise cursor-pointer text-dark rounded-xl">
       
       {/* Анимация загрузки, если картинка ещё не загружена */}
       {isLoading ? (
@@ -62,13 +62,21 @@ const Card = ({ title, organizer, participants, rate, image, startDate, endDate,
             onClick={(e) => {
               e.stopPropagation(); // Предотвращаем срабатывание клика на карточке
               onButtonClick(); // Вызываем переданную функцию для кнопки
+              setIsAdded(!isAdded);
             }}
           >
-            {added ? (
-              <Remove className="stroke-turquoise"/>
-            ) : (
-              <Add className="stroke-turquoise"/>
-            )}
+            <div className="mr-5 mb-6">
+              <Remove
+                className={`absolute transition-opacity duration-200 stroke-turquoise ${
+                  isAdded ? "opacity-100" : "opacity-0"
+                }`}
+              />
+              <Add
+                className={`absolute transition-opacity duration-200 stroke-turquoise ${
+                  isAdded ? "opacity-0" : "opacity-100"
+                }`}
+              />
+            </div>
           </button>
         </div>
       </div>

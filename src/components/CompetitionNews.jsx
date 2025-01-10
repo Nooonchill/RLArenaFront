@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import Winner from '/src/assets/icons/Winner.svg'
 import Second from '/src/assets/icons/Second.svg'
 import Third from '/src/assets/icons/Third.svg'
@@ -8,6 +9,12 @@ import { changeTimeView } from "/src/utils/TimeView.js";
 
 
 const CompetitionNews = ({ competition }) => {
+
+  const navigate = useNavigate();
+
+  const competitionNavigate = (id) => {
+    navigate('/competitions/' + id);
+  };
 
   return (
     <div className="bg-lightwhiteturquoise text-dark p-2 rounded-3xl mb-6">

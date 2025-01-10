@@ -13,7 +13,6 @@ import { data, dataDetails } from "/src/mockdata/dataData.js";
 
 const Datum = () => {
   const { id } = useParams();
-
   const datumDetails = dataDetails.find((item) => item.id === +id);
 
   const tabs = [
@@ -22,15 +21,48 @@ const Datum = () => {
   ];
 
   const [activeTab, setActiveTab] = useState(tabs[0].id);
+  const [hideRightInfo, setHideRightInfo] = useState(false);
+  const [lockRightInfo, setLockRightInfo] = useState(false); // Блокировка повторного появления
+
+  const leftRef = useRef();
 
   const handleTabClick = (tabId) => {
     setActiveTab(tabId);
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (leftRef.current) {
+        const leftWidth = leftRef.current.offsetWidth;
+        const minLeftWidth = 400; // Задаем минимальную ширину левой части
+
+        if (leftWidth <= minLeftWidth && !lockRightInfo) {
+          setHideRightInfo(true);
+          setLockRightInfo(true); // Блокируем повторное появление
+        } else if (leftWidth > minLeftWidth + 250) {
+          setLockRightInfo(false);
+          setHideRightInfo(false);
+        }
+      }
+    };
+
+    // Слушаем событие изменения размера окна
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Проверка при первом рендере
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [lockRightInfo]);
+
+
   return (
     <div className="max-w-[1110px] mx-auto">
       <div className="flex flex-row gap-20 justify-between pl-2 text-dark">
-        <div className="mb-8 flex-grow">
+        <div 
+          ref={leftRef} 
+          className="mb-8 flex-grow flex-shrink max-w-[750px]"
+        >
           <MainInfo
             user={user}
             details={datumDetails}
@@ -50,12 +82,14 @@ const Datum = () => {
             />
           )}
         </div>
-        <RightInfo 
-          image={CompetitionImage}
-          creator={datumDetails.creator}
-          people={datumDetails.added}
-          rate={datumDetails.rate}
-        />
+        {!hideRightInfo && (
+          <RightInfo 
+            image={CompetitionImage}
+            creator={datumDetails.creator}
+            people={datumDetails.added}
+            rate={datumDetails.rate}
+          />
+        )}
       </div>
     </div>
   );

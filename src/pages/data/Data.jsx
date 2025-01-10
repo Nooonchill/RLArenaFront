@@ -108,7 +108,7 @@ function Data() {
           </div>
         </div>
       ) : (
-        <Form type='competitions' />
+        <Form type='createData' isCretionForm={true} buttonText="Создать" />
       )}
       
     </div>

@@ -16,11 +16,7 @@ import { user, logged } from '/src/mockdata/userData.js';
 import { lastCompetition, lastNews } from '/src/mockdata/homeData.js';
 
 function Home() {
-  
   const [isLogged, setIsLogged] = useState(logged);
-  
-  const total = user.saved.competitions.length + user.created.competitions.length
-  const dashValue = 75 * user.stats.solved / total;
 
   return (
     <div className="max-w-[1110px] mx-auto">

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Form from '/src/components/Form.jsx';
+import ThemeToggle from '/src/components/ThemeToggle.jsx';
+import Close from '/src/assets/icons/Close.svg';
 
 const SettingsMenu = ({ onClose }) => {
   const handleOutsideClick = (e) => {
@@ -12,28 +14,9 @@ const SettingsMenu = ({ onClose }) => {
   const categories = ['Основные', 'Аккаунт', 'Профиль']
 
   const settingsForms = {
-    'Основные': {type: "generalSettings", isFieldsRow: true, buttonText: "Сохранить"},
     'Аккаунт': {type: "accountSettings", isFieldsRow: false, buttonText: "Сохранить"},
     'Профиль': {type: "profileSettings", isFieldsRow: false, buttonText: "Сохранить"},
   };
-
-  const user = {
-    username: "NoooN",
-    fullName: "Горский Иван Артёмович",
-    organization: "УрФУ",
-    registration_date: "5-01-2025",
-    location: "Екатеринбург, Россия",
-    saved: {
-      competitions: [24],
-      guides: [201, 205, 203],
-      data: [101, 103, 104],
-    },
-    created: {
-      competitions: [1],
-      guides: [],
-      data: [],
-    }
-  }
 
   return (
     <div
@@ -41,15 +24,22 @@ const SettingsMenu = ({ onClose }) => {
       onClick={handleOutsideClick}
       className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50"
     >
-      <div className="flex bg-white rounded-lg w-3/4 md:w-1/2 shadow-xl overflow-hidden text-dark min-h-[350px]">
+      <div className="relative flex bg-white rounded-lg w-3/4 md:w-1/2 shadow-xl overflow-hidden text-dark min-h-[350px] max-w-[600px]">
+        
+        <button 
+          onClick={onClose}
+          className='absolute bg-transparent top-0 right-0 p-0 m-2 border-0'
+        >
+          <Close />
+        </button>
         <div className="w-1/3 bg-whiteturquoise p-4">
           <ul>
             {categories.map((category) => (
               <li
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`cursor-pointer py-2 px-4 rounded-lg ${
-                  selectedCategory === category ? 'bg-blue-200' : ''
+                className={`cursor-pointer py-2 px-4 rounded-lg hover:bg-lightwhiteturquoise ${
+                  selectedCategory === category ? 'bg-white hover:bg-white' : ''
                 }`}
               >
                 {category}
@@ -58,11 +48,15 @@ const SettingsMenu = ({ onClose }) => {
           </ul>
         </div>
         <div className="w-2/3 p-4">
-          <Form 
-            type={settingsForms[selectedCategory].type}
-            isFieldsRow={settingsForms[selectedCategory].isFieldsRow}
-            buttonText={settingsForms[selectedCategory].buttonText}
-          />
+          {selectedCategory in settingsForms ? (
+            <Form 
+              type={settingsForms[selectedCategory].type}
+              isFieldsRow={settingsForms[selectedCategory].isFieldsRow}
+              buttonText={settingsForms[selectedCategory].buttonText}
+            />
+          ) : (
+            <ThemeToggle/>
+          )}
         </div>
       </div>
     </div>

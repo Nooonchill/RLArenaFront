@@ -1,17 +1,27 @@
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Auth from './pages/Auth';
 import Test from './pages/Test';
-import Competitions from './pages/competitions/Competitions.jsx';
-import Competition from './pages/competitions/Competition.jsx';
+import Competition from './pages/Competitions/Competition.jsx';
+import Competitions from './pages/Competitions/Competitions.jsx';
 import Guides from './pages/guides/Guides.jsx';
 import Guide from './pages/guides/Guide.jsx';
 import Data from './pages/data/Data.jsx';
 import Datum from './pages/data/Datum.jsx';
 
+
 const App = () => {
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    document.documentElement.classList.toggle("dark", savedTheme === "dark" || (!savedTheme && systemTheme));
+  }, []);
+
   return (
     <Router>
       <Routes>

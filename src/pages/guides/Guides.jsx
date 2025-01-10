@@ -109,7 +109,7 @@ function Guides() {
           </div>
         </div>
       ) : (
-        <Form type='competitions' />
+        <Form type='createGuide' isCretionForm={true} buttonText="Создать" />
       )}
       
     </div>

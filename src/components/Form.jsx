@@ -1,9 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactMde from "react-mde";
 import "react-mde/lib/styles/css/react-mde-all.css";
 import ReactMarkdown from "react-markdown";
 
 const Form = ({ type, isCretionForm=false, buttonText }) => {
+
+
+  function handleClick() {
+    if (localStorage.theme === "dark" || !("theme" in localStorage)) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+
+    if (localStorage.theme === "dark") {
+      localStorage.theme = "light";
+    } else {
+      localStorage.theme = "dark";
+    }
+  }
 
   const user = {
     username: "NoooN",
@@ -34,7 +49,7 @@ const Form = ({ type, isCretionForm=false, buttonText }) => {
   };
 
   const formFields = {
-    'competitions': [
+    'createCompetition': [
       { label: "Название", id: "title", type: "text", required: true, placeholder: "" },
       { label: "Описание", id: "description", type: "textarea", required: true, placeholder: "" },
       { label: "Картинка", id: "image", type: "file", required: true, placeholder: "" },
@@ -43,6 +58,17 @@ const Form = ({ type, isCretionForm=false, buttonText }) => {
       { label: "Дата завершения", id: "end_date", type: "date", required: true, placeholder: "" },
       { label: "Тэги", id: "tags", type: "text", required: false, placeholder: "" },
       { label: "Правила", id: "rules", type: "file", required: false, placeholder: "" },
+    ],
+    'createData': [
+      { label: "Название", id: "title", type: "text", required: true, placeholder: "" },
+      { label: "Описание", id: "description", type: "textarea", required: true, placeholder: "" },
+      { label: "Картинка", id: "image", type: "file", required: true, placeholder: "" },
+      { label: "Архив файлов", id: "data", type: "file", required: true, placeholder: "" },
+    ],
+    'createGuide': [
+      { label: "Название", id: "title", type: "text", required: true, placeholder: "" },
+      { label: "Текст", id: "text", type: "textarea", required: true, placeholder: "" },
+      { label: "Картинка", id: "image", type: "file", required: true, placeholder: "" },
     ],
     'accountSettings': [
       { label: "Имя пользователя", id: "username", type: "text", required: false, placeholder: user.username },
@@ -54,9 +80,6 @@ const Form = ({ type, isCretionForm=false, buttonText }) => {
       { label: "Организация", id: "organization", type: "text", required: false, placeholder: user.organization },
       { label: "Местонахождение", id: "location", type: "text", required: false, placeholder: user.location },
     ],
-    'generalSettings': [
-      {label: "Тема", id: "theme", type: "checkbox", required: false, placeholder: false},
-    ],
     'login': [
       {label: "", id: "user", type: "text", required: true, placeholder: "Логин или Эл. почта"},
       {label: "", id: "password", type: "password", required: true, placeholder: "Пароль"},
@@ -66,6 +89,9 @@ const Form = ({ type, isCretionForm=false, buttonText }) => {
       {label: "", id: "email", type: "text", required: true, placeholder: "Эл. почта"},
       {label: "", id: "fullName", type: "text", required: true, placeholder: "Полное имя"},
       {label: "", id: "password", type: "password", required: true, placeholder: "Пароль"},
+    ],
+    'addSolution': [
+      { label: "Архив с решением", id: "solution", type: "file", required: false, placeholder: "" },
     ]
   };
 
@@ -79,7 +105,7 @@ const Form = ({ type, isCretionForm=false, buttonText }) => {
           <label htmlFor={field.id} className={`text-lg ${isCretionForm ? 'w-40' : ''}`}>
             {field.label}{field.required === true && field.label !== '' ? " *" : ""}
           </label>
-          {field.type === "textarea" && field.id === "description" ? (
+          {field.type === "textarea" ? (
             <div className="max-w-[650px] w-full">
               <ReactMde
                 value={markdownValue}
@@ -98,18 +124,6 @@ const Form = ({ type, isCretionForm=false, buttonText }) => {
                 }}
               />
             </div>
-          ) : field.type === "checkbox" ? (
-            <label class="relative inline-flex cursor-pointer items-center">
-              <input 
-                type={field.type}
-                id={field.id}
-                name={field.id}
-                required={field.required}
-                placeholder={field.placeholder} 
-                class="peer sr-only" 
-              />
-              <div class="peer h-[26px] w-[48px] rounded-full border bg-whiteturquoise relative after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-darkturquoise peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"></div>
-            </label>
           ) : (
             <input
               type={field.type}

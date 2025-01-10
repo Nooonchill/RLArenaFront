@@ -77,7 +77,7 @@ function Competitions() {
       <ListHead 
         title="Соревнования"
       />
-      <div className="flex justify-between gap-3 flex-wrap px-1 mb-4">
+      <div className="flex justify-between gap-3 flex-wrap-reverse px-1 mb-2">
         <Filters
           filters={filters}
           additionalFilter={additionalFilter}
@@ -115,7 +115,7 @@ function Competitions() {
           </div>
         </div>
       ) : (
-        <Form type='competitions' isCretionForm={true} buttonText="Создать" />
+        <Form type='createCompetition' isCretionForm={true} buttonText="Создать" />
       )}
       
     </div>

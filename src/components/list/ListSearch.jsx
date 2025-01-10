@@ -5,7 +5,7 @@ import Search from '/src/assets/icons/Search.svg'
 function ListSearch() {
 
   return (
-    <form className="max-w-[540px] min-w-[510px] w-full bg-none">
+    <form className="max-w-[540px]  w-full bg-none">
       <div className="relative h-[38px]">
         <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
           <Search alt="Search" className="cursor-pointer" />
