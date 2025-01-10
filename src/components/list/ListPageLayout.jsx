@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import Card from '../components/Card.jsx';
-import Form from '../components/Form.jsx';
-import ListHead from "../components/list/ListHead";
-import Filters from "../components/list/Filters";
-import ListSearch from "../components/list/ListSearch";
-import Sorts from "../components/list/Sorts";
-import { getFiltered } from "../utils/Filters.js";
+import Card from './Card.jsx';
+import Form from '../Form.jsx';
+import ListHead from "./ListHead.jsx";
+import Filters from "./Filters.jsx";
+import ListSearch from "./ListSearch.jsx";
+import Sorts from "./Sorts.jsx";
+import { getFiltered } from "../../utils/Filters.js";
 
-export default function ListPage({
+export default function ListPageLayout({
   title, items, user, savedItems, createdItems, cardImage, dateField, endDate, createFormType, buttonText, additionalFilters
 }) {
   const [activeButton, setActiveButton] = useState(1);

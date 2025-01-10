@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-import Winner from '../assets/icons/Winner.svg'
-import Second from '../assets/icons/Second.svg'
-import Third from '../assets/icons/Third.svg'
-import CardImage from '../assets/imgs/CompetiotionTemplate.png'
-import ResultsTable from "../components/elements/ResultsTable.jsx";
-import { changeTimeView } from "../utils/TimeView.js";
+import Winner from '../../assets/icons/Winner.svg'
+import Second from '../../assets/icons/Second.svg'
+import Third from '../../assets/icons/Third.svg'
+import CardImage from '../../assets/imgs/CompetiotionTemplate.png'
+import ResultsTable from '../element/ResultsTable.jsx';
+import { changeTimeView } from '../../utils/TimeView.js';
 
 
 const CompetitionNews = ({ competition }) => {

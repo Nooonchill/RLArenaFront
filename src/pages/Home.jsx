@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import CompetitionNews from "../components/CompetitionNews.jsx";
-import UserStat from "../components/UserStat.jsx";
-
+import CompetitionNews from "../components/home/CompetitionNews.jsx";
+import UserStat from "../components/userInfo/UserStat.jsx";
 
 // Моковые данные
 import { user, logged } from '../mockdata/userData.js';

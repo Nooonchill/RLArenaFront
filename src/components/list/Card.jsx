@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Star from '../assets/icons/Star.svg';
-import User from '../assets/icons/User.svg';
-import Add from '../assets/icons/Add.svg';
-import Remove from '../assets/icons/Remove.svg';
+import Star from '../../assets/icons/Star.svg';
+import User from '../../assets/icons/User.svg';
+import Add from '../../assets/icons/Add.svg';
+import Remove from '../../assets/icons/Remove.svg';
 
 const Card = ({ title, organizer, participants, rate, image, startDate, endDate, onClick, onButtonClick, added }) => {
   const [isLoading, setIsLoading] = useState(true); // Состояние загрузки картинки

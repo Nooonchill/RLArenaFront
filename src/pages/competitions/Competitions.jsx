@@ -1,11 +1,11 @@
-import ListPage from '../../components/ListPage.jsx';
+import ListPageLayout from '../../components/list/ListPageLayout.jsx';
 import CardImage from '../../assets/imgs/CompetiotionTemplate.png';
 import { competitions } from "../../mockdata/competitionData.js";
 import { user } from '../../mockdata/userData.js';
 
 export default function Competitions() {
   return (
-    <ListPage 
+    <ListPageLayout 
       title="Соревнования"
       items={competitions}
       user={user}

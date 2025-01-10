@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { changeTimeView } from "../utils/TimeView.js"
+import { changeTimeView } from "../../utils/TimeView.js"
 
 const UserStat = ({user, isLogged}) => {
   const total = user.saved.competitions.length + user.created.competitions.length

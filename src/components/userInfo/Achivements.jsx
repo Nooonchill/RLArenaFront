@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-import LeftArrow from '../assets/icons/LeftArrow.svg'
-import RightArrow from '../assets/icons/RightArrow.svg'
-import CardImage from '../assets/imgs/CompetiotionTemplate.png'
+import LeftArrow from '../../assets/icons/LeftArrow.svg'
+import RightArrow from '../../assets/icons/RightArrow.svg'
+import CardImage from '../../assets/imgs/CompetiotionTemplate.png'
 
 
 const Achivements = ({ user }) => {

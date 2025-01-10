@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
-import DetailPageLayout from "../../components/DetailPageLayout.jsx";
+import DetailPageLayout from "../../components/element/DetailPageLayout.jsx";
 import { dataDetails } from "../../mockdata/dataData.js";
 import CompetitionImage from "../../assets/imgs/CompetiotionTemplate.png";
-import FilesTable from "../../components/elements/FilesTable.jsx";
+import FilesTable from "../../components/element/FilesTable.jsx";
 
 // Моковые данные
 import { user, logged } from '../../mockdata/userData.js';

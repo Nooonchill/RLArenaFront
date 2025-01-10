@@ -1,4 +1,4 @@
-import ListPage from '../../components/ListPage.jsx';
+import ListPageLayout from '../../components/list/ListPageLayout.jsx';
 import CardImage from '../../assets/imgs/CompetiotionTemplate.png';
 import { guides } from "../../mockdata/guideData.js";
 import { user } from '../../mockdata/userData';
@@ -6,7 +6,7 @@ import { user } from '../../mockdata/userData';
 
 export default function Guides() {
   return (
-    <ListPage 
+    <ListPageLayout 
       title="Гайды"
       items={guides}
       user={user}

@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import CardImage from '../assets/imgs/CompetiotionTemplate.png'
-import ResultsTable from "../components/elements/ResultsTable.jsx";
-import Achivements from "../components/Achivements";
+import CardImage from '../../assets/imgs/CompetiotionTemplate.png'
+import ResultsTable from "../../components/element/ResultsTable.jsx";
+import Achivements from "../../components/userInfo/Achivements.jsx";
 
 // Моковые данные
-import { user, logged } from '../mockdata/userData.js';
+import { user, logged } from '../../mockdata/userData.js';
 
 
 function Profile() {

@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
-import DetailPageLayout from "../../components/DetailPageLayout.jsx";
+import DetailPageLayout from "../../components/element/DetailPageLayout.jsx";
 import { guidesDetails } from "../../mockdata/guideData.js";
 import CompetitionImage from "../../assets/imgs/CompetiotionTemplate.png";
 

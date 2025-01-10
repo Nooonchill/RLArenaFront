@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Form from '../components/Form.jsx';
-import ThemeToggle from '../components/ThemeToggle.jsx';
-import Close from '../assets/icons/Close.svg';
+import Form from '../../components/Form.jsx';
+import ThemeToggle from './ThemeToggle.jsx';
+import Close from '../../assets/icons/Close.svg';
 
 // Моковые данные
-import { user, logged } from '../mockdata/userData.js';
+import { user, logged } from '../../mockdata/userData.js';
 
 const SettingsMenu = ({ onClose }) => {
   const handleOutsideClick = (e) => {

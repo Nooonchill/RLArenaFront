@@ -1,12 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
-import DetailPageLayout from "../../components/DetailPageLayout.jsx";
+import DetailPageLayout from "../../components/element/DetailPageLayout.jsx";
 import { competitionsDetails, userSolutions } from "../../mockdata/competitionData.js";
 import CompetitionImage from "../../assets/imgs/CompetiotionTemplate.png";
 import { formatDateTime, changeTimeView } from "../../utils/TimeView.js";
-import FilesTable from "../../components/elements/FilesTable.jsx";
-import ResultsTable from "../../components/elements/ResultsTable.jsx";
+import FilesTable from "../../components/element/FilesTable.jsx";
+import ResultsTable from "../../components/element/ResultsTable.jsx";
 import Form from "../../components/Form.jsx";
 
 // Моковые данные

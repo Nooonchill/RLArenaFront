@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import Tabs from "../components/elements/Tabs.jsx";
-import RightInfo from "../components/elements/RightInfo.jsx";
-import MainInfo from "../components/elements/MainInfo.jsx";
+import Tabs from "./Tabs.jsx";
+import RightInfo from "./RightInfo.jsx";
+import MainInfo from "./MainInfo.jsx";
 
 const DetailPageLayout = ({
   user,

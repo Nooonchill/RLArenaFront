@@ -6,7 +6,7 @@ import Guides from '../assets/icons/Guides.svg';
 import Data from '../assets/icons/Data.svg';
 import SettingsIcon from '../assets/icons/Settings.svg';
 import Logo from '../assets/icons/Atom.svg';
-import SettingsMenu from '../components/Settings.jsx';  // Импорт компонента настроек
+import SettingsMenu from './settings/Settings';  // Импорт компонента настроек
 
 const Sidebar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
