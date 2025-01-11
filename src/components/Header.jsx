@@ -60,11 +60,11 @@ const Header = ({}) => {
           ) : (
             <div className="flex gap-3 h-[38px]">
               <Link to="/auth" className="h-[38px]">
-                <button className="h-[38px] py-0 bg-white font-medium border-2 border-turquoise text-turquoise hover:text-lightturquoise hover:border-lightturquoise active:text-darkturquoise active:border-darkturquoise w-full rounded-full">
+                <button className="h-[38px] py-0 bg-transparent font-medium border-2 border-turquoise text-turquoise hover:text-lightturquoise hover:border-lightturquoise active:text-darkturquoise active:border-darkturquoise w-full rounded-full dark:border-lightwhiteturquoise dark:text-lightwhiteturquoise dark:hover:text-addwhiteturquoise dark:hover:border-addwhiteturquoise">
                   Вход
                 </button>
               </Link>
-              <button className="h-[38px] py-0 border-none font-medium bg-turquoise text-white hover:bg-lightturquoise active:bg-darkturquoise w-full rounded-full">
+              <button className="h-[38px] py-0 border-none font-medium bg-turquoise text-white hover:bg-lightturquoise active:bg-darkturquoise w-full rounded-full dark:text-dark dark:bg-lightwhiteturquoise dark:hover:bg-addwhiteturquoise">
                 <p className="">Регистрация</p>
               </button>
             </div>

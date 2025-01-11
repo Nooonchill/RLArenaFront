@@ -8,9 +8,9 @@ export default function Data() {
     <ListPageLayout 
       title="Данные"
       items={data}
-      user={user}
-      savedItems={user.saved.data}
-      createdItems={user.created.data}
+      user={user || {}}
+      savedItems={user?.saved?.data || []}
+      createdItems={user?.created?.data || []}
       dateField="createdDate"
       createFormType="createData"
       buttonText="Создать"

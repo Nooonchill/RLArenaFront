@@ -8,9 +8,9 @@ export default function Competitions() {
     <ListPageLayout 
       title="Соревнования"
       items={competitions}
-      user={user}
-      savedItems={user.saved.competitions}
-      createdItems={user.created.competitions}
+      user={user || {}}
+      savedItems={user?.saved?.competitions || []}
+      createdItems={user?.created?.competitions || []}
       dateField="startDate"
       endDate="endDate"
       createFormType="createCompetition"

@@ -9,9 +9,9 @@ export default function Guides() {
     <ListPageLayout 
       title="Гайды"
       items={guides}
-      user={user}
-      savedItems={user.saved.guides}
-      createdItems={user.created.guides}
+      user={user || {}}
+      savedItems={user?.saved?.guides || []}
+      createdItems={user?.created?.guides || []}
       dateField="createdDate"
       createFormType="createGuide"
       buttonText="Создать"

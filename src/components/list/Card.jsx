@@ -5,7 +5,7 @@ import Add from '../../assets/icons/Add.svg';
 import Remove from '../../assets/icons/Remove.svg';
 import { saveElement } from "../../utils/SavedElements.js";
 
-const Card = ({ id, title, organizer, participants, rate, imageSrc, startDate, endDate, onClick, added }) => {
+const Card = ({ id, title, organizer, participants, rate, imageSrc, startDate, endDate, onClick, added, userId }) => {
   const [isLoading, setIsLoading] = useState(true); // Состояние загрузки картинки
   const [isAdded, setIsAdded] = useState(added);
   startDate = startDate.replaceAll("-", ".");
@@ -36,7 +36,7 @@ const Card = ({ id, title, organizer, participants, rate, imageSrc, startDate, e
       ) : (
         <img
           src={imageSrc}
-          className="w-[255px]"
+          className="w-[256px] h-[144px] rounded-t-xl"
           alt="Картинка карточки"
         />
       )}
@@ -56,32 +56,35 @@ const Card = ({ id, title, organizer, participants, rate, imageSrc, startDate, e
               <span className="">{participants}</span>
             </div>
           </div>
-          <button
-            className="bg-transparent p-0 mr-2 hover:border-transparent"
-            onClick={(e) => {
-              e.stopPropagation(); // Предотвращаем срабатывание клика на карточке
-              setIsAdded(!isAdded);
-              saveElement({
-                add: !isAdded,
-                type: location.pathname.match(/\/([^\/]+)/)[1],
-                id: id,
-              });
-            }}
-          >
-            <div className="mr-5 mb-6">
-              <Remove
-                className={`absolute transition-opacity duration-200 stroke-turquoise ${
-                  isAdded ? "opacity-100" : "opacity-0"}`}
-                alt="Удалить"
-              />
-              <Add
-                className={`absolute transition-opacity duration-200 stroke-turquoise ${
-                  isAdded ? "opacity-0" : "opacity-100"
-                }`}
-                alt="Добавить"
-              />
-            </div>
-          </button>
+          {userId &&
+            <button
+              className="bg-transparent p-0 mr-2 hover:border-transparent"
+              onClick={(e) => {
+                e.stopPropagation(); // Предотвращаем срабатывание клика на карточке
+                setIsAdded(!isAdded);
+                saveElement({
+                  userId: userId,
+                  add: !isAdded,
+                  type: location.pathname.match(/\/([^\/]+)/)[1],
+                  id: id,
+                });
+              }}
+            >
+              <div className="mr-5 mb-6">
+                <Remove
+                  className={`absolute transition-opacity duration-200 stroke-turquoise ${
+                    isAdded ? "opacity-100" : "opacity-0"}`}
+                  alt="Удалить"
+                />
+                <Add
+                  className={`absolute transition-opacity duration-200 stroke-turquoise ${
+                    isAdded ? "opacity-0" : "opacity-100"
+                  }`}
+                  alt="Добавить"
+                />
+              </div>
+            </button>
+          }
         </div>
       </div>
     </div>

@@ -66,7 +66,7 @@ const DetailPageLayout = ({
         </div>
         {!hideRightInfo && (
           <div className="min-w-[152px] max-w-[320px] w-full flex-1">
-            <img src={details.image} className="w-full min-h-[85px] mb-4" alt="" />
+            <img src={details.image} className="w-full min-h-[85px] mb-4" alt="Картинка соревнования" />
             <div className="flex flex-col gap-y-2 text-lg font-semibold">
               <AdditionalInfo creator={creator} people={people} rate={rate} />
             </div>

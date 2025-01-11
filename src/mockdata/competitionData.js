@@ -1,17 +1,17 @@
 export const competitions = [
-  { id: 134, title: "Прогнозирование цен на дома", image: "/src/assets/imgs/CompetiotionTemplate.png", organizer: "УрФУ", rate: 4.8, participants: 243, startDate: "12-04-2024", endDate: "27-04-2024" },
+  { id: 134, title: "Прогнозирование цен на дома", image: "/src/assets/imgs/card1.png", organizer: "УрФУ", rate: 4.8, participants: 243, startDate: "12-04-2024", endDate: "27-04-2024" },
   { id: 12, title: "Оценка стоимости автомобиля по его характеристикам", image: "/src/assets/imgs/CompetiotionTemplate.png", organizer: "James123", rate: 2.1, participants: 2492, startDate: "27-10-2024", endDate: "27-02-2025" },
-  { id: 35, title: "Обладатель Кубка Гагарина 2025 года", image: "/src/assets/imgs/CompetiotionTemplate.png", organizer: "Team Work", rate: 4.2, participants: 1222, startDate: "12-09-2024", endDate: "12-12-2024" },
-  { id: 1, title: "Студенты, проходящие стажировки в IT-компаниях", image: "/src/assets/imgs/CompetiotionTemplate.png", organizer: "NoooN", rate: 5.0, participants: 12, startDate: "25-12-2024", endDate: "20-01-2025" },
-  { id: 24, title: "Обладатель Кубка Гагарина 2024 года", image: "/src/assets/imgs/CompetiotionTemplate.png", organizer: "Team Work", rate: 4.2, participants: 242, startDate: "12-04-2023", endDate: "27-04-2024" },
-  { id: 133, title: "Распознование детского голоса", image: "/src/assets/imgs/CompetiotionTemplate.png", organizer: "ChildUniverse", rate: 4.4, participants: 242, startDate: "16-01-2025", endDate: "16-02-2025" },
+  { id: 35, title: "Обладатель Кубка Гагарина 2025 года", image: "src/assets/imgs/card2.png", organizer: "Team Work", rate: 4.2, participants: 1222, startDate: "12-09-2024", endDate: "12-12-2024" },
+  { id: 1, title: "Студенты, проходящие стажировки в IT-компаниях", image: "src/assets/imgs/card1.png", organizer: "NoooN", rate: 5.0, participants: 12, startDate: "25-12-2024", endDate: "20-01-2025" },
+  { id: 24, title: "Обладатель Кубка Гагарина 2024 года", image: "src/assets/imgs/card2.png", organizer: "Team Work", rate: 4.2, participants: 242, startDate: "12-04-2023", endDate: "27-04-2024" },
+  { id: 133, title: "Распознование детского голоса", image: "/src/assets/imgs/card3.png", organizer: "ChildUniverse", rate: 4.4, participants: 242, startDate: "16-01-2025", endDate: "16-02-2025" },
 ];
 
 export const competitionsDetails = [
   {
     id: 134,
     title: "Прогнозирование цен на дома",
-    image: "/src/assets/imgs/CompetiotionTemplate.png",
+    image: "/src/assets/imgs/card1.png",
     organizer: "УрФУ",
     rate: 4.8,
     participants: 243,
@@ -82,7 +82,7 @@ export const competitionsDetails = [
   {
     id: 35,
     title: "Обладатель Кубка Гагарина 2025 года",
-    image: "/src/assets/imgs/CompetiotionTemplate.png",
+    image: "/src/assets/imgs/card2.png",
     organizer: "Team Work",
     rate: 4.2,
     participants: 1222,
@@ -117,7 +117,7 @@ export const competitionsDetails = [
   {
     id: 1,
     title: "Студенты, проходящие стажировки в IT-компаниях",
-    image: "/src/assets/imgs/CompetiotionTemplate.png",
+    image: "/src/assets/imgs/card1.png",
     organizer: "NoooN",
     rate: 5.0,
     participants: 12,
@@ -152,7 +152,7 @@ export const competitionsDetails = [
   {
     id: 24,
     title: "Обладатель Кубка Гагарина 2024 года",
-    image: "/src/assets/imgs/CompetiotionTemplate.png",
+    image: "/src/assets/imgs/card2.png",
     organizer: "Team Work",
     rate: 4.2,
     participants: 242,
@@ -190,7 +190,7 @@ export const competitionsDetails = [
   {
     id: 133,
     title: "Распознование детского голоса",
-    image: "/src/assets/imgs/CompetiotionTemplate.png",
+    image: "/src/assets/imgs/card3.png",
     organizer: "ChildUniverse",
     rate: 4.4,
     participants: 242,

@@ -91,6 +91,7 @@ export default function ListPageLayout({
                 endDate={item[endDate]}
                 onClick={() => cardNavigate(item.id)}
                 added={savedItems.includes(item.id) || createdItems.includes(item.id)}
+                userId={user.id}
               />
             ))}
           </div>

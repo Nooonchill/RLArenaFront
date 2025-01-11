@@ -3,13 +3,16 @@ import { saveElement } from "../../utils/SavedElements.js";
 
 
 const MainInfo = ({user, details, addButtonText, removeButtonText, addSolutionButtonClick}) => {
-  const [isAdded, setIsAdded] = useState(
-    user.saved.competitions.includes(details.id) || user.created.competitions.includes(details.id)
-  );
+  if (user.saved) {
+    const [isAdded, setIsAdded] = useState(
+      user.saved[location.pathname.match(/\/([^\/]+)/)[1]].includes(details.id) || user.created[location.pathname.match(/\/([^\/]+)/)[1]].includes(details.id)
+    );
+  }
 
   const handleButtonClick = () => {
     setIsAdded(!isAdded);
     saveElement({
+      userId: user.id,
       add: !isAdded,
       type: location.pathname.match(/\/([^\/]+)/)[1],
       id: details.id,
@@ -33,29 +36,33 @@ const MainInfo = ({user, details, addButtonText, removeButtonText, addSolutionBu
           <span>{details.createdDate.replaceAll("-", ".")}</span>
         )}
         <div className="flex flex-row gap-2">
-          {isAdded ? (
-            <button
-              onClick={handleButtonClick}
-              className="h-[38px] py-0 bg-transparent font-medium border-2 border-turquoise dark:border-lightwhiteturquoise text-turquoise dark:text-lightwhiteturquoise hover:text-lightturquoise hover:border-lightturquoise active:text-darkturquoise active:border-darkturquoise w-max rounded-full"
-            >
-              {removeButtonText}
-            </button>
-          ) : (
-            <button
-              onClick={handleButtonClick}
-              className="h-[38px] py-0 border-none font-medium bg-turquoise dark:bg-lightwhiteturquoise text-white dark:hover:bg-gray-300 dark:text-dark hover:bg-lightturquoise active:bg-darkturquoise rounded-full"
-            >
-              {addButtonText}
-            </button>
+          {user?.saved && (
+            <>
+              {isAdded ? (
+                <button
+                  onClick={handleButtonClick}
+                  className="h-[38px] py-0 bg-transparent font-medium border-2 border-turquoise dark:border-lightwhiteturquoise text-turquoise dark:text-lightwhiteturquoise hover:text-lightturquoise hover:border-lightturquoise active:text-darkturquoise active:border-darkturquoise w-max rounded-full"
+                >
+                  {removeButtonText}
+                </button>
+              ) : (
+                <button
+                  onClick={handleButtonClick}
+                  className="h-[38px] py-0 border-none font-medium bg-turquoise dark:bg-lightwhiteturquoise text-white dark:hover:bg-gray-300 dark:text-dark hover:bg-lightturquoise active:bg-darkturquoise rounded-full"
+                >
+                  {addButtonText}
+                </button>
+              )}
+              {isAdded && addSolutionButtonClick && (
+                <button
+                  onClick={addSolutionButtonClick}
+                  className="h-[38px] py-0 border-none font-medium bg-turquoise dark:bg-lightwhiteturquoise text-white dark:hover:bg-gray-300 dark:text-dark hover:bg-lightturquoise active:bg-darkturquoise rounded-full"
+                >
+                  Отправить решение
+                </button>
+              )}
+            </>
           )}
-          {isAdded && addSolutionButtonClick ? (
-            <button
-              onClick={addSolutionButtonClick}
-              className="h-[38px] py-0 border-none font-medium bg-turquoise dark:bg-lightwhiteturquoise text-white dark:hover:bg-gray-300 dark:text-dark hover:bg-lightturquoise active:bg-darkturquoise rounded-full"
-            >
-              Отправить решение
-            </button>
-          ) : null}
         </div>
       </div>
     </div>    

@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import UserImage from '../../assets/imgs/UserImage.png'
-import CardImage from '../../assets/imgs/CompetiotionTemplate.png'
 import ResultsTable from "../../components/element/ResultsTable.jsx";
 import Achivements from "../../components/userInfo/Achivements.jsx";
 
@@ -27,7 +25,7 @@ function Profile() {
       <div className="flex flex-row justify-between">
         <div className="flex gap-7">
           <div className="w-40 h-40 overflow-hidden">
-            <img src={UserImage} alt="Logo" className="w-full h-full object-cover" />
+            <img src={user.image} alt="Logo" className="w-full h-full object-cover" />
           </div>
           <div className="flex flex-col justify-between">
             <div className="flex flex-col">

@@ -41,7 +41,7 @@ const Competition = () => {
     { id: 1, title: "Обзор" },
     { id: 2, title: "Данные" },
     { id: 3, title: "Решения" },
-    { id: 4, title: "Загрузить" },
+    ...(user?.saved?.competitions.includes(+id) ? [{ id: 4, title: "Загрузить" }] : []),
   ];
 
   const renderContent = (activeTab) => {
@@ -59,19 +59,21 @@ const Competition = () => {
       case 3:
         return (
           <div className="flex flex-col gap-4">
-            <div>
-              <span>Ваши решения: </span>
-              <ResultsTable
-                results={userSolutions}
-                rows={20}
-                columns={[
-                  { key: "place", label: "Место" },
-                  { key: "datetime", label: "Время", format: formatDateTime },
-                  { key: "title", label: "Решение" },
-                  { key: "score", label: "Оценка" },
-                ]}
-              />
-            </div>
+            {logged && userSolutions &&
+              <div>
+                <span>Ваши решения: </span>
+                <ResultsTable
+                  results={userSolutions}
+                  rows={20}
+                  columns={[
+                    { key: "place", label: "Место" },
+                    { key: "datetime", label: "Время", format: formatDateTime },
+                    { key: "title", label: "Решение" },
+                    { key: "score", label: "Оценка" },
+                  ]}
+                />
+              </div>
+            }
             <div>
               <span>Лучшие решения: </span>
               <ResultsTable

@@ -20,8 +20,8 @@ const FilesTable = ({details: data}) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((file) => (
-            <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-darkblue dark:even:bg-grayblue">
+          {data.map((file, index) => (
+            <tr key={file.id || index} className="odd:bg-white even:bg-gray-50 dark:odd:bg-darkblue dark:even:bg-grayblue">
               <th scope="row" className="pl-6 py-4 font-mediumwhitespace-nowrap ">
                 {file.name}
               </th>
