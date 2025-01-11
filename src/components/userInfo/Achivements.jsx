@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import LeftArrow from '../../assets/icons/LeftArrow.svg'
 import RightArrow from '../../assets/icons/RightArrow.svg'
-import CardImage from '../../assets/imgs/CompetiotionTemplate.png'
+import Logo from '../../assets/icons/Atom.svg'
 
 
 const Achivements = ({ user }) => {
@@ -37,7 +37,7 @@ const Achivements = ({ user }) => {
               key={item.id}
               className="min-w-[112px] w-[112px] min-h-[154px] h-[154x] bg-gray-50 dark:bg-dark p-3 rounded-xl"
             >
-              <img src={CardImage} alt="Иконка достижения" className="w-[90px] h-[90px] mb-1" />
+              <Logo alt="Иконка достижения" className="w-[90px] h-[90px] mb-1" />
               <p className="text-sm text-center text-ellipsis overflow-hidden">
                 {item.title}
               </p>

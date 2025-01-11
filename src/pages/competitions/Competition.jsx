@@ -43,6 +43,7 @@ const Competition = () => {
     { id: 3, title: "Решения" },
     ...(user?.saved?.competitions.includes(+id) ? [{ id: 4, title: "Загрузить" }] : []),
   ];
+  console.log(tabs)
 
   const renderContent = (activeTab) => {
     switch (activeTab) {

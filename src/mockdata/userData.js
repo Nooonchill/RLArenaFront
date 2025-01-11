@@ -1,7 +1,7 @@
-export const logged = false;
+export const logged = true;
 
-export const user = {}
-/* id: "1",
+export const user = { 
+  id: "1",
   username: "NoooN",
   email: "nooonmail@mail.com",
   fullName: "Горский Иван Артёмович",
@@ -44,4 +44,3 @@ export const user = {}
   }
   
 };
-*/

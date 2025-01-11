@@ -3,7 +3,7 @@ import Star from '../../assets/icons/Star.svg';
 import User from '../../assets/icons/User.svg';
 import Add from '../../assets/icons/Add.svg';
 import Remove from '../../assets/icons/Remove.svg';
-import { saveElement } from "../../utils/SavedElements.js";
+import { saveElement } from "../../utils/SandData.js";
 
 const Card = ({ id, title, organizer, participants, rate, imageSrc, startDate, endDate, onClick, added, userId }) => {
   const [isLoading, setIsLoading] = useState(true); // Состояние загрузки картинки

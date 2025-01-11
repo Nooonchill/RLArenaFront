@@ -30,7 +30,7 @@ export default function ListPageLayout({
 
   const filters = [
     { id: 1, title: "Все" },
-    { id: 2, title: "Ваши" },
+    ...(user?.username ? [{ id: 2, title: "Ваши" }] : []),
     ...(user.role === "Teacher" || user.role === "Admin" ? [{ id: 3, title: "Создать" }] : []),
   ];
 

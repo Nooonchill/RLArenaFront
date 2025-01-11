@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CompetitionNews from "../components/home/CompetitionNews.jsx";
 import UserStat from "../components/userInfo/UserStat.jsx";
 import UpdateNews from "../components/home/UpdateNews.jsx";
+import Logo from "../assets/icons/Atom.svg"
 
 // Моковые данные
 import { user, logged } from '../mockdata/userData.js';
@@ -12,7 +13,15 @@ function Home() {
 
   return (
     <div className="max-w-[1110px] mx-auto">
-      {isLogged && <UserStat user={user} isLogged={logged} />}
+
+      {isLogged ? (
+        <UserStat user={user} isLogged={logged} />
+      ) : (
+        <div className="flex justify-center gap-1 bg-lightwhiteturquoise dark:bg-dark pt-2 rounded-3xl mb-6 text-center text-dark dark:text-lightwhiteturquoise">
+          <Logo alt="Логотип" className="w-10 h-10"/>
+          <h1 className="text-4xl pb-3">RLArena</h1>
+        </div>
+      )}
       <CompetitionNews competition={lastCompetition} />
       <UpdateNews news={lastNews} />
     </div>

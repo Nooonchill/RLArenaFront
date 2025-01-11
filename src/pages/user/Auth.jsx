@@ -68,9 +68,9 @@ const Auth = () => {
 
           {/* Форма */}
           {isRegister ? (
-            <Form type='signup' isFieldsRow={false} isCretionForm={false} buttonText="Регистрация" />
+            <Form type='signup' isFieldsRow={false} isCretionForm={false} buttonText="Регистрация" navigatePath="/" />
           ) : (
-            <Form type='login' isFieldsRow={false} isCretionForm={false} buttonText="Вход" />
+            <Form type='login' isFieldsRow={false} isCretionForm={false} buttonText="Вход" navigatePath="/" />
           )}
         </div>
       </div>

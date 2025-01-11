@@ -57,6 +57,7 @@ const SettingsMenu = ({ onClose }) => {
               type={settingsForms[selectedCategory].type}
               isFieldsRow={settingsForms[selectedCategory].isFieldsRow}
               buttonText={settingsForms[selectedCategory].buttonText}
+              navigatePath={location.pathname}
             />
           ) : (
             <ThemeToggle/>

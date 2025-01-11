@@ -2,7 +2,7 @@ export const guides = [
     { 
       id: 201, 
       title: "Руководство по прогнозированию цен на недвижимость",
-      image: "/src/assets/imgs/CompetiotionTemplate.png",
+      image: "/src/assets/imgs/card1.png",
       creator: "RealEstate Insights", 
       createdDate: "22-02-2023", 
       rate: 4.8, 
@@ -29,7 +29,7 @@ export const guides = [
     { 
       id: 204, 
       title: "Анализ данных здоровья: от начала до эксперта", 
-      image: "/src/assets/imgs/CompetiotionTemplate.png",
+      image: "/src/assets/imgs/card3.png",
       creator: "Wellness Analytics", 
       createdDate: "28-10-2021", 
       rate: 4.9, 
@@ -38,7 +38,7 @@ export const guides = [
     { 
       id: 205, 
       title: "Создание климатических моделей на основе данных", 
-      image: "/src/assets/imgs/CompetiotionTemplate.png",
+      image: "/src/assets/imgs/card1.png",
       creator: "EnviroTech", 
       createdDate: "18-03-2020", 
       rate: 4.7, 
@@ -59,7 +59,7 @@ export const guidesDetails = [
   { 
     id: 201, 
     title: "Руководство по прогнозированию цен на недвижимость", 
-    image: "/src/assets/imgs/CompetiotionTemplate.png",
+    image: "/src/assets/imgs/card1.png",
     creator: "RealEstate Insights", 
     createdDate: "22-02-2023", 
     rate: 4.8, 
@@ -185,7 +185,7 @@ Python (библиотеки: Matplotlib, Pandas, Statsmodels).
   { 
     id: 204, 
     title: "Анализ данных здоровья: от начала до эксперта", 
-    image: "/src/assets/imgs/CompetiotionTemplate.png",
+    image: "/src/assets/imgs/card3.png",
     creator: "Wellness Analytics", 
     createdDate: "28-10-2021", 
     rate: 4.9, 
@@ -227,7 +227,7 @@ Python (библиотеки: Matplotlib, Pandas, Statsmodels).
   { 
     id: 205, 
     title: "Создание климатических моделей на основе данных", 
-    image: "/src/assets/imgs/CompetiotionTemplate.png",
+    image: "/src/assets/imgs/card1.png",
     creator: "EnviroTech", 
     createdDate: "18-03-2020", 
     rate: 4.7, 

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { saveElement } from "../../utils/SavedElements.js";
+import { saveElement } from "../../utils/SandData.js";
 
 
 const MainInfo = ({ user, details, addButtonText, removeButtonText, addSolutionButtonClick }) => {
-  if (user.saved) {
-    const [isAdded, setIsAdded] = useState(
-      user.saved[location.pathname.match(/\/([^\/]+)/)[1]].includes(details.id) || user.created[location.pathname.match(/\/([^\/]+)/)[1]].includes(details.id)
-    );
-  }
+  const [isAdded, setIsAdded] = useState(
+    user?.saved?.[location.pathname.match(/\/([^\/]+)/)[1]]?.includes(details.id) || 
+    user?.created?.[location.pathname.match(/\/([^\/]+)/)[1]]?.includes(details.id)
+  );
+  
 
   const handleButtonClick = () => {
     setIsAdded(!isAdded);

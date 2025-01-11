@@ -4,7 +4,7 @@ import ReactMde from "react-mde";
 import "react-mde/lib/styles/css/react-mde-all.css";
 import ReactMarkdown from "react-markdown";
 
-const Form = ({ user = {}, type, buttonText, successMessage = '' }) => {
+const Form = ({ user = {}, type, buttonText, successMessage = '', navigatePath = '' }) => {
 
   const inputStyles = {
     text: `block w-full h-8 p-4 text-base placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise rounded-xl focus:outline-none focus:ring-0 border-2
@@ -76,6 +76,8 @@ const Form = ({ user = {}, type, buttonText, successMessage = '' }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState(null);
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setError(null); // Сброс сообщения об ошибке
@@ -100,7 +102,9 @@ const Form = ({ user = {}, type, buttonText, successMessage = '' }) => {
       }
     }
 
-    // Логика обработки данных формы
+    if (navigatePath != ''){
+      navigate(navigatePath);
+    }
     console.log("Форма отправлена:", Object.fromEntries(formData));
     setIsSubmitted(true);
   };
