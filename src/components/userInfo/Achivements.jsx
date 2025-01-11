@@ -5,9 +5,9 @@ import CardImage from '../../assets/imgs/CompetiotionTemplate.png'
 
 
 const Achivements = ({ user }) => {
-  
+
   const scrollRef = useRef(null);
-  
+
   const scrollLeft = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
@@ -43,7 +43,7 @@ const Achivements = ({ user }) => {
               </p>
             </div>
           ))}
-          
+
         </div>
         <RightArrow alt="Листать вправо" onClick={scrollRight} className="cursor-pointer" />
       </div>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { saveElement } from "../../utils/SavedElements.js";
 
 
-const MainInfo = ({user, details, addButtonText, removeButtonText, addSolutionButtonClick}) => {
+const MainInfo = ({ user, details, addButtonText, removeButtonText, addSolutionButtonClick }) => {
   if (user.saved) {
     const [isAdded, setIsAdded] = useState(
       user.saved[location.pathname.match(/\/([^\/]+)/)[1]].includes(details.id) || user.created[location.pathname.match(/\/([^\/]+)/)[1]].includes(details.id)
@@ -65,7 +65,7 @@ const MainInfo = ({user, details, addButtonText, removeButtonText, addSolutionBu
           )}
         </div>
       </div>
-    </div>    
+    </div>
   );
 };
 

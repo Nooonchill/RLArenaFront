@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { changeTimeView } from "../../utils/TimeView.js"
 
-const UserStat = ({user, isLogged}) => {
+const UserStat = ({ user, isLogged }) => {
   const total = user.saved.competitions.length + user.created.competitions.length
   const dashValue = 75 * user.stats.solved / total;
 
@@ -21,28 +21,28 @@ const UserStat = ({user, isLogged}) => {
               <div className="relative w-28 ">
                 <svg className="rotate-[135deg] size-full" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
                   <circle
-                  cx="18"
-                  cy="18"
-                  r="16"
-                  fill="none"
-                  className="stroke-current text-dark dark:text-lightwhiteturquoise"
-                  strokeWidth="3.8"
-                  strokeDasharray="75 100" // Фоновой круг, полное кольцо
-                  strokeLinecap=""
+                    cx="18"
+                    cy="18"
+                    r="16"
+                    fill="none"
+                    className="stroke-current text-dark dark:text-lightwhiteturquoise"
+                    strokeWidth="3.8"
+                    strokeDasharray="75 100" // Фоновой круг, полное кольцо
+                    strokeLinecap=""
                   ></circle>
                   <circle
-                  cx="18"
-                  cy="18"
-                  r="16"
-                  fill="none"
-                  className="stroke-current text-turquoise dark:text-turquoise"
-                  strokeWidth="4"
-                  strokeDasharray={`${dashValue} 100`} // Основное значение с переменной
-                  strokeLinecap=""
+                    cx="18"
+                    cy="18"
+                    r="16"
+                    fill="none"
+                    className="stroke-current text-turquoise dark:text-turquoise"
+                    strokeWidth="4"
+                    strokeDasharray={`${dashValue} 100`} // Основное значение с переменной
+                    strokeLinecap=""
                   ></circle>
                 </svg>
                 <div className="absolute top-1/2 start-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-                  <span className="text-3xl font-bold text-turquoise dark:text-turquoise">{(user.stats.solved/total * 100).toFixed(0)}%</span>
+                  <span className="text-3xl font-bold text-turquoise dark:text-turquoise">{(user.stats.solved / total * 100).toFixed(0)}%</span>
                   <span className="text-turquoise font-semibold dark:text-turquoise block">{user.stats.solved}<span className="text-dark dark:text-lightwhiteturquoise">/{total}</span> </span>
                 </div>
               </div>
@@ -55,7 +55,7 @@ const UserStat = ({user, isLogged}) => {
           </div>
         </div>
       )}
-      
+
     </div>
   );
 }

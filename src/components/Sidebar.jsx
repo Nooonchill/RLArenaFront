@@ -41,7 +41,7 @@ const Sidebar = () => {
       setIsMenuOpen(true);
     }
   };
-  
+
   const handleMouseLeave = () => {
     if (!isMobile) {
       setIsMenuOpen(false);
@@ -68,9 +68,8 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`fixed top-0 left-0 h-screen text-dark dark:text-lightwhiteturquoise bg-whiteturquoise dark:bg-dark shadow-lg transition-all duration-300 z-10 ${
-        isMenuOpen ? "w-60" : "w-20"
-      }`}
+      className={`fixed top-0 left-0 h-screen text-dark dark:text-lightwhiteturquoise bg-whiteturquoise dark:bg-dark shadow-lg transition-all duration-300 z-10 ${isMenuOpen ? "w-60" : "w-20"
+        }`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleSidebarToggle} // Добавляем обработчик клика для сенсорных устройств
@@ -79,9 +78,8 @@ const Sidebar = () => {
         <div className="flex items-center cursor-pointer justify-between" onClick={homeNavigate}>
           <Logo alt="Лого" />
           <div
-            className={`overflow-hidden transition-all duration-300 ml-3 ${
-              isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
-            }`}
+            className={`overflow-hidden transition-all duration-300 ml-3 ${isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
+              }`}
           >
             <h1 className="text-lg font-semibold pl-1">RLArena</h1>
           </div>
@@ -92,9 +90,8 @@ const Sidebar = () => {
           <li className="flex items-center mx-5 cursor-pointer hover:bg-gray-50 dark:hover:bg-blackblue p-2 rounded-xl" onClick={homeNavigate}>
             <Home alt="Главная" />
             <div
-              className={`overflow-hidden transition-all duration-300 ml-3 ${
-                isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
-              }`}
+              className={`overflow-hidden transition-all duration-300 ml-3 ${isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
+                }`}
             >
               <span className="text-base font-medium pl-1">Главная</span>
             </div>
@@ -102,9 +99,8 @@ const Sidebar = () => {
           <li className="flex items-center mx-5 cursor-pointer hover:bg-gray-50 dark:hover:bg-blackblue p-2 rounded-xl" onClick={dataNavigate}>
             <Data alt="Данные" />
             <div
-              className={`overflow-hidden transition-all duration-300 ml-3  ${
-                isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
-              }`}
+              className={`overflow-hidden transition-all duration-300 ml-3  ${isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
+                }`}
             >
               <span className="text-base font-medium pl-1">Данные</span>
             </div>
@@ -112,19 +108,17 @@ const Sidebar = () => {
           <li className="flex items-center mx-5 cursor-pointer hover:bg-gray-50 dark:hover:bg-blackblue p-2 rounded-xl" onClick={competitionsNavigate}>
             <Brain alt="Соревнования" />
             <div
-              className={`overflow-hidden transition-all duration-300 ml-3 ${
-                isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
-              }`}
+              className={`overflow-hidden transition-all duration-300 ml-3 ${isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
+                }`}
             >
               <span className="text-base font-medium pl-1">Соревнования</span>
             </div>
           </li>
-          <li className="flex items-center mx-5 mt-2 cursor-pointer hover:bg-gray-50 dark:hover:bg-blackblue dark:hover:bg-blackblue p-2 rounded-xl" onClick={guidesNavigate}>
+          <li className="flex items-center mx-5 mt-2 cursor-pointer hover:bg-gray-50 dark:hover:bg-blackblue p-2 rounded-xl" onClick={guidesNavigate}>
             <Guides alt="Гайды" />
             <div
-              className={`overflow-hidden transition-all duration-300 ml-3 ${
-                isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
-              }`}
+              className={`overflow-hidden transition-all duration-300 ml-3 ${isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
+                }`}
             >
               <span className="text-base font-medium pl-1">Гайды</span>
             </div>
@@ -137,9 +131,8 @@ const Sidebar = () => {
           >
             <SettingsIcon alt="Settings" />
             <div
-              className={`overflow-hidden transition-all duration-300 ml-3 ${
-                isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
-              }`}
+              className={`overflow-hidden transition-all duration-300 ml-3 ${isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"
+                }`}
             >
               <span className="text-base font-medium pl-1">Настройки</span>
             </div>

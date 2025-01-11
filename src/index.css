@@ -23,6 +23,7 @@ a {
   color: #3AAFAA;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #2A7A78;
 }
@@ -51,9 +52,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -64,9 +67,11 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
@@ -108,7 +113,7 @@ button:focus-visible {
 }
 
 .markdown-container pre {
-  white-space: wrap; 
+  white-space: wrap;
   overflow-x: auto;
   max-width: 100%;
   background-color: #f4f4f4;

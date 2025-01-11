@@ -29,40 +29,40 @@ const ResultsTable = ({ results, rows, columns }) => {
   };
 
   return (
-      <table className="w-full text-sm text-left rtl:text-right text-dark dark:text-lightwhiteturquoise">
-        <thead className="text-xs uppercase bg-lightwhiteturquoise dark:bg-blackblue">
-          <tr>
+    <table className="w-full text-sm text-left rtl:text-right text-dark dark:text-lightwhiteturquoise">
+      <thead className="text-xs uppercase bg-lightwhiteturquoise dark:bg-blackblue">
+        <tr>
+          {columns.map((column) => (
+            <th
+              key={column.key}
+              scope="col"
+              className="px-6 py-3 cursor-pointer"
+              onClick={() => handleSort(column.key)}
+            >
+              {column.label}
+              <span className="inline-block ml-1 w-4 text-xs opacity-70">
+                {sortConfig.key === column.key &&
+                  (sortConfig.direction === "asc" ? "↑" : "↓")}
+              </span>
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {sortedResults.slice(0, rows).map((result, rowIndex) => (
+          <tr key={rowIndex} className="odd:bg-white even:bg-gray-50 dark:odd:bg-darkblue dark:even:bg-grayblue">
             {columns.map((column) => (
-              <th
+              <td
                 key={column.key}
-                scope="col"
-                className="px-6 py-3 cursor-pointer"
-                onClick={() => handleSort(column.key)}
+                className="px-6 py-4"
               >
-                {column.label}
-                <span className="inline-block ml-1 w-4 text-xs opacity-70">
-                  {sortConfig.key === column.key &&
-                    (sortConfig.direction === "asc" ? "↑" : "↓")}
-                </span>
-              </th>
+                {column.format ? column.format(result[column.key]) : result[column.key]}
+              </td>
             ))}
           </tr>
-        </thead>
-        <tbody>
-          {sortedResults.slice(0, rows).map((result, rowIndex) => (
-            <tr key={rowIndex} className="odd:bg-white even:bg-gray-50 dark:odd:bg-darkblue dark:even:bg-grayblue">
-              {columns.map((column) => (
-                <td
-                  key={column.key}
-                  className="px-6 py-4"
-                >
-                  {column.format ? column.format(result[column.key]) : result[column.key]}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+        ))}
+      </tbody>
+    </table>
   );
 };
 

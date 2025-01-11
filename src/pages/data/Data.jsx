@@ -5,7 +5,7 @@ import { user } from '../../mockdata/userData.js';
 
 export default function Data() {
   return (
-    <ListPageLayout 
+    <ListPageLayout
       title="Данные"
       items={data}
       user={user || {}}

@@ -14,7 +14,7 @@ function Home() {
     <div className="max-w-[1110px] mx-auto">
       {isLogged && <UserStat user={user} isLogged={logged} />}
       <CompetitionNews competition={lastCompetition} />
-      <UpdateNews news={lastNews}/>
+      <UpdateNews news={lastNews} />
     </div>
   );
 }

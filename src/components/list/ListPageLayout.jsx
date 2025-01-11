@@ -49,7 +49,7 @@ export default function ListPageLayout({
     activeSort,
     reverseSort,
     dateFields: { start: dateField },
-  }).filter(item => 
+  }).filter(item =>
     item.title.toLowerCase().includes(searchTerm.toLowerCase()) // Преобразование для регистронезависимого поиска
   );
 
@@ -97,7 +97,7 @@ export default function ListPageLayout({
           </div>
         </div>
       ) : (
-        <Form user={user} type={createFormType} isCretionForm={true} buttonText={buttonText} successMessage={successMessage}/>
+        <Form user={user} type={createFormType} isCretionForm={true} buttonText={buttonText} successMessage={successMessage} />
       )}
     </div>
   );

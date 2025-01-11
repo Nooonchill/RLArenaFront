@@ -40,9 +40,8 @@ const Auth = () => {
           {/* Навигация между формами */}
           <div className="flex justify-around mb-6 relative dark:text-lightwhiteturquoise">
             <button
-              className={`text-xl p-0 mb-2 bg-transparent border-none ${
-                !isRegister ? "font-bold" : "font-thin"
-              }`}
+              className={`text-xl p-0 mb-2 bg-transparent border-none ${!isRegister ? "font-bold" : "font-thin"
+                }`}
               onClick={() => setIsRegister(false)}
               ref={loginRef}
             >
@@ -50,9 +49,8 @@ const Auth = () => {
             </button>
             |
             <button
-              className={`text-xl p-0 mb-2 bg-transparent border-none ${
-                isRegister ? "font-bold" : "font-thin"
-              }`}
+              className={`text-xl p-0 mb-2 bg-transparent border-none ${isRegister ? "font-bold" : "font-thin"
+                }`}
               onClick={() => setIsRegister(true)}
               ref={registerRef}
             >

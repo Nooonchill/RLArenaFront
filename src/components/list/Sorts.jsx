@@ -12,18 +12,17 @@ const SortButtons = ({ sorts, activeSort, reverseSort, handleSortClick }) => {
         >
           <div
             onClick={() => handleSortClick(sort.id)}
-            className={`relative flex flex-row gap-0.5 hover:text-turquoise dark:hover:text-addwhiteturquoise items-center  ${
-              activeSort === sort.id ? "text-darkturquoise dark:text-turquoise" : "text-dark dark:text-lightwhiteturquoise"
-            }`}
+            className={`relative flex flex-row gap-0.5 hover:text-turquoise dark:hover:text-addwhiteturquoise items-center  ${activeSort === sort.id ? "text-darkturquoise dark:text-turquoise" : "text-dark dark:text-lightwhiteturquoise"
+              }`}
           >
             <span className="mr-[18px]">{sort.title}</span>
-            <UpArrow 
-              className={`w-4 right-0 absolute transition-opacity duration-200 ${activeSort === sort.id & reverseSort ? 'opacity-100' : 'opacity-0'}`} 
-              alt="Убывающая сортировка" 
+            <UpArrow
+              className={`w-4 right-0 absolute transition-opacity duration-200 ${activeSort === sort.id & reverseSort ? 'opacity-100' : 'opacity-0'}`}
+              alt="Убывающая сортировка"
             />
-            <DownArrow 
-              className={`w-4 right-0 absolute transition-opacity duration-200 ${activeSort === sort.id & reverseSort ? 'opacity-0' : 'opacity-100'}`} 
-              alt="Возрастающая сортировка" 
+            <DownArrow
+              className={`w-4 right-0 absolute transition-opacity duration-200 ${activeSort === sort.id & reverseSort ? 'opacity-0' : 'opacity-100'}`}
+              alt="Возрастающая сортировка"
             />
           </div>
         </div>

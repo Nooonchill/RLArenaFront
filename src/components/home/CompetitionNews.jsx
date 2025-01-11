@@ -20,8 +20,8 @@ const CompetitionNews = ({ competition }) => {
     <div className="bg-lightwhiteturquoise dark:bg-lightwhiteturquoise text-dark dark:text-lightwhiteturquoise p-2 rounded-3xl mb-6">
       <div className="bg-white dark:bg-dark border-darkturquoise rounded-[20px] p-4">
         <div className="mb-4">
-          <h2 
-            onClick={() => competitionNavigate(competition.id)} 
+          <h2
+            onClick={() => competitionNavigate(competition.id)}
             className="text-2xl cursor-pointer hover:text-darkturquoise">
             Результаты "{competition.title}"
           </h2>

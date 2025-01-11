@@ -4,7 +4,7 @@ import ReactMde from "react-mde";
 import "react-mde/lib/styles/css/react-mde-all.css";
 import ReactMarkdown from "react-markdown";
 
-const Form = ({ user={}, type, buttonText, successMessage='' }) => {
+const Form = ({ user = {}, type, buttonText, successMessage = '' }) => {
 
   const inputStyles = {
     text: `block w-full h-8 p-4 text-base placeholder-darkturquoise bg-lightwhiteturquoise border-turquoise rounded-xl focus:outline-none focus:ring-0 border-2
@@ -56,14 +56,14 @@ const Form = ({ user={}, type, buttonText, successMessage='' }) => {
       { label: "Аватар", id: "avatar", type: "file", required: false, placeholder: "", accept: ".png" },
     ],
     'login': [
-      {label: "", id: "user", type: "text", required: true, placeholder: "Логин или Эл. почта"},
-      {label: "", id: "password", type: "password", required: true, placeholder: "Пароль"},
+      { label: "", id: "user", type: "text", required: true, placeholder: "Логин или Эл. почта" },
+      { label: "", id: "password", type: "password", required: true, placeholder: "Пароль" },
     ],
     'signup': [
-      {label: "", id: "username", type: "text", required: true, placeholder: "Логин"},
-      {label: "", id: "email", type: "text", required: true, placeholder: "Эл. почта"},
-      {label: "", id: "fullName", type: "text", required: true, placeholder: "Полное имя"},
-      {label: "", id: "password", type: "password", required: true, placeholder: "Пароль"},
+      { label: "", id: "username", type: "text", required: true, placeholder: "Логин" },
+      { label: "", id: "email", type: "text", required: true, placeholder: "Эл. почта" },
+      { label: "", id: "fullName", type: "text", required: true, placeholder: "Полное имя" },
+      { label: "", id: "password", type: "password", required: true, placeholder: "Пароль" },
     ],
     'addSolution': [
       { label: "Решение (.pkl)", id: "solution", type: "file", required: false, placeholder: "", accept: ".pkl" },
@@ -85,7 +85,7 @@ const Form = ({ user={}, type, buttonText, successMessage='' }) => {
     const endDate = formData.get("end_date");
     const today = new Date().toISOString().split("T")[0];
 
-    if(startDate && endDate) {
+    if (startDate && endDate) {
       if (startDate === endDate) {
         setError("Дата начала и окончания не должны совпадать.");
         return;

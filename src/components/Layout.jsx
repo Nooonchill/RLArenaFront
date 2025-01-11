@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 import Header from "./Header";
 
 const Layout = ({ children }) => {
-  
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -21,6 +21,6 @@ const Layout = ({ children }) => {
       </div>
     </div>
   );
-}; 
+};
 
 export default Layout;

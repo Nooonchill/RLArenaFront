@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const FilesTable = ({details: data}) => {
+const FilesTable = ({ details: data }) => {
 
   return (
     <div className="flex flex-col items-center">
@@ -36,9 +36,9 @@ const FilesTable = ({details: data}) => {
         </tbody>
       </table>
       <button className="max-w-[100px] h-[38px] py-0 border-none font-medium bg-turquoise dark:bg-lightwhiteturquoise text-white dark:text-dark hover:bg-lightturquoise dark:hover:bg-whiteturquoise active:bg-darkturquoise w-full rounded-full">
-          Скачать
+        Скачать
       </button>
-    </div> 
+    </div>
   );
 };
 

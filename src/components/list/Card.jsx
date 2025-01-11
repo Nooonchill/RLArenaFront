@@ -27,7 +27,7 @@ const Card = ({ id, title, organizer, participants, rate, imageSrc, startDate, e
 
   return (
     <div onClick={onClick} className="min-w-[136px] max-w-[255px] w-full bg-gray-50 dark:bg-dark hover:bg-lightwhiteturquoise dark:hover:bg-gray-800 cursor-pointer text-dark dark:text-lightwhiteturquoise rounded-xl">
-      
+
       {/* Анимация загрузки, если картинка ещё не загружена */}
       {isLoading ? (
         <div className="flex justify-center items-center w-full h-[143px]">
@@ -72,14 +72,12 @@ const Card = ({ id, title, organizer, participants, rate, imageSrc, startDate, e
             >
               <div className="mr-5 mb-6">
                 <Remove
-                  className={`absolute transition-opacity duration-200 stroke-turquoise ${
-                    isAdded ? "opacity-100" : "opacity-0"}`}
+                  className={`absolute transition-opacity duration-200 stroke-turquoise ${isAdded ? "opacity-100" : "opacity-0"}`}
                   alt="Удалить"
                 />
                 <Add
-                  className={`absolute transition-opacity duration-200 stroke-turquoise ${
-                    isAdded ? "opacity-0" : "opacity-100"
-                  }`}
+                  className={`absolute transition-opacity duration-200 stroke-turquoise ${isAdded ? "opacity-0" : "opacity-100"
+                    }`}
                   alt="Добавить"
                 />
               </div>

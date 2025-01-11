@@ -87,14 +87,14 @@ const Competition = () => {
                 ]}
               />
             </div>
-            
+
           </div>
         );
       case 4:
         return <Form
           type="addSolution"
-          isCretionForm={false} 
-          buttonText="Отправить" 
+          isCretionForm={false}
+          buttonText="Отправить"
           successMessage="Вы успешно загрузили решение. Через некоторое время результаты ототбразятся в таблице."
         />;
       default:

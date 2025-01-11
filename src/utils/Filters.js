@@ -14,15 +14,15 @@ export const getFiltered = ({
   let filtered =
     activeButton === 2
       ? items.filter(
-          (item) => savedItems.includes(item.id) || createdItems.includes(item.id)
-        )
+        (item) => savedItems.includes(item.id) || createdItems.includes(item.id)
+      )
       : items;
 
   // Фильтрация по типу (если указано)
   if (filterType) {
     filtered = filtered.filter((item) => {
-      
-      
+
+
       const start = new Date(item[dateFields.start]?.split("-").reverse().join("-"));
       const end = new Date(item["endDate"]?.split("-").reverse().join("-"));
       if (filterType === "Открытые") {

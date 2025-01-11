@@ -22,9 +22,8 @@ const Tabs = ({ tabs, activeTab, onTabChange }) => {
           key={tab.id}
           onClick={() => onTabChange(tab.id)}
           ref={(el) => (tabsRef.current[index] = el)}
-          className={`p-0 mb-0.25 bg-transparent border-none ${
-            activeTab === tab.id ? "text-darkturquoise dark:text-gray-300" : "text-dark dark:text-lightwhiteturquoise"
-          }`}
+          className={`p-0 mb-0.25 bg-transparent border-none ${activeTab === tab.id ? "text-darkturquoise dark:text-gray-300" : "text-dark dark:text-lightwhiteturquoise"
+            }`}
         >
           {tab.title}
         </button>

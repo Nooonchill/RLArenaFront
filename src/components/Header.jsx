@@ -7,12 +7,12 @@ import LeftArrow from '../assets/icons/LeftArrow.svg';
 // Моковые данные
 import { user, logged } from '../mockdata/userData.js';
 
-const Header = ({}) => {
-  
+const Header = ({ }) => {
+
   const [isLogged, setIsLogged] = useState(logged);
 
   const pathname = `${window.location.pathname}`;
-  
+
   const routeDict = {
     "/^\\/competitions\\/\\d+$/": "Соревнования",
     "/^\\/data\\/\\d+$/": "Данные",
@@ -33,7 +33,7 @@ const Header = ({}) => {
   const profileNavigate = () => {
     navigate('/profile');
   };
-  
+
   return (
     <div className="max-w-[1110px] mx-auto">
       <header className="flex flex-col gap-4">
@@ -55,7 +55,7 @@ const Header = ({}) => {
           {isLogged ? (
             <div onClick={profileNavigate} className="flex flex-row h-[38px] text-dark dark:text-lightwhiteturquoise px-2 items-center rounded-full border-2 border-turquoise dark:border-lightwhiteturquoise dark:hover:border-lightturquoise hover:border-lightturquoise bg-transparent w-fit cursor-pointer">
               <User alt="Пользователь" className="mr-2 h-6" />
-              <h1  className="text-xl mr-1">{user.username}</h1>
+              <h1 className="text-xl mr-1">{user.username}</h1>
             </div>
           ) : (
             <div className="flex gap-3 h-[38px]">

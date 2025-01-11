@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const UpdateNews = ({news}) => {
+const UpdateNews = ({ news }) => {
   return (
     <div className="bg-lightwhiteturquoise dark:bg-lightwhiteturquoise text-dark dark:text-lightwhiteturquoise p-2 rounded-3xl shadow-md">
       <div className=" bg-white dark:bg-dark border-darkturquoise rounded-[20px] p-4">

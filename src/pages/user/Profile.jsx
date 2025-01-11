@@ -8,18 +8,18 @@ import { user, logged } from '../../mockdata/userData.js';
 
 
 function Profile() {
-  
+
   const navigate = useNavigate();
   const [isLogged, setIsLogged] = useState(logged);
 
   useEffect(() => {
     if (!isLogged) {
-      navigate('/'); 
+      navigate('/');
     }
   }, [isLogged, navigate]);
 
   const scrollRef = useRef(null);
-  
+
   return (
     <div className="h-full max-w-[1110px] mx-auto text-dark dark:text-lightwhiteturquoise mt-4">
       <div className="flex flex-row justify-between">
@@ -39,7 +39,7 @@ function Profile() {
         </div>
         <span className="max-w-[600px]">{user.biography}</span>
       </div>
-      <Achivements user={user}/>
+      <Achivements user={user} />
       <div className="bg-none  mt-5  rounded-3xl">
         <h2 className="text-2xl ml-[60px] mb-4">Результаты участия в соренованиях</h2>
         <div className="relative overflow-x-auto sm:rounded-lg m-auto">

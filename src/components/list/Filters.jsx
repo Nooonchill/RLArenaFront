@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Filters = ({ filters, additionalFilters=[], activeButton, filterType, handleButtonClick, setFilterType }) => {
+const Filters = ({ filters, additionalFilters = [], activeButton, filterType, handleButtonClick, setFilterType }) => {
 
   return (
     <div className='flex flex-col gap-2'>
@@ -11,14 +11,14 @@ const Filters = ({ filters, additionalFilters=[], activeButton, filterType, hand
             onClick={() => handleButtonClick(filter.id)}
             className={`h-[38px] py-0 font-medium border-2 rounded-full
               ${activeButton === filter.id
-                ? 'border-none font-medium bg-turquoise dark:bg-lightwhiteturquoise text-white dark:text-dark hover:bg-lightturquoise ' 
+                ? 'border-none font-medium bg-turquoise dark:bg-lightwhiteturquoise text-white dark:text-dark hover:bg-lightturquoise '
                 : 'bg-transparent border-turquoise dark:border-lightwhiteturquoise dark:text-lightwhiteturquoise text-turquoise hover:text-lightturquoise hover:border-lightturquoise active:text-darkturquoise active:border-darkturquoise dark:hover:border-addwhiteturquoise dark:hover:text-addwhiteturquoise'}`}
           >
             {filter.title}
           </button>
         ))}
       </div>
-      {additionalFilters.length !== 0 & activeButton !== 3  ? (
+      {additionalFilters.length !== 0 & activeButton !== 3 ? (
         <div className="relative">
           <select
             value={filterType}
