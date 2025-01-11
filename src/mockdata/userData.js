@@ -1,7 +1,7 @@
 export const logged = false;
+
 export const user = {}
-  `export const user = {
-  id: "1",
+/* id: "1",
   username: "NoooN",
   email: "nooonmail@mail.com",
   fullName: "Горский Иван Артёмович",
@@ -43,4 +43,5 @@ export const user = {}
     timedelta: "PT5H30M",
   }
   
-};`
+};
+*/

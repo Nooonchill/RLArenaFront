@@ -14,7 +14,7 @@ const SettingsMenu = ({ onClose }) => {
   };
 
   const [selectedCategory, setSelectedCategory] = useState('Основные');
-  const categories = ['Основные', 'Аккаунт', 'Профиль']
+  const categories = ['Основные', ...(logged ? ['Аккаунт', 'Профиль'] : []),]
 
   const settingsForms = {
     'Аккаунт': {type: "accountSettings", isFieldsRow: false, buttonText: "Сохранить"},
