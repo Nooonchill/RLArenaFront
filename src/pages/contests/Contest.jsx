@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import DetailPageLayout from "../../components/element/DetailPageLayout.jsx";
-import { competitionsDetails, userSolutions } from "../../mockdata/competitionData.js";
-import CompetitionImage from "../../assets/imgs/CompetiotionTemplate.png";
+import { contestsDetails, userSolutions } from "../../mockdata/contestData.js";
+import ContestImage from "../../assets/imgs/CompetiotionTemplate.png";
 import { formatDateTime, changeTimeView } from "../../utils/TimeView.js";
 import FilesTable from "../../components/element/FilesTable.jsx";
 import ResultsTable from "../../components/element/ResultsTable.jsx";
@@ -14,26 +14,26 @@ import NotFound from '../errors/NotFound.jsx';
 import { user, logged } from '../../mockdata/userData.js';
 
 
-const Competition = () => {
+const Contest = () => {
   const { id } = useParams();
-  const [competition, setCompetition] = useState(null);
+  const [сontest, setContest] = useState(null);
   const [error, setError] = useState(false);
 
   useEffect(() => {
     try {
-      const competitionDetails = competitionsDetails.find((item) => item.id === +id);
+      const contestDetails = contestsDetails.find((item) => item.id === +id);
 
-      if (!competitionDetails) {
-        throw new Error('Competition not found');
+      if (!contestDetails) {
+        throw new Error('Contest not found');
       }
 
-      setCompetition(competitionDetails);
+      setContest(contestDetails);
     } catch (err) {
       setError(true);
     }
   }, [id]);
 
-  if (error || !competition) {
+  if (error || !сontest) {
     return <NotFound />;
   }
 
@@ -41,7 +41,7 @@ const Competition = () => {
     { id: 1, title: "Обзор" },
     { id: 2, title: "Данные" },
     { id: 3, title: "Решения" },
-    ...(user?.saved?.competitions.includes(+id) ? [{ id: 4, title: "Загрузить" }] : []),
+    ...(user?.saved?.contests.includes(+id) ? [{ id: 4, title: "Загрузить" }] : []),
   ];
   console.log(tabs)
 
@@ -51,12 +51,12 @@ const Competition = () => {
         return (
           <div className="shadow-md rounded-lg">
             <div className="markdown-container p-2">
-              <ReactMarkdown>{competition.description}</ReactMarkdown>
+              <ReactMarkdown>{сontest.description}</ReactMarkdown>
             </div>
           </div>
         );
       case 2:
-        return <FilesTable details={competition.data} />;
+        return <FilesTable details={сontest.dataset} />;
       case 3:
         return (
           <div className="flex flex-col gap-4">
@@ -78,7 +78,7 @@ const Competition = () => {
             <div>
               <span>Лучшие решения: </span>
               <ResultsTable
-                results={competition.solutions}
+                results={сontest.leaderboard}
                 rows={20}
                 columns={[
                   { key: "place", label: "Место" },
@@ -93,10 +93,12 @@ const Competition = () => {
         );
       case 4:
         return <Form
-          type="addSolution"
-          isCretionForm={false}
-          buttonText="Отправить"
-          successMessage="Вы успешно загрузили решение. Через некоторое время результаты ототбразятся в таблице."
+          successMessage={"Вы успешно отправили решение. В скором времени результат отобразится в таблице."}
+          failMessage={"Произошла неизвестная ошибка. Попробуйте еще раз или обратитесь в тех. поддержку"}
+          buttonText={"Загрузка"}
+          fields={[
+            { label: "Решение (.csv)", id: "solution", type: "file", required: false, placeholder: "", accept: ".csv" },
+          ]}
         />;
       default:
         return null;
@@ -106,16 +108,16 @@ const Competition = () => {
   return (
     <DetailPageLayout
       user={user}
-      details={competition}
+      details={сontest}
       tabs={tabs}
       contentRenderer={renderContent}
-      creator={competition.organizer}
-      people={competition.participants}
-      rate={competition.rate}
+      creator={сontest.organizer}
+      people={сontest.participants}
+      rate={сontest.rate}
       addButtonText="Участвовать"
       removeButtonText="Отказаться"
     />
   );
 };
 
-export default Competition;
+export default Contest;

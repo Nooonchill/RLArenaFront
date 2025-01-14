@@ -9,7 +9,7 @@ import Sorts from "./Sorts.jsx";
 import { getFiltered } from "../../utils/Filters.js";
 
 export default function ListPageLayout({
-  title, items, user, savedItems, createdItems, dateField, endDate, createFormType, buttonText, additionalFilters, successMessage
+  title, items, user, savedItems, createdItems, dateField, endDate, formConfig, buttonText, additionalFilters, successMessage
 }) {
   const [activeButton, setActiveButton] = useState(1);
   const [activeSort, setActiveSort] = useState(1);
@@ -97,7 +97,12 @@ export default function ListPageLayout({
           </div>
         </div>
       ) : (
-        <Form user={user} type={createFormType} isCretionForm={true} buttonText={buttonText} successMessage={successMessage} />
+        <Form 
+          user={user}
+          fields={formConfig.fields}
+          buttonText={formConfig.buttonText} 
+          successMessage={formConfig.successMessage} 
+        />
       )}
     </div>
   );

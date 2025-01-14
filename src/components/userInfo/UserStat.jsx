@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { changeTimeView } from "../../utils/TimeView.js"
 
 const UserStat = ({ user, isLogged }) => {
-  const total = user.saved.competitions.length + user.created.competitions.length
+  const total = user.saved.contests.length + user.created.contests.length
   const dashValue = 75 * user.stats.solved / total;
 
   return (

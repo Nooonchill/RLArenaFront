@@ -51,8 +51,8 @@ const Sidebar = () => {
   const homeNavigate = () => {
     navigate('/');
   };
-  const competitionsNavigate = () => {
-    navigate('/competitions');
+  const contestsNavigate = () => {
+    navigate('/contests');
   };
   const dataNavigate = () => {
     navigate('/data');
@@ -105,7 +105,7 @@ const Sidebar = () => {
               <span className="text-base font-medium pl-1">Данные</span>
             </div>
           </li>
-          <li className="flex items-center mx-5 cursor-pointer hover:bg-gray-50 dark:hover:bg-blackblue p-2 rounded-xl" onClick={competitionsNavigate}>
+          <li className="flex items-center mx-5 cursor-pointer hover:bg-gray-50 dark:hover:bg-blackblue p-2 rounded-xl" onClick={contestsNavigate}>
             <Brain alt="Соревнования" />
             <div
               className={`overflow-hidden transition-all duration-300 ml-3 ${isMenuOpen ? "w-32 opacity-100" : "w-0 opacity-0"

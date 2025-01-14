@@ -1,4 +1,4 @@
-export const lastCompetition = {
+export const lastContest = {
   id: 133,
   title: "Распознование детского голоса",
   organizer: "ChildUniverse",

@@ -14,7 +14,7 @@ const Header = ({ }) => {
   const pathname = `${window.location.pathname}`;
 
   const routeDict = {
-    "/^\\/competitions\\/\\d+$/": "Соревнования",
+    "/^\\/contests\\/\\d+$/": "Соревнования",
     "/^\\/data\\/\\d+$/": "Данные",
     "/^\\/guides\\/\\d+$/": "Гайды"
   }

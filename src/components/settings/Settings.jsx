@@ -17,8 +17,23 @@ const SettingsMenu = ({ onClose }) => {
   const categories = ['Основные', ...(logged ? ['Аккаунт', 'Профиль'] : []),]
 
   const settingsForms = {
-    'Аккаунт': {type: "accountSettings", isFieldsRow: false, buttonText: "Сохранить"},
-    'Профиль': {type: "profileSettings", isFieldsRow: false, buttonText: "Сохранить"},
+    'Аккаунт': {
+      successMessage: "",
+      buttonText: "Сохранить",
+      fields: [
+        { label: "Имя пользователя", id: "username", type: "text", required: false, placeholder: user.username },
+        { label: "Эл. почта", id: "email", type: "email", required: false, placeholder: user.email },
+        { label: "Пароль", id: "password", type: "password", required: false, placeholder: "*******" },
+      ]},
+    'Профиль': {
+      successMessage: "",
+      buttonText: "Сохранить",
+      fields: [
+        { label: "Полное имя", id: "fullName", type: "text", required: false, placeholder: user.fullName },
+        { label: "Организация", id: "company", type: "text", required: false, placeholder: user.company },
+        { label: "Страна", id: "country", type: "text", required: false, placeholder: user.country },
+        { label: "Аватар", id: "profile_image", type: "file", required: false, placeholder: "", accept: ".png" },
+      ],},
   };
 
   return (
@@ -28,7 +43,6 @@ const SettingsMenu = ({ onClose }) => {
       className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50"
     >
       <div className="relative flex bg-white dark:bg-blackturquoise rounded-lg w-3/4 md:w-1/2 shadow-xl overflow-hidden text-dark min-h-[350px] max-w-[600px]">
-        
         <button 
           onClick={onClose}
           className='absolute bg-transparent top-0 right-0 p-0 m-2 border-0'
@@ -54,9 +68,9 @@ const SettingsMenu = ({ onClose }) => {
           {selectedCategory in settingsForms ? (
             <Form
               user={user}
-              type={settingsForms[selectedCategory].type}
-              isFieldsRow={settingsForms[selectedCategory].isFieldsRow}
-              buttonText={settingsForms[selectedCategory].buttonText}
+              fields={settingsForms[selectedCategory].fields}
+              buttonText={settingsForms[selectedCategory].buttonText} 
+              successMessage={settingsForms[selectedCategory].successMessage}
               navigatePath={location.pathname}
             />
           ) : (

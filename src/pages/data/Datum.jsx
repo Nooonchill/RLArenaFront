@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import DetailPageLayout from "../../components/element/DetailPageLayout.jsx";
 import { dataDetails } from "../../mockdata/dataData.js";
-import CompetitionImage from "../../assets/imgs/CompetiotionTemplate.png";
+import ContestImage from "../../assets/imgs/CompetiotionTemplate.png";
 import FilesTable from "../../components/element/FilesTable.jsx";
 import NotFound from '../errors/NotFound.jsx';
 

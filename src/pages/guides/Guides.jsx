@@ -13,9 +13,16 @@ export default function Guides() {
       savedItems={user?.saved?.guides || []}
       createdItems={user?.created?.guides || []}
       dateField="createdDate"
-      createFormType="createGuide"
-      buttonText="Создать"
-      successMessage="Заявка на добавление гайда была отправлена. Через некоторе время он появится в списках."
+      formConfig = {{
+        successMessage:"Заявка на добавление данных была отправлена. Через некоторе время они появится в списках.",
+        failMessage: "Произошла неизвестная ошибка. Попробуйте еще раз или обратитесь в тех. поддержку",
+        buttonText:"Создать",
+        fields: [
+          { label: "Название", id: "title", type: "text", required: true, placeholder: "" },
+          { label: "Текст", id: "text", type: "textarea", required: true, placeholder: "", markdown: true },
+          { label: "Изображение (.png)", id: "image", type: "file", required: true, placeholder: "", accept: ".png" },
+        ],
+      }}
     />
   );
 }

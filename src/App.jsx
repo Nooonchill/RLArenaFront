@@ -4,8 +4,8 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import Profile from './pages/user/Profile';
 import Auth from './pages/user/Auth';
-import Competition from './pages/competitions/Competition.jsx';
-import Competitions from './pages/competitions/Competitions.jsx';
+import Contest from './pages/contests/Contest.jsx';
+import Contests from './pages/contests/Contests.jsx';
 import Guides from './pages/guides/Guides.jsx';
 import Guide from './pages/guides/Guide.jsx';
 import Data from './pages/data/Data.jsx';
@@ -27,8 +27,8 @@ const App = () => {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/profile/" element={<Profile />} />
-          <Route path="/competitions/" element={<Competitions />} />
-          <Route path="/competitions/:id" element={<Competition />} />
+          <Route path="/contests/" element={<Contests />} />
+          <Route path="/contests/:id" element={<Contest />} />
           <Route path="/guides/" element={<Guides />} />
           <Route path="/guides/:id" element={<Guide />} />
           <Route path="/data/" element={<Data />} />

@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import Logo from '../../assets/icons/Atom.svg';
 import Form from '../../components/Form.jsx';
+import { handleLoginSubmit, handleRegistrationSubmit } from "../../utils/handlers/handlersSubmit.jsx";
 
 
 const Auth = () => {
@@ -68,9 +69,33 @@ const Auth = () => {
 
           {/* Форма */}
           {isRegister ? (
-            <Form type='signup' isFieldsRow={false} isCretionForm={false} buttonText="Регистрация" navigatePath="/" />
+            <Form 
+              method="POST"
+              enctype="multipart/form-data"
+              successMessage={""}
+              buttonText={"Регистрация"}
+              apiEndpoint={"http://localhost:8000/api/users"}
+              fields={[
+                { label: "", id: "username", type: "text", required: true, placeholder: "Логин" },
+                { label: "", id: "email", type: "text", required: false, placeholder: "Эл. почта" },
+                { label: "", id: "password", type: "password", required: true, placeholder: "Пароль" },
+                { label: "", id: "profile_image", type: "file", required: false, placeholder: "Аватар", accept: ".png,.jpg" },
+                { label: "", id: "country", type: "text", required: false, placeholder: "Страна" },
+                { label: "", id: "company", type: "text", required: false, placeholder: "Организация" },
+              ]}
+              handleSubmit={handleRegistrationSubmit}
+              navigatePath="/" />
           ) : (
-            <Form type='login' isFieldsRow={false} isCretionForm={false} buttonText="Вход" navigatePath="/" />
+            <Form 
+              successMessage={""}
+              buttonText={"Вход"}
+              fields={[
+                { label: "", id: "username", type: "text", required: true, placeholder: "Логин" },
+                { label: "", id: "password", type: "password", required: true, placeholder: "Пароль" },
+              ]}
+              handleSubmit={handleLoginSubmit}
+              navigatePath="/" 
+            />
           )}
         </div>
       </div>

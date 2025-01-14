@@ -4,11 +4,10 @@ export const user = {
   id: "1",
   username: "NoooN",
   email: "nooonmail@mail.com",
-  fullName: "Горский Иван Артёмович",
-  image: "/src/assets/imgs/UserImage.png",
-  organization: "УрФУ",
-  registration_date: "5-01-2025",
-  location: "Екатеринбург, Россия",
+  profile_image: "/src/assets/imgs/UserImage.png",
+  company: "УрФУ",
+  date_registered: "5-01-2025",
+  country: "Россия",
   role: "Admin", // "Admin", "Teacher", "Student"
   biography: "Студент 3 курса ИРИТ-РТФ. Недавно начал заниматься машинным обучением",
   achivements: [
@@ -22,12 +21,12 @@ export const user = {
       { id: 8, title: "Перерыв" },
   ],
   saved: {
-    competitions: [24, 12],
+    contests: [24, 12],
     guides: [201, 205, 203],
     data: [101, 103, 104],
   },
   created: {
-    competitions: [1],
+    contests: [1],
     guides: [],
     data: [],
   },

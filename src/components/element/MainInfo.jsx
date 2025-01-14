@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { saveElement } from "../../utils/SandData.js";
+import { saveElement } from "../../utils/SendData.js";
 
 
 const MainInfo = ({ user, details, addButtonText, removeButtonText, addSolutionButtonClick }) => {
@@ -23,7 +23,7 @@ const MainInfo = ({ user, details, addButtonText, removeButtonText, addSolutionB
     <div className="text-dark dark:text-lightwhiteturquoise mb-6">
       <h1 className="text-4xl mb-3">{details.title}</h1>
       <div className="flex flex-row overflow-hidden flex-wrap gap-2 mb-2">
-        {details.tags.map((tag) => (
+        {details.tags?.map((tag) => (
           <div key={tag} className="bg-lightwhiteturquoise dark:bg-dark rounded-full py-1 px-2 cursor-pointer">
             <span>#{tag}</span>
           </div>
@@ -33,7 +33,7 @@ const MainInfo = ({ user, details, addButtonText, removeButtonText, addSolutionB
         {details.startDate ? (
           <span>{details.startDate.replaceAll("-", ".")} - {details.endDate.replaceAll("-", ".")}</span>
         ) : (
-          <span>{details.createdDate.replaceAll("-", ".")}</span>
+          <span>{details.createdDate?.replaceAll("-", ".")}</span>
         )}
         <div className="flex flex-row gap-2">
           {user?.saved && (
