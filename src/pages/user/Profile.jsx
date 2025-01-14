@@ -7,7 +7,6 @@ import { getUser } from "../../utils/handlers/handlersUser.jsx";
 function Profile() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
-
   // Проверка на наличие пользователя
   useEffect(() => {
     const fetchUser = async () => {
@@ -26,6 +25,8 @@ function Profile() {
   if (!user) {
     return <div>Loading...</div>; // Пока идет загрузка, показываем "Loading..."
   }
+
+  const [isLogged, setIsLogged] = useState(user !== null);
 
   user["achivements"] = [
     { id: 1, title: "Начало пути" },

@@ -101,7 +101,8 @@ export default function ListPageLayout({
           user={user}
           fields={formConfig.fields}
           buttonText={formConfig.buttonText} 
-          successMessage={formConfig.successMessage} 
+          successMessage={formConfig.successMessage}
+          handleSubmit={formConfig.handleSubmit}
         />
       )}
     </div>
